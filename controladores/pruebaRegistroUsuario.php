@@ -1,6 +1,6 @@
 <?php 
 
-$prueba = ['respuesta' => 0,];
+$prueba = ['respuesta' => 1,];
 
 echo json_encode($prueba);
 

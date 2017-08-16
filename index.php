@@ -17,6 +17,8 @@
     <!-- Custom CSS -->
     <link href="librerias/template/css/shop-homepage.css" rel="stylesheet">
 
+
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -44,18 +46,28 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li>
+                    <li >
                         <a href="#">About</a>
                     </li>
-                    <li>
+                    <li >
                         <a href="#">Services</a>
                     </li>
-                    <li>
+                    <li >
                         <a href="#">Contact</a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav pull-right ">
+                    <li >
+                        <a href="vistas/registro-de-usuario.php">registrarse</a>
+                    </li>
+                    <li>
+                        <a href="#">Ingresar</a>
                     </li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
+            <!-- login y registro -->
+            
         </div>
         <!-- /.container -->
     </nav>

@@ -88,6 +88,65 @@ Class Cliente{
 	function getEmail(){
 		return $this->email;
 	}
+
+	function persistirse($conexion){
+		$consulta = "INSERT INTO cliente 
+					(username,
+					email,
+					pass,
+					telefono,
+					nombre,
+					apellido,
+					cod_postal,
+					domicilio,
+					admin,
+					fecha_nacimiento,
+					id_localidad) VALUES 
+					(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
+		$stmt = mysqli_prepare($conexion, $consulta);
+
+		//ssssssisidi
+		mysqli_stmt_bind_param($stmt, "ssssssisisi", 
+								$this->usuario,
+								$this->email,
+								$this->pass,
+								$this->telefono,
+								$this->nombre,
+								$this->apellido,
+								$this->codPostal,
+								$this->domicilio,
+								$this->admin,
+								$this->fechaNacimiento, 
+								$this->localidad);
+
+		mysqli_stmt_execute($stmt);
+
+		//para obtener el ultimo id autogenerado
+		$id = mysqli_insert_id($conexion);
+		return $id;
+	}
+
+	function getArraySession($conexion, $id){
+		$sql = "SELECT id,
+						username usuario,
+						email,
+						pass,
+						telefono,
+						nombre,
+						apellido,
+						cod_postal codPostal,
+						domicilio,
+						admin,
+						fecha_nacimiento fechaNacimiento,
+						id_localidad idLocalidad
+				FROM cliente
+				WHERE id = '". $id ."';";
+
+		$resultado = mysqli_query($conexion, $sql);
+		$fila = mysqli_fetch_assoc($resultado);
+		return $fila;
+	}
 }
 
 

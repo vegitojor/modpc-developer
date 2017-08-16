@@ -13,10 +13,11 @@ $telefono = strip_tags($data->telefono);
 $fechaNacimiento = strip_tags($data->fechaNacimiento);
 $email = strip_tags($data->email);
 $domicilio = strip_tags($data->direccion);
-$codPostal = strip_tags($data->codPostal);
-$localidad = strip_tags($data->localidad);
+$codPostal = (int)strip_tags($data->codPostal);
+$localidad = (int)strip_tags($data->localidad);
 $pass = md5($data->pass);
 $admin = 0;
+
 
 //inicializacion de conexion BD
 $objetoConexion = new ConexionBD();
@@ -37,7 +38,7 @@ $usuario = new Cliente($id,
 						$localidad);
 
 //comprobacion de que no existe el email en la BD
-$listaEmail = ConexionBD::listarEmail($conexion);
+$listaEmail = Cliente::listarEmail($conexion);
 $emailSinRegistrar = true;
 foreach ($listaEmail as $emailBD) {
 	if($emailBD == $email){
@@ -49,7 +50,9 @@ foreach ($listaEmail as $emailBD) {
 //si no existe el email se realiza la persistencia de datos
 $mensaje = array();
 if($emailSinRegistrar){
-	$usuario->persistirse($conexion);
+	$idUsuario = $usuario->persistirse($conexion);
+	session_start();
+	$_SESSION['usuario'] = $usuario->getArraySession($conexion, $idUsuario);
 	$mensaje = ['respuesta' => 1,];
 	echo json_encode($mensaje);
 }else{
