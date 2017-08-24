@@ -147,6 +147,56 @@ Class Cliente{
 		$fila = mysqli_fetch_assoc($resultado);
 		return $fila;
 	}
+
+	public static function consultarCliente($conexion, $email, $pass){
+		$consulta = "SELECT id,
+							username,
+							email,
+							pass,
+							telefono,
+							nombre,
+							apellido,
+							cod_postal codPostal,
+							domicilio,
+							admin,
+							fecha_nacimiento fechaNacimiento,
+							id_localidad idLocalidad
+					FROM cliente
+					WHERE email = ? and pass = ?";
+
+		$stmt = mysqli_prepare($conexion, $consulta);
+		mysqli_stmt_bind_param($stmt, "ss", $email,
+											$pass);
+		mysqli_stmt_execute($stmt);
+
+		$respuesta = mysqli_stmt_fetch($stmt);
+		return $respuesta;
+	}
+
+	public static function obtenerCliente($conexion, $email, $pass){
+		$consulta = "SELECT id,
+							username,
+							email,
+							pass,
+							telefono,
+							nombre,
+							apellido,
+							cod_postal codPostal,
+							domicilio,
+							admin,
+							fecha_nacimiento fechaNacimiento,
+							id_localidad idLocalidad
+					FROM cliente
+					WHERE email = ? and pass = ?";
+
+		$stmt = mysqli_prepare($conexion, $consulta);
+		mysqli_stmt_bind_param($stmt, "ss", $email,
+											$pass);
+		mysqli_stmt_execute($stmt);
+		$resultado = mysqli_stmt_get_result($stmt);
+		$respuesta = mysqli_fetch_assoc($resultado);
+		return $respuesta;
+	}
 }
 
 
