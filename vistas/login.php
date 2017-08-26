@@ -32,11 +32,11 @@
 			<header class="w3-container w3-amber">
 				<h3>Por favor ingrese sus datos para continuar</h3>
 			</header>
-			<form action="" class="w3-container w3-content">
+			<form action="" class="w3-container w3-content" method="">
 				<label for="">E-mail</label>
-				<input type="text" class="w3-input" placeholder="Ingrese su dirección de email" name="email-login" ng-model="emailLogin" ng-model-option="{updateOn: 'blur'} " required="">
+				<input type="text" class="w3-input" placeholder="Ingrese su dirección de email" name="emailLogin" ng-model="emailLogin" ng-model-option="{updateOn: 'blur'} " required="">
 				<label for="">Contrasaña</label>
-				<input type="password" class="w3-input" name="pass-login" placeholder="Ingrese su contraseña" ng-model="passLogin" ng-model-option="{updateOn: 'blur'} ">
+				<input type="password" class="w3-input" name="passLogin" placeholder="Ingrese su contraseña" ng-model="passLogin" ng-model-option="{updateOn: 'blur'} ">
 				<br>
 				<input type="submit" class="w3-btn w3-green w3-right" value="Ingresar" ng-click="iniciarSesion()">
 				<br>

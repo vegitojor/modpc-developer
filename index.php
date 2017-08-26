@@ -1,6 +1,8 @@
 <?php 
 
-
+if(isset($_SESSION['usuario'])){
+    $id = $
+}
 
 ?>
 <!DOCTYPE html>
@@ -62,17 +64,17 @@
                     </li>
                 </ul>
                 <ul class="nav navbar-nav pull-right ">
+                    <li>
+                        <a href="controladores/cerrarSesionController.php">Salir</a>
+                    </li>
                     <li >
                         <a href="vistas/registro-de-usuario.php">registrarse</a>
                     </li>
                     <li>
-                        <a href="#">Ingresar</a>
+                        <a href="vistas/login.php">Ingresar</a>
                     </li>
                 </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-            <!-- login y registro -->
-            
+            </div>                        
         </div>
         <!-- /.container -->
     </nav>

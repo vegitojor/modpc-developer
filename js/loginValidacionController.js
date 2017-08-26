@@ -1,7 +1,7 @@
 app.controller("formularioLogin", function($scope, $http, $window){
 	$scope.iniciarSesion = function(){
 		//se realiza lamado ajax al controlador de login
-		$http.post('../controladores/pruebaRegistroUsuario.php',
+		$http.post('../controladores/loginController.php',
 					{'email': $scope.emailLogin,
 					'pass': $scope.passLogin})
 		.success(function(data){
