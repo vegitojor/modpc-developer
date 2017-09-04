@@ -1,12 +1,38 @@
 <?php 
 
+session_start();
 if(isset($_SESSION['usuario'])){
-    $id = $
+    $id = $_SESSION['usuario']['id'];
+    $username = $_SESSION['usuario']['username'];
+    $email = $_SESSION['usuario']['email'];
+    $pass = $_SESSION['usuario']['pass'];
+    $telefono = $_SESSION['usuario']['telefono'];
+    $nombre = $_SESSION['usuario']['nombre'];
+    $apellido = $_SESSION['usuario']['apellido'];
+    $codPostal = $_SESSION['usuario']['codPostal'];
+    $domicilio = $_SESSION['usuario']['domicilio'];
+    $admin = $_SESSION['usuario']['admin'];
+    $fechaNacimiento = $_SESSION['usuario']['fechaNacimiento'];
+    $idLocalidad = $_SESSION['usuario']['idLocalidad'];
+}else{
+    session_destroy();
+    $id = null;
+    $username = null;
+    $email = null;
+    $pass = null;
+    $telefono = null;
+    $nombre = null;
+    $apellido = null;
+    $codPostal = null;
+    $domicilio = null;
+    $admin = null;
+    $fechaNacimiento = null;
+    $idLocalidad = null;
 }
 
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="">
 
 <head>
 
@@ -24,7 +50,8 @@ if(isset($_SESSION['usuario'])){
     <!-- Custom CSS -->
     <link href="librerias/template/css/shop-homepage.css" rel="stylesheet">
 
-
+    <!-- Angular JS -->
+    <script type="text/javascript" src="librerias/angularjs/angular.min.js"></script>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -36,7 +63,7 @@ if(isset($_SESSION['usuario'])){
 </head>
 
 <body>
-
+    
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
@@ -48,7 +75,7 @@ if(isset($_SESSION['usuario'])){
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Start Bootstrap</a>
+                <a class="navbar-brand" href="#">Mod PC</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -63,15 +90,21 @@ if(isset($_SESSION['usuario'])){
                         <a href="#">Contact</a>
                     </li>
                 </ul>
-                <ul class="nav navbar-nav pull-right ">
-                    <li>
-                        <a href="controladores/cerrarSesionController.php">Salir</a>
-                    </li>
+                <ul class="nav navbar-nav pull-right " ng-hide="<?= $id ?>">
+                    
                     <li >
                         <a href="vistas/registro-de-usuario.php">registrarse</a>
                     </li>
                     <li>
                         <a href="vistas/login.php">Ingresar</a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav pull-right " ng-show="<?= $id ?>">
+                    <li>
+                        <a href="controladores/cerrarSesionController.php">Salir</a>
+                    </li>
+                    <li>
+                        <a href=""><?= $username ?></a>
                     </li>
                 </ul>
             </div>                        
@@ -85,7 +118,7 @@ if(isset($_SESSION['usuario'])){
         <div class="row">
 
             <div class="col-md-3">
-                <p class="lead">Shop Name</p>
+                <p class="lead">Categorias:</p>
                 <div class="list-group">
                     <a href="#" class="list-group-item">Category 1</a>
                     <a href="#" class="list-group-item">Category 2</a>

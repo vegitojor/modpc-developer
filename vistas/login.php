@@ -32,6 +32,7 @@
 			<header class="w3-container w3-amber">
 				<h3>Por favor ingrese sus datos para continuar</h3>
 			</header>
+			<!-- <form action="../controladores/loginController.php" class="w3-container w3-content" method="POST">-->
 			<form action="" class="w3-container w3-content" method="">
 				<label for="">E-mail</label>
 				<input type="text" class="w3-input" placeholder="Ingrese su dirección de email" name="emailLogin" ng-model="emailLogin" ng-model-option="{updateOn: 'blur'} " required="">
