@@ -6,10 +6,12 @@ $conn = new ConexionBD();
 $conexion = $conn->getConexion();
 
 $data = json_decode(file_get_contents("php://input"));
-$data->idProvincia = (int)$data->idProvincia;
+$idProvincia = $data->idProvincia;
+$idProvincia = (int)$idProvincia;
 
 
-$resultado = Cliente::cargarlocalidades($conexion, $data->idProvincia);
+
+$resultado = Cliente::cargarlocalidades($conexion, $idProvincia);
 
 echo json_encode($resultado);
 

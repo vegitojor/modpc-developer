@@ -12,8 +12,8 @@ $pass = md5($data->pass);
 /*
 //se realiza adaptacion del controller para evitar el llamado ajax
 $email = strip_tags($_POST['emailLogin']);
-$pass = md5($_POST['passLogin']);*/
-
+$pass = md5($_POST['passLogin']);
+*/
 
 //se crea objeto y se pide conexion a BD
 $objetoConexion = new ConexionBD();
@@ -24,25 +24,27 @@ $emailRegistrado = Cliente::consultarCliente($conexion, $email, $pass);
 
 //se crea la sesion en base a la respuesta de la funcion anterior
 $mensaje = array();
-if($emailRegistrado){
-	//configuración de la cokie
-	ini_set('session.cookie_lifetime', "0");
-	ini_set('session.hash_bits_per_character','4');
-	ini_set('session.hash_function', 'sha256');
-	session_name("sesionModPc");
-	//inicio de sesion
-	session_start();
 
-	$mensaje = ['respuesta'=> 1,];
+//inicio de sesion
+ini_set('session.cookie_lifetime', "600");
+ini_set('session.hash_bits_per_character','4');
+ini_set('session.hash_function', 'sha256');
+session_start();
+
+if($emailRegistrado){
 	//carga de datos a la sesion
 	$_SESSION['usuario'] = Cliente::ObtenerCliente($conexion, $email, $pass);
 
+	$mensaje = ['respuesta'=> 1,];
 	$mensaje['admin'] = $_SESSION['usuario']['admin'];
 	echo json_encode($mensaje);
+	//header('location: ../index.php');
 }else if($emailRegistrado == Null){
+	session_destroy();
 	$mensaje = ['respuesta'=> 0,];
 	echo json_encode($mensaje);
 }else{
+	session_destroy();
 	$mensaje = ['respuesta' => 2,];
 	echo json_encode($mensaje);
 }

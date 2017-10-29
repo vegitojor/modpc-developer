@@ -73,6 +73,26 @@ Class Cliente{
 		return $output;
 	}
 
+    public static function cargarProvincias($conexion){
+        //se prepara consulta para la base de datos
+        $consulta = "SELECT id_provincia,
+				provincia 
+				 FROM provincia";
+
+        //SE REALIZA LA CONSULTA CON LA CONEXION
+        $resultado = mysqli_query($conexion, $consulta);
+
+        $output = array();
+        //ARMADO DEL ARRAY PARA RETORNO DE LA FUNCION
+        while ($fila = mysqli_fetch_assoc($resultado)) {
+            $fila['id_provincia'] = (int)$fila['id_provincia'];
+            $fila['provincia'] = utf8_encode($fila['provincia']);
+            $output[] = $fila;
+        }
+
+        return $output;
+    }
+
 	public static function listarEmail($conexion){
 		$consulta = "SELECT email
 					FROM cliente";
@@ -129,7 +149,7 @@ Class Cliente{
 
 	function getArraySession($conexion, $id){
 		$sql = "SELECT id,
-						username usuario,
+						username,
 						email,
 						pass,
 						telefono,

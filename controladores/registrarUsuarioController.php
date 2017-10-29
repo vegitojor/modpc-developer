@@ -51,6 +51,9 @@ foreach ($listaEmail as $emailBD) {
 $mensaje = array();
 if($emailSinRegistrar){
 	$idUsuario = $usuario->persistirse($conexion);
+    ini_set('session.cookie_lifetime', "600");
+    ini_set('session.hash_bits_per_character','4');
+    ini_set('session.hash_function', 'sha256');
 	session_start();
 	$_SESSION['usuario'] = $usuario->getArraySession($conexion, $idUsuario);
 	$mensaje = ['respuesta' => 1,];

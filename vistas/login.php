@@ -24,15 +24,17 @@
 	<title></title>
 </head>
 <body ng-app="login">
-	<div class="w3-container">
-		<div class="w3-panel w3-padding-48 w3-indigo">
-			<h1>Inicio de Sesión</h1>
+	<div class="">
+		<div class=" w3-padding-32 w3-blue-gray">
+			<h1 class="w3-jumbo w3-margin-left">Inicio de Sesión</h1>
 		</div>
+        <br>
 		<div class="w3-card-4 w3-content" style="width: 50%" ng-controller="formularioLogin">
-			<header class="w3-container w3-amber">
+			<header class="w3-container w3-blue-gray">
 				<h3>Por favor ingrese sus datos para continuar</h3>
 			</header>
-			<form action="" class="w3-container w3-content" method="">
+			<!-- <form action="../controladores/loginController.php" class="w3-container w3-content" method="POST">-->
+			<form action="" class="w3-container w3-content" method="post">
 				<label for="">E-mail</label>
 				<input type="text" class="w3-input" placeholder="Ingrese su dirección de email" name="emailLogin" ng-model="emailLogin" ng-model-option="{updateOn: 'blur'} " required="">
 				<label for="">Contrasaña</label>
