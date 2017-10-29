@@ -26,18 +26,12 @@ $emailRegistrado = Cliente::consultarCliente($conexion, $email, $pass);
 $mensaje = array();
 
 //inicio de sesion
+ini_set('session.cookie_lifetime', "600");
+ini_set('session.hash_bits_per_character','4');
+ini_set('session.hash_function', 'sha256');
 session_start();
 
 if($emailRegistrado){
-	//configuración de la cokie
-	/*
-	ini_set('session.cookie_lifetime', "0");
-	ini_set('session.hash_bits_per_character','4');
-	ini_set('session.hash_function', 'sha256');
-	session_name("sesionModPc");
-	*/
-	
-
 	//carga de datos a la sesion
 	$_SESSION['usuario'] = Cliente::ObtenerCliente($conexion, $email, $pass);
 

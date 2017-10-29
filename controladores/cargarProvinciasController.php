@@ -1,24 +1,16 @@
 <?php 
 
 require_once("../clases/ConexionBDClass.php");
+require_once ("../clases/ClienteClass.php");
 
 $conn = new ConexionBD();
+$conexion = $conn->getConexion();
 
 //array para almacenar resultados
 $output = array();
 
-//consulta a la base de datos
-$sql = "SELECT id_provincia,
-				provincia 
-				 FROM provincia";
-
-$resultado = $conn->ejecutarConsulta($sql);
-
-while($fila = mysqli_fetch_assoc($resultado)){
-	$fila['id_provincia'] = (int)$fila['id_provincia'];
-	$fila['provincia'] = utf8_encode($fila['provincia']);
-	$output[] = $fila;
-}
+//Consulta a la base de datos
+$output = Cliente::cargarProvincias($conexion);
 
 
 //devolucion del resultado en json

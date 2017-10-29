@@ -23,24 +23,20 @@ include_once ("../incluciones/verificacionAdmin.php");
 
 	<title>Control administrador</title>
 </head>
-<body>
-	<div class="w3-container">
-		<div class="w3-bar w3-black">
-			<a href="cargar-producto.php" class="w3-bar-item w3-hover-indigo">Producto</a>
-			<a href="" class="w3-bar-item w3-hover-indigo">Categoria</a>
-			<a href="" class="w3-bar-item w3-hover-indigo">Proveedor</a>
-            <a href="" class="w3-bar-item w3-hover-indigo">Marca</a>
-            <a href="" class="w3-bar-item w3-hover-indigo">Monedas</a>
-			<a href="../controladores/cerrarSesionController.php" class="w3-bar-item w3-hover-red w3-right">Salir</a>
-		</div>
-	</div>
-	<br>
+<body class="w3-light-gray">
+    <!-- Navegador Admin -->
+
+    <?php include_once ("../incluciones/navegadorAdmin.php")?>
 
     <!-- seccion de busqueda de producto -->
-	<div class="w3-row w3-container ">
+    <div class="w3-container w3-padding-32 w3-blue-gray">
+        <h1 class="w3-jumbo">Administración de ModPC</h1>
+    </div>
+    <br>
+	<div class="w3-row w3-content w3-white">
 		<div class="w3-card-4">
 			<div class="w3-row ">
-				<h1>Buscar productos segun los criterios de busqueda:</h1>
+				<h1 class="w3-margin-left">Buscar productos segun los criterios de busqueda:</h1>
 			</div>
 			<div class="w3-row">
 			    <a href="javascript:void(0)" onclick="openTab(event, 'producto');">
@@ -60,6 +56,8 @@ include_once ("../incluciones/verificacionAdmin.php");
 					<input 	type="text" class="w3-input" name="buscarPorProducto" placeholder="Introduce un producto">
 					<br>
 					<input type="submit" class="w3-btn w3-green w3-right" name="">
+                    <br>
+                    <br>
 				</form>
 			</div>
 
@@ -69,6 +67,7 @@ include_once ("../incluciones/verificacionAdmin.php");
 					<input 	type="text" class="w3-input" name="buscarPorProducto" placeholder="Introduce un producto">
 					<br>
 					<input type="submit" class="w3-btn w3-green w3-right" name="">
+                    <br><br>
 				</form>
 			</div>
 
@@ -78,6 +77,7 @@ include_once ("../incluciones/verificacionAdmin.php");
 					<input 	type="text" class="w3-input" name="buscarPorProducto" placeholder="Introduce un producto">
 					<br>
 					<input type="submit" class="w3-btn w3-green w3-right" name="">
+                    <br><br>
 				</form>
 			</div>
 			
@@ -86,7 +86,7 @@ include_once ("../incluciones/verificacionAdmin.php");
 	<br>
 
     <!-- tabla resultado de busqueda -->
-	<div class="w3-container ">
+	<div class="w3-content w3-white">
 		<table class="w3-table w3-striped w3-hoverable w3-card-4">
 			<tr>
 				<th>id</th>
