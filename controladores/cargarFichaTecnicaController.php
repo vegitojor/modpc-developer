@@ -22,8 +22,6 @@ $conexion = $conn->getConexion();
 
 //carga de FICHA TECNICA
 $respuesta = Producto::cargarFichaTecnicaPorIdCategoria($conexion, $idCategoria);
-$prueba = (array)json_decode($respuesta['ficha']);
-$prueba2 = json_encode($prueba);
 
-echo $prueba2;
+echo json_encode($respuesta);
 

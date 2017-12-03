@@ -197,15 +197,9 @@ Class Cliente{
 		$consulta = "SELECT id,
 							username,
 							email,
-							pass,
-							telefono,
 							nombre,
 							apellido,
-							cod_postal codPostal,
-							domicilio,
-							admin,
-							fecha_nacimiento fechaNacimiento,
-							id_localidad idLocalidad
+							admin
 					FROM cliente
 					WHERE email = ? and pass = ?";
 

@@ -26,6 +26,9 @@ Class ConexionBD {
 		return $resultado;
 	}
 
+	function cerrarConexion(){
+        mysqli_close($this->conexion);
+    }
 
 }
 

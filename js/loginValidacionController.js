@@ -15,7 +15,7 @@ app.controller("formularioLogin", function($scope, $http, $window){
 				}
 				
 			}else if($scope.data.respuesta == 0){
-				alert("El email ingresado no se encuentra registrado.");
+				alert("El email o la contraseña son incorrectos.");
 			}else{
 				alert("Ha ocurrido un error con la conexion a la base de datos. Por favor vuelva a intenter iniciar sesión.");
 			}

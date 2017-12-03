@@ -14,6 +14,11 @@ app.controller("formularioFichaTecnica", function ($scope, $http, $window) {
     $scope.campo13 = "0";
     $scope.campo14 = "0";
     $scope.campo15 = "0";
+    $scope.campo16 = "0";
+    $scope.campo17 = "0";
+    $scope.campo18 = "0";
+    $scope.campo19 = "0";
+    $scope.campo20 = "0";
 
     $scope.guardarFichaTecnica = function () {
         $http.post("../controladores/guardarFichaTecnicaController.php", {
@@ -32,7 +37,12 @@ app.controller("formularioFichaTecnica", function ($scope, $http, $window) {
             'campo12': $scope.campo12,
             'campo13': $scope.campo13,
             'campo14': $scope.campo14,
-            'campo15': $scope.campo15
+            'campo15': $scope.campo15,
+            'campo16': $scope.campo16,
+            'campo17': $scope.campo17,
+            'campo18': $scope.campo18,
+            'campo19': $scope.campo19,
+            'campo20': $scope.campo20,
         }).success(function (response) {
             $scope.respuesta = response;
 

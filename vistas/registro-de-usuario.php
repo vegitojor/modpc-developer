@@ -86,14 +86,14 @@
 					</div>
 					<div class="form-group" ng-init="cargarProvincias()">
 					    <label for="provincia">Seleccione su provincia</label>
-					    <select name="provincia" ng-model="provincia" ng-change="cargarLocalidades()" >
+					    <select class="form-control" name="provincia" ng-model="provincia" ng-change="cargarLocalidades()" >
 					    	<option value="">Seleccione una provincia</option>
 					    	<option ng-repeat="provincia in provincias" value={{provincia.id_provincia}}>{{provincia.provincia}}</option>
 					    </select>
 					</div>
 					<div class="form-group" >
 					    <label for="localidad">Seleccione su localidad</label>
-					    <select name="localidad" ng-model="localidad" required>
+					    <select class="form-control" name="localidad" ng-model="localidad" required>
 					    	<option value="">Seleccione una localidad</option>
 					    	<option ng-repeat="localidad in localidades" value="{{localidad.id_localidad}}">{{localidad.localidad}}</option>
 					    </select>

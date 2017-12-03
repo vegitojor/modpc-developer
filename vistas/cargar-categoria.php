@@ -29,16 +29,18 @@ include_once ('../incluciones/verificacionAdmin.php');
     </div>
     <div class="w3-row">
         <div class="w3-content w3-white">
-            <div ng-show="respuesta.mensaje == 1">Se guardo la categoria!</div>
             <div class="w3-card-4 w3-blue-gray">
                 <header>
                     <h2 class="w3-margin-left">Nueva categoria</h2>
                 </header>
                 <div class="w3-white">
 
-                    <form>
+                    <form name="categoriaForm">
                         <div class="w3-padding">
-                            <input type="text" class="w3-input w3-hover-orange" placeholder="Introduce el nombre de la nueva categoria" ng-model="descripcion" >
+                            <input type="text" class="w3-input w3-hover-orange" id="descripcion" name="descripcion" placeholder="Introduce el nombre de la nueva categoria" ng-model="descripcion" required="" >
+                            <div ng-show="categoriaForm.$submitted || categoriaForm.descripcion.$touched">
+							    <span class="w3-red" ng-show="categoriaForm.descripcion.$error.required">El campo es obligatorio.</span>
+		      			    </div>
                             <label for="">Descripción</label>
                         </div>
                         <div class="w3-panel">
@@ -51,7 +53,7 @@ include_once ('../incluciones/verificacionAdmin.php');
                                 </a>
                             </div>
                             <div id="fichasCargadas" class="w3-container w3-padding productos w3-center" style="display: none" ng-init="cargarFichasTecnicas()">
-                                <select name="fichaTecnica" id="fichaTecnica" class="w3-select" ng-model="fichaTecnica">
+                                <select name="fichaTecnica" id="fichaTecnica" class="w3-select" ng-model="fichaTecnica" required="">
                                     <option value="" disabled selected>Seleccione una ficha técnica</option>
                                     <option ng-repeat="ficha in fichas" value="{{ficha.id}}">{{ficha.nombreFicha}}</option>
                                 </select>
@@ -61,7 +63,7 @@ include_once ('../incluciones/verificacionAdmin.php');
                             </div>
                         </div>
                         <div class="w3-panel">
-                            <input type="submit" class="w3-btn w3-green w3-right w3-padding w3-margin-bottom" value="Guardar categoria" ng-click="guardarCategoria()">
+                            <input type="submit" class="w3-btn w3-green w3-right w3-padding w3-margin-bottom" value="Guardar categoria" ng-disabled="categoriaForm.$invalid" ng-click="guardarCategoria()">
                         </div>
                     </form>
                 </div>

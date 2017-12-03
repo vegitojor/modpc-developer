@@ -13,6 +13,8 @@ echo '<meta charset="utf-8">
     <meta name="author" content="">
 
     <link rel="stylesheet" href="../css/w3.css">
+    <!-- Iconos libreria Awesone -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- w3 javascript -->
     <script type="text/javascript" src="../js/w3.js"></script>

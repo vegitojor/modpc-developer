@@ -30,45 +30,12 @@ $campo12 = strip_tags($data->campo12);
 $campo13 = strip_tags($data->campo13);
 $campo14 = strip_tags($data->campo14);
 $campo15 = strip_tags($data->campo15);
+$campo16 = strip_tags($data->campo16);
+$campo17 = strip_tags($data->campo17);
+$campo18 = strip_tags($data->campo18);
+$campo19 = strip_tags($data->campo19);
+$campo20 = strip_tags($data->campo20);
 
-//esquema accediendo directo al controllador
-/*
-$nombre = strip_tags($_POST['nombre']);
-$campo01 = strip_tags($_POST['campo01']);
-$campo02 = strip_tags($_POST['campo02']);
-$campo03 = strip_tags($_POST['campo03']);
-$campo04 = strip_tags($_POST['campo04']);
-$campo05 = strip_tags($_POST['campo05']);
-$campo06 = strip_tags($_POST['campo06']);
-$campo07 = strip_tags($_POST['campo07']);
-$campo08 = strip_tags($_POST['campo08']);
-$campo09 = strip_tags($_POST['campo09']);
-$campo10 = strip_tags($_POST['campo10']);
-$campo11 = strip_tags($_POST['campo11']);
-$campo12 = strip_tags($_POST['campo12']);
-$campo13 = strip_tags($_POST['campo13']);
-$campo14 = strip_tags($_POST['campo14']);
-$campo15 = strip_tags($_POST['campo15']);
-*/
-
-$cadena = ['01'=>$campo01,
-    '02'=>$campo02,
-    '03'=>$campo03,
-    '04'=>$campo04,
-    '05'=>$campo05,
-    '06'=>$campo06,
-    '07'=>$campo07,
-    '08'=>$campo08,
-    '09'=>$campo09,
-    '10'=>$campo10,
-    '11'=>$campo11,
-    '12'=>$campo12,
-    '13'=>$campo13,
-    '14'=>$campo14,
-    '15'=>$campo15,];
-
-
-$cadenaJson = json_encode($cadena);
 
 //CONEXION CON BASE DE DATOS
 $conn = new ConexionBD();
@@ -85,7 +52,28 @@ foreach ($listaNombresFichas as $item) {
 }
 
 if ($fichaSinRegistrar){
-    Producto::guardarFichaTecnica($conexion, $nombre, $cadenaJson);
+    Producto::guardarFichaTecnica($conexion,
+                                    $nombre,
+                                    $campo01,
+                                    $campo02,
+                                    $campo03 ,
+                                    $campo04 ,
+                                    $campo05 ,
+                                    $campo06 ,
+                                    $campo07 ,
+                                    $campo08 ,
+                                    $campo09 ,
+                                    $campo10,
+                                    $campo11,
+                                    $campo12 ,
+                                    $campo13,
+                                    $campo14,
+                                    $campo15,
+                                    $campo16,
+                                    $campo17,
+                                    $campo18,
+                                    $campo19,
+                                    $campo20);
 
     $respuesta = ['mensaje'=>2,];
     echo json_encode($respuesta);

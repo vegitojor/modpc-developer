@@ -70,6 +70,16 @@ include_once ('../incluciones/verificacionAdmin.php');
                     <input type="text" class="w3-input w3-border" name="campo14" ng-model="campo14" value="-">
                     <label for="">Campo 15:</label>
                     <input type="text" class="w3-input w3-border" name="campo15" ng-model="campo15" value="-">
+                    <label for="">Campo 16:</label>
+                    <input type="text" class="w3-input w3-border" name="campo16" ng-model="campo16" value="-">
+                    <label for="">Campo 17:</label>
+                    <input type="text" class="w3-input w3-border" name="campo17" ng-model="campo17" value="-">
+                    <label for="">Campo 18:</label>
+                    <input type="text" class="w3-input w3-border" name="campo18" ng-model="campo18" value="-">
+                    <label for="">Campo 19:</label>
+                    <input type="text" class="w3-input w3-border" name="campo19" ng-model="campo19" value="-">
+                    <label for="">Campo 20:</label>
+                    <input type="text" class="w3-input w3-border" name="campo20" ng-model="campo20" value="-">
                     <br>
                     <input type="submit" class="w3-button w3-green w3-block w3-ripple" value="Guardar ficha" ng-disabled="formularioFichaTecnica.$invalid" ng-click="guardarFichaTecnica()"/>
                     <br>
