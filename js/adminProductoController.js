@@ -1,4 +1,5 @@
 app.controller("adminProducto", function ($scope, $http) {
+
     $scope.cargarProveedores = function () {
         $http.post("../controladores/listarProveedoresController.php")
             .success(function (response) {
