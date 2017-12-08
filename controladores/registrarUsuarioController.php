@@ -2,6 +2,8 @@
 require_once('../clases/ConexionBDClass.php');
 require_once('../clases/ClienteClass.php');
 
+error_reporting('E_ALL ^ E_NOTICE');
+
 //toma de datos desde llamado ajax
 $data = json_decode(file_get_contents('php://input'));
 

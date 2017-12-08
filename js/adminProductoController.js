@@ -1,5 +1,4 @@
 app.controller("adminProducto", function ($scope, $http) {
-
     $scope.cargarProveedores = function () {
         $http.post("../controladores/listarProveedoresController.php")
             .success(function (response) {
@@ -28,8 +27,7 @@ app.controller("adminProducto", function ($scope, $http) {
             })
     }
 
-    $scope.nuevo = true;
-    $scope.disponible = true;
+
 
     $scope.alto = 0;
     $scope.ancho = 0;
@@ -57,58 +55,20 @@ app.controller("adminProducto", function ($scope, $http) {
     $scope.campoProducto19 = 0;
     $scope.campoProducto20 = 0;
 
-    $scope.guardarProducto = function () {
+    $scope.cargaProducto = false;
+    $scope.mostrarCargaProducto = function () {
+        $scope.cargaProducto = true;
+    }
 
-        var formData = new FormData();
-        formData.append("foto",$scope.foto);
-        formData.append('modelo', $scope.modelo);
-        formData.append('descripcion', $scope.descripcion);
-        formData.append('precio', $scope.precio);
-        formData.append('mesesGarantia', $scope.mesesGarantia);
-        formData.append('codigoFabricante', $scope.codigoFabricante);
-        formData.append('nuevo', $scope.nuevo);
-        formData.append('disponible', $scope.disponible);
-        formData.append('codigoProveedor', $scope.codigoProveedor);
-        formData.append('sku', $scope.sku);
-        formData.append('proveedor', $scope.proveedor);
-        formData.append('video', $scope.video);
-        formData.append('alto', $scope.alto);
-        formData.append('ancho', $scope.ancho);
-        formData.append('profundidad', $scope.profundidad);
-        formData.append('peso', $scope.peso);
-        formData.append('marca', $scope.marca);
-        formData.append('categoria', $scope.categoria);
-        formData.append('campo01', $scope.campoProducto01);
-        formData.append('campo02', $scope.campoProducto02);
-        formData.append('campo03', $scope.campoProducto03);
-        formData.append('campo04', $scope.campoProducto04);
-        formData.append('campo05', $scope.campoProducto05);
-        formData.append('campo06', $scope.campoProducto06);
-        formData.append('campo07', $scope.campoProducto07);
-        formData.append('campo08', $scope.campoProducto08);
-        formData.append('campo09', $scope.campoProducto09);
-        formData.append('campo10', $scope.campoProducto10);
-        formData.append('campo11', $scope.campoProducto11);
-        formData.append('campo12', $scope.campoProducto12);
-        formData.append('campo13', $scope.campoProducto13);
-        formData.append('campo14', $scope.campoProducto14);
-        formData.append('campo15', $scope.campoProducto15);
-        formData.append('campo16', $scope.campoProducto16);
-        formData.append('campo17', $scope.campoProducto17);
-        formData.append('campo18', $scope.campoProducto18);
-        formData.append('campo19', $scope.campoProducto19);
-        formData.append('campo20', $scope.campoProducto20);
+    $scope.cerrarCargaProducto = function () {
+        $scope.cargaProducto = false;
+        console.log($scope.cargaProducto);
+    }
 
-
-        $http.post("../controladores/guardarProductoController.php", formData,
-            {headers: { 'Content-Type': undefined },
-            transformRequest: angular.identity
-        }).success(function (response) {
-            $scope.mensaje = response;
-            if($scope.mensaje.respuesta == 1)
-                alert("El producto se cargo correctamente.");
-            else
-                alert("Ocurrio un error al guardar el producto.");
+    $scope.listarProductos = function () {
+        $http.post('../controladores/listarProductosController.php')
+            .success(function (response) {
+                $scope.productos = response;
         })
     }
 

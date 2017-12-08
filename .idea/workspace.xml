@@ -2,28 +2,33 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="70ac6842-265e-417b-9d76-e2a2567216a3" name="Default" comment="se esta realizando el armado de vistas admin.">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/base de datos/2017_11_14_modificacion_ficha_tecnica" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/base de datos/2017_11_16_modificacion_ventas.sql" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/base de datos/base-corregida-2017-11-13.sql" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/controladores/guardarProductoController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/base de datos/scrip_bd_modpc.mwb" afterPath="$PROJECT_DIR$/base de datos/scrip_bd_modpc.mwb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/base de datos/scrip_bd_modpc.mwb.bak" afterPath="$PROJECT_DIR$/base de datos/scrip_bd_modpc.mwb.bak" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/controladores/listarProductosController.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/incluciones/verificacionUsuario.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/incluciones/adminControlerVerificación.php" afterPath="$PROJECT_DIR$/incluciones/adminControlerVerificacion.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/base de datos/provincias y localidades.txt" afterPath="$PROJECT_DIR$/base de datos/provincias y localidades.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/clases/ClienteClass.php" afterPath="$PROJECT_DIR$/clases/ClienteClass.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/clases/ConexionBDClass.php" afterPath="$PROJECT_DIR$/clases/ConexionBDClass.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/clases/ProductoClass.php" afterPath="$PROJECT_DIR$/clases/ProductoClass.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controladores/buscarMarcaController.php" afterPath="$PROJECT_DIR$/controladores/buscarMarcaController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controladores/cargarFichaTecnicaController.php" afterPath="$PROJECT_DIR$/controladores/cargarFichaTecnicaController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controladores/cargarFichasTecnicasController.php" afterPath="$PROJECT_DIR$/controladores/cargarFichasTecnicasController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controladores/editarMarcaController.php" afterPath="$PROJECT_DIR$/controladores/editarMarcaController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controladores/editarMonedaController.php" afterPath="$PROJECT_DIR$/controladores/editarMonedaController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controladores/editarProveedorController.php" afterPath="$PROJECT_DIR$/controladores/editarProveedorController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controladores/guardarCategoriaController.php" afterPath="$PROJECT_DIR$/controladores/guardarCategoriaController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controladores/guardarFichaTecnicaController.php" afterPath="$PROJECT_DIR$/controladores/guardarFichaTecnicaController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/incluciones/head.php" afterPath="$PROJECT_DIR$/incluciones/head.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/incluciones/navegadorAdmin.php" afterPath="$PROJECT_DIR$/incluciones/navegadorAdmin.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/adminFichaTecnicaController.js" afterPath="$PROJECT_DIR$/js/adminFichaTecnicaController.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controladores/guardarMonedaController.php" afterPath="$PROJECT_DIR$/controladores/guardarMonedaController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controladores/guardarProductoController.php" afterPath="$PROJECT_DIR$/controladores/guardarProductoController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controladores/listarCategoriasController.php" afterPath="$PROJECT_DIR$/controladores/listarCategoriasController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controladores/listarMonedasController.php" afterPath="$PROJECT_DIR$/controladores/listarMonedasController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controladores/listarProveedoresController.php" afterPath="$PROJECT_DIR$/controladores/listarProveedoresController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controladores/obtenerUnProveedorController.php" afterPath="$PROJECT_DIR$/controladores/obtenerUnProveedorController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controladores/obtenerUnaMonedaController.php" afterPath="$PROJECT_DIR$/controladores/obtenerUnaMonedaController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controladores/registrarProveedorController.php" afterPath="$PROJECT_DIR$/controladores/registrarProveedorController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controladores/registrarUsuarioController.php" afterPath="$PROJECT_DIR$/controladores/registrarUsuarioController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/incluciones/verificacionAdmin.php" afterPath="$PROJECT_DIR$/incluciones/verificacionAdmin.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/adminProductoController.js" afterPath="$PROJECT_DIR$/js/adminProductoController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/loginValidacionController.js" afterPath="$PROJECT_DIR$/js/loginValidacionController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vistas/cargar-categoria.php" afterPath="$PROJECT_DIR$/vistas/cargar-categoria.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vistas/cargar-fichatecnica.php" afterPath="$PROJECT_DIR$/vistas/cargar-fichatecnica.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vistas/cargar-producto.php" afterPath="$PROJECT_DIR$/vistas/cargar-producto.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vistas/login.php" afterPath="$PROJECT_DIR$/vistas/login.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vistas/registro-de-usuario.php" afterPath="$PROJECT_DIR$/vistas/registro-de-usuario.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -46,113 +51,111 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ProductoClass.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/clases/ProductoClass.php">
+      <file leaf-file-name="navegadorAdmin.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/incluciones/navegadorAdmin.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1292">
-              <caret line="76" column="68" lean-forward="false" selection-start-line="76" selection-start-column="68" selection-end-line="76" selection-end-column="68" />
+            <state relative-caret-position="68">
+              <caret line="4" column="89" lean-forward="false" selection-start-line="4" selection-start-column="89" selection-end-line="4" selection-end-column="89" />
               <folding>
-                <marker date="1512092244161" expanded="true" signature="2188:2568" ph="INSERT INTO producto... " />
-                <marker date="1512092244161" expanded="true" signature="4524:5545" ph="INSERT INTO Ficha_tecnica... " />
-                <marker date="1512092244161" expanded="true" signature="7110:7153" ph="SELECT nombr... ficha_tecnica" />
-                <marker date="1512092244161" expanded="true" signature="7449:7568" ph="SELECT id_Fi... Ficha_tecnica" />
-                <marker date="1512092244161" expanded="true" signature="8004:8819" ph="SELECT F.nom... categoria" />
-                <marker date="1512092244161" expanded="true" signature="9815:10165" ph="INSERT INTO producto_ficha_tecnica... " />
+                <marker date="1512313612519" expanded="true" signature="52:762" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="guardarMonedaController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/controladores/guardarMonedaController.php">
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="20" column="42" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="42" />
+            <state relative-caret-position="170">
+              <caret line="13" column="35" lean-forward="true" selection-start-line="9" selection-start-column="4" selection-end-line="13" selection-end-column="35" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="adminMonedaController.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/adminMonedaController.js">
+      <file leaf-file-name="loginController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/controladores/loginController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="612">
-              <caret line="36" column="59" lean-forward="false" selection-start-line="36" selection-start-column="37" selection-end-line="36" selection-end-column="59" />
+            <state relative-caret-position="204">
+              <caret line="35" column="39" lean-forward="false" selection-start-line="35" selection-start-column="39" selection-end-line="35" selection-end-column="39" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MonedaClass.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/clases/MonedaClass.php">
+      <file leaf-file-name="admin-home.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/vistas/admin-home.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="561">
-              <caret line="38" column="20" lean-forward="false" selection-start-line="38" selection-start-column="20" selection-end-line="38" selection-end-column="20" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="verificacionAdmin.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/incluciones/verificacionAdmin.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="12" column="38" lean-forward="false" selection-start-line="12" selection-start-column="38" selection-end-line="12" selection-end-column="38" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="verificacionUsuario.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/incluciones/verificacionUsuario.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="408">
+              <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ClienteClass.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/clases/ClienteClass.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="159">
+              <caret line="195" column="27" lean-forward="false" selection-start-line="195" selection-start-column="27" selection-end-line="195" selection-end-column="27" />
               <folding>
-                <marker date="1509285461101" expanded="true" signature="408:533" ph="SELECT id_mo... moneda" />
-                <marker date="1509285461101" expanded="true" signature="890:973" ph="INSERT INTO moneda... " />
-                <marker date="1509285461101" expanded="true" signature="1240:1406" ph="SELECT id_mo... moneda" />
-                <marker date="1509285461101" expanded="true" signature="1793:1925" ph="UPDATE moned... " />
+                <marker date="1512313612515" expanded="true" signature="1019:1105" ph="SELECT id_lo... localidad" />
+                <marker date="1512313612515" expanded="true" signature="1865:1920" ph="SELECT id_pr... provincia" />
+                <marker date="1512313612515" expanded="true" signature="2435:2465" ph="SELECT email... cliente" />
+                <marker date="1512313612515" expanded="true" signature="2736:2972" ph="INSERT INTO cliente... " />
+                <marker date="1512313612515" expanded="true" signature="3546:3816" ph="SELECT id, u... cliente" />
+                <marker date="1512313612515" expanded="true" signature="4012:4301" ph="SELECT id, u... cliente" />
+                <marker date="1512313612515" expanded="true" signature="4596:4734" ph="SELECT id, u... cliente" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="adminProductoController.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/adminProductoController.js">
+      <file leaf-file-name="registro-de-usuario.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/vistas/registro-de-usuario.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="30" column="21" lean-forward="false" selection-start-line="30" selection-start-column="21" selection-end-line="30" selection-end-column="21" />
+            <state relative-caret-position="119">
+              <caret line="7" column="35" lean-forward="false" selection-start-line="7" selection-start-column="35" selection-end-line="7" selection-end-column="35" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="guardarProductoController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/controladores/guardarProductoController.php">
+      <file leaf-file-name="registroUsuarioValidacionController.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/registroUsuarioValidacionController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="55" column="1" lean-forward="false" selection-start-line="55" selection-start-column="1" selection-end-line="55" selection-end-column="1" />
+            <state relative-caret-position="18">
+              <caret line="15" column="4" lean-forward="false" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="4" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="base-corregida-2017-11-13.sql" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/base de datos/base-corregida-2017-11-13.sql">
+      <file leaf-file-name="registrarUsuarioController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/controladores/registrarUsuarioController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1003">
-              <caret line="119" column="76" lean-forward="false" selection-start-line="119" selection-start-column="76" selection-end-line="119" selection-end-column="76" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="2017_11_14_modificacion_ficha_tecnica" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/base de datos/2017_11_14_modificacion_ficha_tecnica">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="2017_11_16_modificacion_ventas.sql" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/base de datos/2017_11_16_modificacion_ventas.sql">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="cargar-producto.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/vistas/cargar-producto.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1224">
-              <caret line="77" column="38" lean-forward="true" selection-start-line="77" selection-start-column="38" selection-end-line="77" selection-end-column="38" />
+            <state relative-caret-position="-378">
+              <caret line="4" column="33" lean-forward="false" selection-start-line="4" selection-start-column="33" selection-end-line="4" selection-end-column="33" />
               <folding />
             </state>
           </provider>
@@ -176,6 +179,10 @@
       <find>marca</find>
       <find>alt</find>
       <find>nue</find>
+      <find>codi</find>
+      <find>nu</find>
+      <find>precio</find>
+      <find>fech</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -202,11 +209,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/js/editarRedireccionarController.js" />
-        <option value="$PROJECT_DIR$/js/editarProveedorController.js" />
-        <option value="$PROJECT_DIR$/vistas/admin-home.php" />
-        <option value="$PROJECT_DIR$/js/adminCategoriaController.js" />
-        <option value="$PROJECT_DIR$/vistas/editar-proveedor.php" />
         <option value="$PROJECT_DIR$/vistas/cargar-proveedor.php" />
         <option value="$PROJECT_DIR$/controladores/guardarMarcaController.php" />
         <option value="$PROJECT_DIR$/controladores/listarMarcasController.php" />
@@ -233,11 +235,9 @@
         <option value="$PROJECT_DIR$/clases/MonedaClass.php" />
         <option value="$PROJECT_DIR$/clases/CategoriaClass.php" />
         <option value="$PROJECT_DIR$/controladores/listarCategoriasController.php" />
-        <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/controladores/cargarFichaTecnicaController.php" />
         <option value="$PROJECT_DIR$/base de datos/2017_11_14_modificacion_ficha_tecnica" />
         <option value="$PROJECT_DIR$/controladores/guardarFichaTecnicaController.php" />
-        <option value="$PROJECT_DIR$/vistas/registro-de-usuario.php" />
         <option value="$PROJECT_DIR$/vistas/login.php" />
         <option value="$PROJECT_DIR$/js/loginValidacionController.js" />
         <option value="$PROJECT_DIR$/clases/ClienteClass.php" />
@@ -249,10 +249,17 @@
         <option value="$PROJECT_DIR$/base de datos/2017_11_16_modificacion_ventas.sql" />
         <option value="$PROJECT_DIR$/vistas/cargar-fichatecnica.php" />
         <option value="$PROJECT_DIR$/clases/ConexionBDClass.php" />
+        <option value="$PROJECT_DIR$/controladores/guardarProductoController.php" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/js/adminProductoController.js" />
+        <option value="$PROJECT_DIR$/controladores/listarProductosController.php" />
         <option value="$PROJECT_DIR$/clases/ProductoClass.php" />
         <option value="$PROJECT_DIR$/vistas/cargar-producto.php" />
-        <option value="$PROJECT_DIR$/js/adminProductoController.js" />
-        <option value="$PROJECT_DIR$/controladores/guardarProductoController.php" />
+        <option value="$PROJECT_DIR$/incluciones/verificacionAdmin.php" />
+        <option value="$PROJECT_DIR$/incluciones/verificacionUsuario.php" />
+        <option value="$PROJECT_DIR$/index.php" />
+        <option value="$PROJECT_DIR$/controladores/registrarUsuarioController.php" />
+        <option value="$PROJECT_DIR$/vistas/registro-de-usuario.php" />
       </list>
     </option>
   </component>
@@ -321,7 +328,12 @@
             <path>
               <item name="modpc" type="b2602c69:ProjectViewProjectNode" />
               <item name="modpc" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="resourses" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="incluciones" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="modpc" type="b2602c69:ProjectViewProjectNode" />
+              <item name="modpc" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="js" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="modpc" type="b2602c69:ProjectViewProjectNode" />
@@ -336,8 +348,8 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -437,23 +449,29 @@
       <workItem from="1512077994081" duration="9856000" />
       <workItem from="1512161780874" duration="1189000" />
       <workItem from="1512309928584" duration="1479000" />
+      <workItem from="1512337425408" duration="6725000" />
+      <workItem from="1512351207102" duration="5040000" />
+      <workItem from="1512514427573" duration="8347000" />
+      <workItem from="1512597158221" duration="4185000" />
+      <workItem from="1512682695579" duration="9181000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="274284000" />
+    <option name="totallyTimeSpent" value="311113000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="-4" width="1368" height="780" extended-state="6" />
+    <frame x="0" y="-4" width="1366" height="772" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27114803" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2907855" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32882884" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32970452" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22256568" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22256568" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -504,95 +522,11 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="1" />
+      <option name="time" value="3" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/controladores/registrarProveedorController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="8" column="63" lean-forward="false" selection-start-line="8" selection-start-column="63" selection-end-line="8" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controladores/guardarCategoriaController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="8" column="63" lean-forward="false" selection-start-line="8" selection-start-column="63" selection-end-line="8" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controladores/editarProveedorController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="8" column="63" lean-forward="false" selection-start-line="8" selection-start-column="63" selection-end-line="8" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controladores/editarMarcaController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="9" column="63" lean-forward="false" selection-start-line="9" selection-start-column="63" selection-end-line="9" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controladores/listarProveedoresController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/incluciones/adminControlerVerificación.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="14" column="37" lean-forward="false" selection-start-line="14" selection-start-column="37" selection-end-line="14" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/incluciones/verificacionAdmin.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="11" column="37" lean-forward="false" selection-start-line="11" selection-start-column="37" selection-end-line="11" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controladores/listarMonedasController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="16" column="32" lean-forward="false" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controladores/obtenerUnProveedorController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="7" column="63" lean-forward="false" selection-start-line="7" selection-start-column="63" selection-end-line="7" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/clases/MarcaClass.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="555">
-          <caret line="66" column="35" lean-forward="false" selection-start-line="66" selection-start-column="35" selection-end-line="66" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controladores/editarMonedaController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
-          <caret line="27" column="33" lean-forward="true" selection-start-line="27" selection-start-column="33" selection-end-line="27" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controladores/obtenerUnaMonedaController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="21" column="42" lean-forward="false" selection-start-line="21" selection-start-column="21" selection-end-line="21" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vistas/editar-moneda.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="414">
@@ -649,24 +583,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/registroUsuarioValidacionController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="15" column="4" lean-forward="false" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/controladores/cargarLocalidadesController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2176">
-          <caret line="128" column="14" lean-forward="false" selection-start-line="128" selection-start-column="14" selection-end-line="128" selection-end-column="14" />
         </state>
       </provider>
     </entry>
@@ -684,13 +604,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vistas/cargar-proveedor.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/adminCategoriaController.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -702,13 +615,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
           <caret line="19" column="20" lean-forward="false" selection-start-line="19" selection-start-column="20" selection-end-line="19" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/incluciones/navegadorAdmin.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="89" lean-forward="false" selection-start-line="4" selection-start-column="89" selection-end-line="4" selection-end-column="89" />
         </state>
       </provider>
     </entry>
@@ -726,25 +632,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vistas/registro-de-usuario.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="680">
-          <caret line="40" column="24" lean-forward="false" selection-start-line="40" selection-start-column="24" selection-end-line="42" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/controladores/guardarFichaTecnicaController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
           <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="10" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vistas/cargar-categoria.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="40" column="28" lean-forward="false" selection-start-line="40" selection-start-column="28" selection-end-line="40" selection-end-column="28" />
         </state>
       </provider>
     </entry>
@@ -759,53 +650,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
           <caret line="17" column="25" lean-forward="true" selection-start-line="17" selection-start-column="25" selection-end-line="17" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controladores/loginController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="30" column="30" lean-forward="false" selection-start-line="30" selection-start-column="30" selection-end-line="30" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/clases/ConexionBDClass.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="370">
-          <caret line="29" column="38" lean-forward="false" selection-start-line="29" selection-start-column="38" selection-end-line="29" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/clases/ClienteClass.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2482">
-          <caret line="146" column="18" lean-forward="false" selection-start-line="145" selection-start-column="8" selection-end-line="146" selection-end-column="18" />
-          <folding>
-            <marker date="1510716729157" expanded="true" signature="1019:1105" ph="SELECT id_lo... localidad" />
-            <marker date="1510716729157" expanded="true" signature="1865:1920" ph="SELECT id_pr... provincia" />
-            <marker date="1510716729157" expanded="true" signature="2435:2465" ph="SELECT email... cliente" />
-            <marker date="1510716729157" expanded="true" signature="2736:2972" ph="INSERT INTO cliente... " />
-            <marker date="1510716729157" expanded="true" signature="3546:3816" ph="SELECT id, u... cliente" />
-            <marker date="1510716729157" expanded="true" signature="4012:4301" ph="SELECT id, u... cliente" />
-            <marker date="1510716729157" expanded="true" signature="4596:4734" ph="SELECT id, u... cliente" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controladores/registrarUsuarioController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="884">
-          <caret line="52" column="34" lean-forward="false" selection-start-line="52" selection-start-column="34" selection-end-line="52" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vistas/cargar-marca.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="714">
-          <caret line="47" column="196" lean-forward="false" selection-start-line="47" selection-start-column="158" selection-end-line="47" selection-end-column="196" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -826,7 +670,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="20" column="42" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="42" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -834,46 +677,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="612">
           <caret line="36" column="59" lean-forward="false" selection-start-line="36" selection-start-column="37" selection-end-line="36" selection-end-column="59" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/clases/ProductoClass.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1292">
-          <caret line="76" column="68" lean-forward="false" selection-start-line="76" selection-start-column="68" selection-end-line="76" selection-end-column="68" />
-          <folding>
-            <marker date="1512092244161" expanded="true" signature="2188:2568" ph="INSERT INTO producto... " />
-            <marker date="1512092244161" expanded="true" signature="4524:5545" ph="INSERT INTO Ficha_tecnica... " />
-            <marker date="1512092244161" expanded="true" signature="7110:7153" ph="SELECT nombr... ficha_tecnica" />
-            <marker date="1512092244161" expanded="true" signature="7449:7568" ph="SELECT id_Fi... Ficha_tecnica" />
-            <marker date="1512092244161" expanded="true" signature="8004:8819" ph="SELECT F.nom... categoria" />
-            <marker date="1512092244161" expanded="true" signature="9815:10165" ph="INSERT INTO producto_ficha_tecnica... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vistas/cargar-producto.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1224">
-          <caret line="77" column="38" lean-forward="true" selection-start-line="77" selection-start-column="38" selection-end-line="77" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/adminProductoController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="30" column="21" lean-forward="false" selection-start-line="30" selection-start-column="21" selection-end-line="30" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controladores/guardarProductoController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="55" column="1" lean-forward="false" selection-start-line="55" selection-start-column="1" selection-end-line="55" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -881,7 +684,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1003">
           <caret line="119" column="76" lean-forward="false" selection-start-line="119" selection-start-column="76" selection-end-line="119" selection-end-column="76" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -889,7 +691,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -897,6 +698,225 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="442">
           <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vistas/cargar-categoria.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-204">
+          <caret line="23" column="10" lean-forward="true" selection-start-line="23" selection-start-column="10" selection-end-line="23" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controladores/registrarProveedorController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="8" column="63" lean-forward="false" selection-start-line="8" selection-start-column="63" selection-end-line="8" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controladores/pruebaRegistroUsuario.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controladores/obtenerUnProveedorController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="63" lean-forward="false" selection-start-line="7" selection-start-column="63" selection-end-line="7" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controladores/guardarCategoriaController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controladores/buscarMarcaController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/clases/ConexionBDClass.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="26" column="5" lean-forward="true" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="444">
+          <caret line="89" column="28" lean-forward="false" selection-start-line="89" selection-start-column="28" selection-end-line="89" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vistas/cargar-marca.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-117">
+          <caret line="47" column="196" lean-forward="false" selection-start-line="47" selection-start-column="158" selection-end-line="47" selection-end-column="196" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vistas/cargar-proveedor.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1632">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controladores/guardarProductoController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1972">
+          <caret line="121" column="0" lean-forward="false" selection-start-line="121" selection-start-column="0" selection-end-line="121" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resourses/imagen_producto/z1-descarga.jpg.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resourses/imagen_producto/j-producto55.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/adminProductoController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1173">
+          <caret line="69" column="42" lean-forward="false" selection-start-line="69" selection-start-column="42" selection-end-line="69" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controladores/listarProductosController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="15" column="13" lean-forward="true" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/clases/ProductoClass.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="314" column="0" lean-forward="false" selection-start-line="314" selection-start-column="0" selection-end-line="314" selection-end-column="0" />
+          <folding>
+            <marker date="1512611785089" expanded="true" signature="2180:2560" ph="INSERT INTO producto... " />
+            <marker date="1512611785089" expanded="true" signature="4521:5542" ph="INSERT INTO ficha_tecnica... " />
+            <marker date="1512611785089" expanded="true" signature="7107:7150" ph="SELECT nombr... ficha_tecnica" />
+            <marker date="1512611785089" expanded="true" signature="7446:7565" ph="SELECT id_fi... ficha_tecnica" />
+            <marker date="1512611785089" expanded="true" signature="8001:8816" ph="SELECT F.nom... categoria" />
+            <marker date="1512611785089" expanded="true" signature="9812:10162" ph="INSERT INTO producto_ficha_tecnica... " />
+            <marker date="1512611785089" expanded="true" signature="10966:12084" ph="SELECT FROM producto" />
+            <marker date="1512611785089" expanded="true" signature="10966:12180" ph="SELECT p.id_... producto" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vistas/cargar-producto.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="64" column="67" lean-forward="false" selection-start-line="64" selection-start-column="67" selection-end-line="64" selection-end-column="67" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/incluciones/navegadorAdmin.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="89" lean-forward="false" selection-start-line="4" selection-start-column="89" selection-end-line="4" selection-end-column="89" />
+          <folding>
+            <marker date="1512313612519" expanded="true" signature="52:762" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/clases/ClienteClass.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="195" column="27" lean-forward="false" selection-start-line="195" selection-start-column="27" selection-end-line="195" selection-end-column="27" />
+          <folding>
+            <marker date="1512313612515" expanded="true" signature="1019:1105" ph="SELECT id_lo... localidad" />
+            <marker date="1512313612515" expanded="true" signature="1865:1920" ph="SELECT id_pr... provincia" />
+            <marker date="1512313612515" expanded="true" signature="2435:2465" ph="SELECT email... cliente" />
+            <marker date="1512313612515" expanded="true" signature="2736:2972" ph="INSERT INTO cliente... " />
+            <marker date="1512313612515" expanded="true" signature="3546:3816" ph="SELECT id, u... cliente" />
+            <marker date="1512313612515" expanded="true" signature="4012:4301" ph="SELECT id, u... cliente" />
+            <marker date="1512313612515" expanded="true" signature="4596:4734" ph="SELECT id, u... cliente" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controladores/loginController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="35" column="39" lean-forward="false" selection-start-line="35" selection-start-column="39" selection-end-line="35" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/incluciones/verificacionAdmin.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="12" column="38" lean-forward="false" selection-start-line="12" selection-start-column="38" selection-end-line="12" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vistas/admin-home.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/incluciones/verificacionUsuario.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/registroUsuarioValidacionController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="15" column="4" lean-forward="false" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controladores/registrarUsuarioController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-378">
+          <caret line="4" column="33" lean-forward="false" selection-start-line="4" selection-start-column="33" selection-end-line="4" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="13" column="35" lean-forward="true" selection-start-line="9" selection-start-column="4" selection-end-line="13" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vistas/registro-de-usuario.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="35" lean-forward="false" selection-start-line="7" selection-start-column="35" selection-end-line="7" selection-end-column="35" />
           <folding />
         </state>
       </provider>

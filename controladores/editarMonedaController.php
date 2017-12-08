@@ -5,7 +5,7 @@
  * Date: 24/10/17
  * Time: 22:17
  */
-include_once ('../incluciones/adminControlerVerificación.php');
+include_once('../incluciones/adminControlerVerificacion.php');
 include_once ('../clases/ConexionBDClass.php');
 include_once ('../clases/MonedaClass.php');
 

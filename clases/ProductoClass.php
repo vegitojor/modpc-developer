@@ -63,7 +63,7 @@ Class Producto{
         $this->proveedor = $proveedor;
         $this->marca = $marca;
         $this->sku = $sku;
-        $this->codProveedor = $peso;
+        $this->peso = $peso;
         $this->alto = $alto;
         $this->ancho = $ancho;
         $this->profundidad = $profundidad;
@@ -76,27 +76,32 @@ Class Producto{
                     alto_caja, ancho_caja, profundidad_caja, id_producto_ficha_tecnica)
                     VALUES (?,?,?,?,?, ?,?,?,?,?, ?,?,?,?,?, ?,?,?,?)";
 	    $stmt = mysqli_prepare($conexion, $consulta);
-	    mysqli_stmt_bind_param($stmt, "sdiississsiiisddddi",
+	    mysqli_stmt_bind_param($stmt, "sdiissiissiiisddddi",
             $this->descripcion,
             $this->precio,
             $this->mesesGarantia,
             $this->nuevo,
             $this->codFabricante,
+
             $this->modelo,
             $this->disponible,
             $this->codProveedor,
             $this->fotoProducto,
             $this->videoProducto,
+
             $this->categoria,
             $this->proveedor,
             $this->marca,
             $this->sku,
             $this->peso,
+
             $this->alto,
             $this->ancho,
             $this->profundidad,
             $this->idProductoFichaTecnica);
 	    mysqli_stmt_execute($stmt);
+
+
     }
 
 	public static function guardarFichaTecnica($conexion, $nombre,
@@ -281,6 +286,41 @@ Class Producto{
         //se obtiene el id autogenerado yse retorna el valor
         $id = mysqli_insert_id($conexion);
         return $id;
+    }
+
+    public static function cargarProductos($conexion){
+        $consulta = "SELECT p.id_producto AS id,
+                            p.descripcion,
+                            p.precio,
+                            p.meses_garantia AS mesesGarantia,
+                            p.nuevo,
+                            p.cod_fabricante AS codFabricante,
+                            p.modelo,
+                            p.disponible,
+                            p.cod_proveedor AS codProveedor,
+                            p.path_imagen AS imagen,
+                            p.path_video AS video,
+                            c.descripcion AS categoria,
+                            pr.nombre AS proveedor,
+                            m.descripcion AS  marca,
+                            p.peso_caja AS peso,
+                            p.alto_caja AS alto,
+                            p.ancho_caja AS ancho,
+                            p.profundidad_caja AS profundidad,
+                            p.id_producto_ficha_tecnica AS idProductoFichaTecnica
+                    FROM producto p 
+                    JOIN categoria c ON c.id_categoria = p.id_categoria
+                    JOIN proveedor pr ON pr.id_proveedor = p.id_proveedor
+                    JOIN marca m ON m.id_marca = p.id_marca";
+
+        $resultado = mysqli_query($conexion,$consulta);
+
+        $output = array();
+        while ($fila = mysqli_fetch_assoc($resultado)){
+            $output[] = $fila;
+        }
+
+        return $output;
     }
 }
 ?>

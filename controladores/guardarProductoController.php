@@ -6,20 +6,24 @@
  * Time: 23:35
  */
 
-include_once ('../incluciones/adminControlerVerificación.php');
+include_once('../incluciones/adminControlerVerificacion.php');
 include_once ('../clases/ConexionBDClass.php');
 include_once('../clases/ProductoClass.php');
 
-
+error_reporting('E_All' ^ 'E_NOTICE');
 //SE CAPTURAN LOS DATOS DEL AJAX
 $modelo = strip_tags($_POST['modelo']);
 $descripcion = strip_tags($_POST['descripcion']);
 $precio = strip_tags($_POST['precio']);
 $mesesGarantia = strip_tags($_POST['mesesGarantia']);
+$mesesGarantia = (int)$mesesGarantia;
 $sku = strip_tags($_POST['sku']);
 $proveedor = strip_tags($_POST['proveedor']);
+$proveedor = (int)$proveedor;
 $marca = strip_tags($_POST['marca']);
+$marca = (int)$marca;
 $categoria = strip_tags($_POST['categoria']);
+$categoria = (int)$categoria;
 $codigoFabricante = strip_tags($_POST['codigoFabricante']);
 $nuevo = $_POST['nuevo'];
 $disponible = $_POST['disponible'];
@@ -50,23 +54,7 @@ $campo18 = $_POST['campo18'];
 $campo19 = $_POST['campo19'];
 $campo20 = $_POST['campo20'];
 
-if(isset($_FILES['foto'])) {
-    echo "llego la foto";
-    die();
-}
-if(isset($_FILES['foto'])){
-    $foto = $_FILES['foto'];
-    //********SE PROCESA LA IMAGEN********************************
-    //se obtiene el nombre y extencion
-    $nombreFoto = $foto['name'];
-    $extencion = pathinfo($foto, PATHINFO_EXTENSION);
 
-    //defino la ruta de almacenamiento y muevo la imagen
-    $ruta = "resourses/imagen_producto/".$modelo."-".$nombreFoto.".".$extencion;
-    move_uploaded_file($foto['tmp_name'], "../".$ruta);
-}else{
-    $nombreFoto = null;
-}
 
 //$valor = number_format($valor, 2, '.','');
     $precio = number_format($precio, 2, '.','');
@@ -105,6 +93,24 @@ $idProductoFichaTecnica = Producto::guardarFichaTecnicaDelProducto(
                                         $campo19,
                                         $campo20, $conexion);
 //***************************************************************************
+
+if(isset($_FILES['foto'])){
+    $foto = $_FILES['foto'];
+    //********SE PROCESA LA IMAGEN********************************
+    //se obtiene el nombre y extencion
+    $nombreFoto = $foto['name'];
+    $extencion = pathinfo($nombreFoto, PATHINFO_EXTENSION);
+    $foto['name'] = $modelo ."-".$idProductoFichaTecnica. ".".$extencion;
+    $nombreFoto = $foto['name'];
+
+
+    //defino la ruta de almacenamiento y muevo la imagen
+    $ruta = "resourses/imagen_producto/".$nombreFoto;
+    move_uploaded_file($foto['tmp_name'], "../".$ruta);
+}else{
+    $nombreFoto = null;
+}
+
 //************SE INICIALIZA EL PRODUCTO Y SE PERSISTE*********************
 $id = null;
 $nuevoProducto = new Producto($id, $descripcion, $precio, $mesesGarantia, $nuevo, $codigoFabricante, $modelo,
@@ -112,7 +118,7 @@ $nuevoProducto = new Producto($id, $descripcion, $precio, $mesesGarantia, $nuevo
                             $marca, $sku, $peso, $alto, $ancho, $profundidad, $idProductoFichaTecnica);
 $nuevoProducto->persistirse($conexion);
 //**************************************************************************
-
 //**********RETORNAMOS UN MENSAJE************************
-$mensaje = ['respuesta'=>1,];
-echo json_encode($mensaje);
+
+
+header('location: ../vistas/cargar-producto.php');

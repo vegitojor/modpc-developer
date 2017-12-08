@@ -26,29 +26,31 @@ include_once ("../incluciones/verificacionAdmin.php");
         <?php include_once ("../incluciones/navegadorAdmin.php"); ?>
         <div class="w3-container w3-padding-32 w3-blue-gray" >
             <h1 class="w3-jumbo w3-margin-left">Productos</h1>
+            <button class="w3-btn w3-orange w3-hover-blue-gray w3-margin-left" ng-click="mostrarCargaProducto()"><span class="fa fa-plus"></span> Agregar un producto</button>
         </div>
 
         <!-- CARGA DE PRODUCTO -->
-        <div class="w3-content  w3-gray">
-            <div class="w3-card-4 w3-blue-gray ">
+        <div class="w3-content  w3-gray" ng-show="cargaProducto">
+            <div class="w3-card-4 w3-blue-gray " >
                 <header>
-                    <a href="" class="w3-button w3-right w3-margin"><span class="fa fa-remove"></span> </a>
-                    <a href="" class="w3-btn w3-orange w3-right w3-margin">Cargar desde archivo</a>
+                    <a href="" class="w3-button w3-right w3-margin" ng-click="cerrarCargaProducto()"><span class="fa fa-remove"></span> </a>
+                    <a  class="w3-btn w3-orange w3-right w3-margin"  ><span class="fa fa-upload"></span> Cargar desde archivo</a>
                     <h1 class="w3-margin-left">Carga de producto</h1>
+
                 </header>
-                <div class="w3-container w3-center w3-white">
-                    <form name="formularioProducto" enctype="multipart/form-data">
+                <div class="w3-container w3-center w3-white" >
+                    <form name="formularioProducto" action="../controladores/guardarProductoController.php" enctype="multipart/form-data" method="post">
                         <!-- Primer columna del formulario -->
                         <div class="w3-col l6 w3-padding">
                             <div class="w3-content">
-                                <input type="text" class="w3-input w3-hover-orange" name="modelo" ng-model="modelo" required>
+                                <input type="text" class="w3-input w3-hover-orange" name="modelo" ng-model="modelo" value="" required>
                                 <div ng-show="formularioProducto.$submitted || formularioProducto.modelo.$touched">
                                     <span class="w3-red" ng-show="formularioProducto.modelo.$error.required">El campo es obligatorio.</span>
                                 </div>
                                 <label for="">Modelo*</label>
                             </div>
                             <div class="w3-content">
-                                <input type="text" class="w3-input w3-hover-orange" name="descripcion" ng-model="descripcion" required>
+                                <input type="text" class="w3-input w3-hover-orange" name="descripcion" ng-model="descripcion" value="" required>
                                 <div ng-show="formularioProducto.$submitted || formularioProducto.descripcion.$touched">
                                     <span class="w3-red" ng-show="formularioProducto.descripcion.$error.required">El campo es obligatorio.</span>
                                 </div>
@@ -56,34 +58,34 @@ include_once ("../incluciones/verificacionAdmin.php");
                             </div>
                             <div class="w3-content  ">
                                 <div class="w3-col l4 w3-padding">
-                                    <input type="number" step="0.01" class="w3-input w3-hover-orange" name="precio" ng-model="precio" required>
+                                    <input type="number" step="0.01" class="w3-input w3-hover-orange" name="precio" ng-model="precio" value="" required>
                                     <div ng-show="formularioProducto.$submitted || formularioProducto.precio.$touched">
                                         <span class="w3-red" ng-show="formularioProducto.precio.$error.required">El campo es obligatorio.</span>
                                     </div>
-                                    <label for="">Precio*</label>
+                                    <label for="">Precio* (en dolar)</label>
                                 </div>
                                 <div class="w3-col l4 w3-padding">
-                                    <input type="text" class="w3-input w3-hover-orange" name="mesesGarantia" ng-model="mesesGarantia">
+                                    <input type="number" class="w3-input w3-hover-orange" min="1" max="12" name="mesesGarantia" >
                                     <label for="">Meses de garantia</label>
                                 </div>
                                 <div class="w3-col l4 w3-padding">
-                                    <input type="text" class="w3-input w3-hover-orange" name="codigoFabricante" ng-model="codigoFabricante">
+                                    <input type="text" class="w3-input w3-hover-orange" name="codigoFabricante" >
                                     <label for="">Código del fabricante</label>
                                 </div>
                             </div>
                             <div>
                                 <div class="w3-col l6 w3-padding">
-                                    <input type="checkbox" class="w3-check"  name="nuevo" ng-model="nuevo" value="1" checked>
+                                    <input type="checkbox" class="w3-check"  name="nuevo"  value="1" checked>
                                     <label>Producto nuevo</label>
                                 </div>
                                 <div class="w3-col l6 w3-padding">
-                                    <input type="checkbox" class="w3-check"  ng-model="disponible" name="disponible" value="true">
+                                    <input type="checkbox" class="w3-check"  name="disponible" value="1" checked>
                                     <label>Producto disponible para la venta</label>
                                 </div>
                             </div>
                             <div class="w3-content">
                                 <div class="w3-col l4 w3-padding">
-                                    <input type="text" class="w3-input w3-hover-orange" name="codigoProveedor" ng-model="codigoProveedor">
+                                    <input type="number" class="w3-input w3-hover-orange" name="codigoProveedor" ng-model="codigoProveedor">
                                     <label for="">Código del proveedor</label>
                                 </div>
                                 <div class="w3-col l8 w3-padding">
@@ -257,7 +259,8 @@ include_once ("../incluciones/verificacionAdmin.php");
 
                         </div>
                         <div class="w3-content w3-padding">
-                            <input type="submit" class="w3-margin-bottom w3-button w3-green w3-col l12 w3-center" ng-click="guardarProducto()" ng-disabled="formularioProducto.$invalid">
+                            <input type="submit" class="w3-margin-bottom w3-button w3-green w3-col l12 w3-center" >
+<!--                                   ng-click="guardarProducto()" ng-disabled="formularioProducto.$invalid">-->
                             <br>
                             <br>
                         </div>
@@ -269,6 +272,50 @@ include_once ("../incluciones/verificacionAdmin.php");
         </div><!-- fin de carga de producto -->
         <br>
         <br>
+        <div class="w3-container" ng-init="listarProductos()">
+            <table class="w3-table w3-striped w3-bordered w3">
+                <thead>
+                    <tr class="w3-green">
+                        <th>Modelo</th>
+                        <th>Marca</th>
+                        <th>Descripción</th>
+                        <th>Precio</th>
+                        <th>Código proveedor</th>
+                        <th>Proveedor</th>
+                        <th>Categoría</th>
+                        <th>Nuevo</th>
+                        <th>Disponible</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="producto in productos">
+                        <td>{{producto.modelo}}</td>
+                        <td>{{producto.marca}}</td>
+                        <td>{{producto.descripcion}}</td>
+                        <td>{{producto.precio}}</td>
+                        <td>{{producto.codProveedor}}</td>
+                        <td>{{producto.proveedor}}</td>
+                        <td>{{producto.categoria}}</td>
+                        <td>
+                            <span ng-show="{{producto.nuevo}}">Si</span>
+                            <span ng-hide="{{producto.nuevo}}">No</span>
+                        </td>
+                        <td>
+                            <span class="fa fa-check-circle w3-green w3-xlarge" ng-show="{{producto.disponible}}"></span>
+                            <span class="fa fa-warning w3-red w3-xlarge" ng-hide="{{producto.disponible}}"></span>
+                        </td >
+                        <td>
 
+                        </td>
+
+                    </tr>
+                </tbody>
+            </table>
+            <div class="w3-bar w3-border w3-round  ">
+                <a href="" class="w3-button" >&#10094; Previous</a>
+                <a href="" class="w3-button w3-right">Next &#10095;</a>
+            </div>
+        </div>
     </body>
 </html>

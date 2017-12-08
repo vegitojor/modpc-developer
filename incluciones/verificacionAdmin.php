@@ -10,7 +10,7 @@
 session_start();
 if(isset($_SESSION['usuario'])){
     if($_SESSION['usuario']['admin'] == 1){
-        $id = $_SESSION['usuario']['admin'];
+        $id = $_SESSION['usuario']['id'];
         $username = $_SESSION['usuario']['username'];
     }else{
         header('location: ../index.php');

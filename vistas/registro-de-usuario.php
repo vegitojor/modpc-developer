@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-	
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
 	<link rel="stylesheet" type="text/css" href="../librerias/bootstrap/css/bt.css">
 	<script type="text/javascript" src="../librerias/jquery/jquery-3.2.1.js"></script>
 	<script type="text/javascript" src="../librerias/bootstrap/js/bootstrap.js"></script>
@@ -20,13 +24,13 @@
 <body ng-app="registroUsuario">
 
 <div class="content">
-	<div class="jumbotron col-md-12 text-center">
+	<div class="jumbotron col-md-12 col-sm-12 text-center">
 		<h1>REGISTRO DE USUARIOS</h1>
 	</div>
-	<div ng-controller="formularioRegistro">
-		<form name="registroUsuario" role="form" class="col-md-12 col-sm-12" novalidate>
-			<div class="row vdivide">
-				<div class="col-md-5">
+	<div ng-controller="formularioRegistro" class="container">
+		<form name="registroUsuario" role="form" class="col-md-12" novalidate>
+			<div class="row divide">
+				<div class="col-md-6">
 					<input type="hidden" id="admin" name="admin" value=0 ng-model="admin">
 					<div class="form-group ">						
 					    <label for="usuario">Ingrese su nombre de usuario</label>
@@ -58,11 +62,13 @@
 					</div>
 					<div class="form-group">
 					    <label for="fechaNacimiento">Ingrese su fecha de Nacimiento</label>
-					    <input type="date" class="form-control" id="fechaNacimiento" name="fechaNacimiento" placeholder="Introduzca su fecha de nacimiento" ng-model="fechaNacimiento" ng-model-option="{updateOn: 'blur'}" >
-					    
+					    <input type="date" class="form-control" id="fechaNacimiento" name="fechaNacimiento" placeholder="Introduzca su fecha de nacimiento" ng-model="fechaNacimiento" ng-model-option="{updateOn: 'blur'}" required>
+                        <div  ng-show="registroUsuario.$submitted || registroUsuario.fechaNacimiento.$touched">
+                            <span class="text-danger" ng-show="registroUsuario.fechaNacimiento.$error.required">El campo es obligatorio.</span>
+                        </div>
 					</div>
 				</div>
-				<div class="col-md-5">
+				<div class="col-md-6">
 					<div class="form-group">
 					    <label for="email">Ingrese su e-mail</label>
 					    <input type="email" class="form-control" id="email" name="email" placeholder="Introduzca su e-mail" ng-model="email" ng-model-option="{updateOn: 'blur'} " required>

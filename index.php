@@ -1,35 +1,6 @@
 <?php 
 
-session_start();
-if(isset($_SESSION['usuario'])){
-    $id = $_SESSION['usuario']['id'];
-    $username = $_SESSION['usuario']['username'];
-    $email = $_SESSION['usuario']['email'];
-    $pass = $_SESSION['usuario']['pass'];
-    $telefono = $_SESSION['usuario']['telefono'];
-    $nombre = $_SESSION['usuario']['nombre'];
-    $apellido = $_SESSION['usuario']['apellido'];
-    $codPostal = $_SESSION['usuario']['codPostal'];
-    $domicilio = $_SESSION['usuario']['domicilio'];
-    $admin = $_SESSION['usuario']['admin'];
-    $fechaNacimiento = $_SESSION['usuario']['fechaNacimiento'];
-    $idLocalidad = $_SESSION['usuario']['idLocalidad'];
-}else{
-    session_destroy();
-    $id = null;
-    $username = null;
-    $email = null;
-    $pass = null;
-    $telefono = null;
-    $nombre = null;
-    $apellido = null;
-    $codPostal = null;
-    $domicilio = null;
-    $admin = null;
-    $fechaNacimiento = null;
-    $idLocalidad = null;
-}
-
+include_once ('incluciones/verificacionUsuario.php');
 ?>
 <!DOCTYPE html>
 <html lang="en" ng-app="">
