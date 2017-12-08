@@ -7,6 +7,9 @@
     <meta name="description" content="">
     <meta name="author" content="">
 	<link rel="stylesheet" type="text/css" href="../librerias/bootstrap/css/bt.css">
+
+	<link rel="stylesheet" type="tegit xt/css" href="../librerias/bootstrap/css/bt.css">
+
 	<script type="text/javascript" src="../librerias/jquery/jquery-3.2.1.js"></script>
 	<script type="text/javascript" src="../librerias/bootstrap/js/bootstrap.js"></script>
 
