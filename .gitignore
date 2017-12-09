@@ -44,7 +44,7 @@ local.properties
 .buildpath
 
 # phpstorm
-.idea/
+.idea/*
 
 # textmate
 *.tmproj
