@@ -2,47 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="70ac6842-265e-417b-9d76-e2a2567216a3" name="Default" comment="se esta realizando el armado de vistas admin.">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/base de datos/2017_12_17_modificacion_tabla_moneda" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/base de datos/2017_12_23_modificacion_producto_peso.sql" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/controladores/usuario/cargarMonedaController.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/controladores/usuario/listarCategoriasController.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/controladores/usuario/listarProductosActivosPorCategoria.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/controladores/usuario/traerCategoria.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/controladores/usuario/valorarProductoController.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/incluciones/headAdmin.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/incluciones/headCategoria.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/categoriaController.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/indexController.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/indexModulo.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/librerias/angular-video/anguvideo.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/librerias/angular-video/controller.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/librerias/bootbox/bootbox.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vistas/categoria.php" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/incluciones/navegadorCliente.php" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modpc.iml" afterPath="$PROJECT_DIR$/.idea/modpc.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/base de datos/2017_12_9_modificacion_producto_se_agrega_destacado" afterPath="$PROJECT_DIR$/base de datos/2017_12_9_modificacion_producto_se_agrega_destacado" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/clases/CategoriaClass.php" afterPath="$PROJECT_DIR$/clases/CategoriaClass.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/clases/MonedaClass.php" afterPath="$PROJECT_DIR$/clases/MonedaClass.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/clases/ProductoClass.php" afterPath="$PROJECT_DIR$/clases/ProductoClass.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controladores/cargarFichaTecnicaController.php" afterPath="$PROJECT_DIR$/controladores/cargarFichaTecnicaController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controladores/guardarProductoController.php" afterPath="$PROJECT_DIR$/controladores/guardarProductoController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/incluciones/adminControlerVerificacion.php" afterPath="$PROJECT_DIR$/incluciones/adminControlerVerificacion.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/incluciones/head.php" afterPath="$PROJECT_DIR$/incluciones/head.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/incluciones/verificacionUsuario.php" afterPath="$PROJECT_DIR$/incluciones/verificacionUsuario.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/librerias/template/css/shop-homepage.css" afterPath="$PROJECT_DIR$/librerias/template/css/shop-homepage.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vistas/admin-home.php" afterPath="$PROJECT_DIR$/vistas/admin-home.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vistas/cargar-categoria.php" afterPath="$PROJECT_DIR$/vistas/cargar-categoria.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vistas/cargar-fichatecnica.php" afterPath="$PROJECT_DIR$/vistas/cargar-fichatecnica.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vistas/cargar-marca.php" afterPath="$PROJECT_DIR$/vistas/cargar-marca.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vistas/cargar-moneda.php" afterPath="$PROJECT_DIR$/vistas/cargar-moneda.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vistas/cargar-producto.php" afterPath="$PROJECT_DIR$/vistas/cargar-producto.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vistas/cargar-proveedor.php" afterPath="$PROJECT_DIR$/vistas/cargar-proveedor.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vistas/editar-marca.php" afterPath="$PROJECT_DIR$/vistas/editar-marca.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vistas/editar-moneda.php" afterPath="$PROJECT_DIR$/vistas/editar-moneda.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vistas/editar-proveedor.php" afterPath="$PROJECT_DIR$/vistas/editar-proveedor.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vistas/login.php" afterPath="$PROJECT_DIR$/vistas/login.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -70,17 +30,17 @@
       <file leaf-file-name="categoria.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/vistas/categoria.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
+            <state relative-caret-position="4403">
               <caret line="264" column="141" lean-forward="false" selection-start-line="264" selection-start-column="141" selection-end-line="264" selection-end-column="141" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="shop-homepage.css" pinned="false" current-in-tab="false">
+      <file leaf-file-name="shop-homepage.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/librerias/template/css/shop-homepage.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="313">
+            <state relative-caret-position="169">
               <caret line="58" column="18" lean-forward="false" selection-start-line="58" selection-start-column="18" selection-end-line="58" selection-end-column="18" />
               <folding />
             </state>
@@ -97,11 +57,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="categoriaController.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="categoriaController.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/categoriaController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="38">
-              <caret line="54" column="4" lean-forward="true" selection-start-line="54" selection-start-column="4" selection-end-line="54" selection-end-column="4" />
+            <state relative-caret-position="918">
+              <caret line="54" column="4" lean-forward="false" selection-start-line="54" selection-start-column="4" selection-end-line="54" selection-end-column="4" />
               <folding />
             </state>
           </provider>
@@ -110,7 +70,7 @@
       <file leaf-file-name="valorarProductoController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/controladores/usuario/valorarProductoController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="293">
+            <state relative-caret-position="306">
               <caret line="23" column="24" lean-forward="false" selection-start-line="23" selection-start-column="24" selection-end-line="23" selection-end-column="24" />
               <folding />
             </state>
@@ -162,7 +122,7 @@
       <file leaf-file-name="ProductoClass.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/clases/ProductoClass.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="446">
+            <state relative-caret-position="6732">
               <caret line="396" column="42" lean-forward="false" selection-start-line="396" selection-start-column="42" selection-end-line="396" selection-end-column="42" />
               <folding>
                 <marker date="1514495898252" expanded="true" signature="2180:2973" ph="INSERT INTO producto... " />
@@ -308,7 +268,7 @@
       <path value="/usr/share/php" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="y" value="-4" />
     <option name="width" value="1366" />
     <option name="height" value="772" />
@@ -510,6 +470,8 @@
       <workItem from="1514321293373" duration="5839000" />
       <workItem from="1514419222969" duration="3198000" />
       <workItem from="1514490334871" duration="7757000" />
+      <workItem from="1514941913176" duration="719000" />
+      <workItem from="1515014327147" duration="16000" />
     </task>
     <servers />
   </component>
@@ -519,19 +481,19 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="433711000" />
+    <option name="totallyTimeSpent" value="434446000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="-4" width="1366" height="772" extended-state="6" />
+    <frame x="0" y="-4" width="1368" height="780" extended-state="7" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24320242" sideWeight="0.49459043" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25075528" sideWeight="0.49459043" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32882884" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32970452" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22256568" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22256568" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3308157" sideWeight="0.5054096" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.41576508" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -756,7 +718,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -813,7 +774,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="493">
           <caret line="34" column="34" lean-forward="false" selection-start-line="34" selection-start-column="34" selection-end-line="34" selection-end-column="34" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -915,17 +875,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controladores/usuario/valorarProductoController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="293">
-          <caret line="23" column="24" lean-forward="false" selection-start-line="23" selection-start-column="24" selection-end-line="23" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/clases/ProductoClass.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="446">
+        <state relative-caret-position="6732">
           <caret line="396" column="42" lean-forward="false" selection-start-line="396" selection-start-column="42" selection-end-line="396" selection-end-column="42" />
           <folding>
             <marker date="1514495898252" expanded="true" signature="2180:2973" ph="INSERT INTO producto... " />
@@ -942,17 +894,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/librerias/template/css/shop-homepage.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="313">
-          <caret line="58" column="18" lean-forward="false" selection-start-line="58" selection-start-column="18" selection-end-line="58" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vistas/categoria.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
+        <state relative-caret-position="4403">
           <caret line="264" column="141" lean-forward="false" selection-start-line="264" selection-start-column="141" selection-end-line="264" selection-end-column="141" />
           <folding />
         </state>
@@ -960,8 +904,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/categoriaController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="54" column="4" lean-forward="true" selection-start-line="54" selection-start-column="4" selection-end-line="54" selection-end-column="4" />
+        <state relative-caret-position="918">
+          <caret line="54" column="4" lean-forward="false" selection-start-line="54" selection-start-column="4" selection-end-line="54" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controladores/usuario/valorarProductoController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="23" column="24" lean-forward="false" selection-start-line="23" selection-start-column="24" selection-end-line="23" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/librerias/template/css/shop-homepage.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="169">
+          <caret line="58" column="18" lean-forward="false" selection-start-line="58" selection-start-column="18" selection-end-line="58" selection-end-column="18" />
           <folding />
         </state>
       </provider>
