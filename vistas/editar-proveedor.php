@@ -14,7 +14,7 @@ $id = (int)$id;
 <!DOCTYPE html>
 <html>
     <haed>
-        <?php include_once ('../incluciones/head.php');?>
+        <?php include_once ('../incluciones/headAdmin.php');?>
         <script type="text/javascript" src="../js/adminModule.js"></script>
         <script typt="text/javascript" src="../js/editarProveedorController.js"></script>
         <script typt="text/javascript" src="../js/editarRedireccionarController.js"></script>

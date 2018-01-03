@@ -74,4 +74,15 @@ class Moneda
                                                     $this->id);
         mysqli_stmt_execute($stmt);
     }
+
+    public static function traerMonedaActiva($conexion){
+        $consulta = "SELECT  id_moneda AS id,
+                        descripcion,
+                        valor_en_peso AS valor
+                    FROM moneda 
+                    WHERE activo = 1";
+        $respuesta = mysqli_query($conexion, $consulta);
+        $output = mysqli_fetch_assoc($respuesta);
+        return $output;
+    }
 }

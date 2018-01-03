@@ -3,16 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-	
-	<link rel="stylesheet" href="../css/w3.css">
-
-	<!-- Angular -->
-	<script type="text/javascript" src="../librerias/angularjs/angular.min.js"></script>
+	<?php include_once ('../incluciones/headAdmin.php'); ?>
 	<!-- modulo angular -->
 	<script type="text/javascript" src="../js/loginValidacion.js"></script>
 	<!-- controlador angular -->

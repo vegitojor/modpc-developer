@@ -15,7 +15,7 @@ if(isset($_SESSION['usuario'])){
     $admin = $_SESSION['usuario']['admin'];
 }else{
     session_destroy();
-    $id = null;
+    $id = 0;
     $username = null;
     $email = null;
     $nombre = null;

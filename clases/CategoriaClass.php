@@ -28,6 +28,20 @@ class Categoria
         mysqli_stmt_execute($stmt);
     }
 
+    public function traerNombreCategoria($conexion){
+        $consulta = "SELECT descripcion
+                    FROM categoria
+                    WHERE categoria.id_categoria = ?";
+
+        $stmt = mysqli_prepare($conexion, $consulta);
+        mysqli_stmt_bind_param($stmt, 'i', $this->id);
+        mysqli_stmt_execute($stmt);
+
+        $resultado = mysqli_fetch_assoc(mysqli_stmt_get_result($stmt));
+
+        return $resultado;
+    }
+
     public static function listarCategorias($conexion){
         $consulta = "SELECT id_categoria id,
                         descripcion

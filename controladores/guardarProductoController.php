@@ -32,7 +32,7 @@ $video = strip_tags($_POST['video']);
 $alto = $_POST['alto'];
 $ancho = $_POST['ancho'];
 $profundidad = $_POST['profundidad'];
-$peso = $_POST['peso'];
+$peso = strip_tags($_POST['peso']);
 $campo01 = $_POST['campo01'];
 $campo02 = $_POST['campo02'];
 $campo03 = $_POST['campo03'];
@@ -93,22 +93,25 @@ $idProductoFichaTecnica = Producto::guardarFichaTecnicaDelProducto(
                                         $campo19,
                                         $campo20, $conexion);
 //***************************************************************************
+$foto = $_FILES['foto'];
 
-if(isset($_FILES['foto'])){
-    $foto = $_FILES['foto'];
+if(!empty($foto['name'])){
     //********SE PROCESA LA IMAGEN********************************
     //se obtiene el nombre y extencion
     $nombreFoto = $foto['name'];
     $extencion = pathinfo($nombreFoto, PATHINFO_EXTENSION);
-    $foto['name'] = $modelo ."-".$idProductoFichaTecnica. ".".$extencion;
-    $nombreFoto = $foto['name'];
 
+    if($extencion != null || $extencion != ""){
+        $nombreFoto = $sku ."-".$idProductoFichaTecnica. ".".$extencion;
+        //defino la ruta de almacenamiento y muevo la imagen
+        $ruta = "resourses/imagen_producto/".$nombreFoto;
+        @move_uploaded_file($foto['tmp_name'], "../".$ruta);
+    }else{
+        $nombreFoto = "<--NoFoto-->";
+    }
 
-    //defino la ruta de almacenamiento y muevo la imagen
-    $ruta = "resourses/imagen_producto/".$nombreFoto;
-    move_uploaded_file($foto['tmp_name'], "../".$ruta);
 }else{
-    $nombreFoto = null;
+    $nombreFoto = "<--NoFoto-->";
 }
 
 //************SE INICIALIZA EL PRODUCTO Y SE PERSISTE*********************
@@ -116,9 +119,9 @@ $id = null;
 $nuevoProducto = new Producto($id, $descripcion, $precio, $mesesGarantia, $nuevo, $codigoFabricante, $modelo,
                             $disponible, $codigoProveedor, $nombreFoto, $video, $categoria, $proveedor,
                             $marca, $sku, $peso, $alto, $ancho, $profundidad, $idProductoFichaTecnica);
+
 $nuevoProducto->persistirse($conexion);
 //**************************************************************************
-//**********RETORNAMOS UN MENSAJE************************
 
 
 header('location: ../vistas/cargar-producto.php');

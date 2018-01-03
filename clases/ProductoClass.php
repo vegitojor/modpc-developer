@@ -71,9 +71,28 @@ Class Producto{
     }
 
     public function persistirse($conexion){
-	    $consulta = "INSERT INTO producto (descripcion, precio, meses_garantia, nuevo, cod_fabricante, modelo, disponible,
-                    cod_proveedor, path_imagen, path_video, id_categoria, id_proveedor, id_marca, codigo_sku, peso_caja,
-                    alto_caja, ancho_caja, profundidad_caja, id_producto_ficha_tecnica)
+	    $consulta = "INSERT INTO producto (descripcion, 
+                      precio, 
+                      meses_garantia, 
+                      nuevo, 
+                      cod_fabricante, 
+                      
+                      modelo, 
+                      disponible,
+                    cod_proveedor, 
+                    path_imagen, 
+                    path_video,
+                     
+                    id_categoria, 
+                    id_proveedor, 
+                    id_marca, 
+                    codigo_sku, 
+                    peso_caja,
+                    
+                    alto_caja, 
+                    ancho_caja, 
+                    profundidad_caja, 
+                    id_producto_ficha_tecnica)
                     VALUES (?,?,?,?,?, ?,?,?,?,?, ?,?,?,?,?, ?,?,?,?)";
 	    $stmt = mysqli_prepare($conexion, $consulta);
 	    mysqli_stmt_bind_param($stmt, "sdiissiissiiisddddi",
@@ -301,6 +320,7 @@ Class Producto{
                             p.path_imagen AS imagen,
                             p.path_video AS video,
                             c.descripcion AS categoria,
+                            p.codigo_sku AS sku,
                             pr.nombre AS proveedor,
                             m.descripcion AS  marca,
                             p.peso_caja AS peso,
@@ -320,6 +340,83 @@ Class Producto{
             $output[] = $fila;
         }
 
+        return $output;
+    }
+
+    public static function listarProductosDisponiblesPorIdCategoria($conexion, $idCategoria){
+        $consulta = "SELECT p.id_producto AS id,
+                            p.descripcion,
+                            p.precio,
+                            p.meses_garantia AS mesesGarantia,
+                            p.nuevo,
+                            p.cod_fabricante AS codFabricante,
+                            p.modelo,
+                            p.codigo_sku AS sku,
+                            p.disponible,
+                            p.cod_proveedor AS codProveedor,
+                            p.path_imagen AS imagen,
+                            p.path_video AS video,
+                            c.descripcion AS categoria,
+                            pr.nombre AS proveedor,
+                            m.descripcion AS  marca,
+                            p.peso_caja AS peso,
+                            p.alto_caja AS alto,
+                            p.ancho_caja AS ancho,
+                            p.profundidad_caja AS profundidad,
+                            p.id_producto_ficha_tecnica AS idProductoFichaTecnica,
+                            COUNT(vp.producto_id_producto) AS valoracion,
+                            pft.campo01,
+                            pft.campo02,
+                            pft.campo03,
+                            pft.campo04,
+                            pft.campo05,
+                            pft.campo06,
+                            pft.campo07,
+                            pft.campo08,
+                            pft.campo09,
+                            pft.campo10,
+                            pft.campo11,
+                            pft.campo12,
+                            pft.campo13,
+                            pft.campo14,
+                            pft.campo15,
+                            pft.campo16,
+                            pft.campo17,
+                            pft.campo18,
+                            pft.campo19,
+                            pft.campo20
+                    FROM producto p 
+                    LEFT JOIN categoria c ON c.id_categoria = p.id_categoria
+                    LEFT JOIN proveedor pr ON pr.id_proveedor = p.id_proveedor
+                    LEFT JOIN marca m ON m.id_marca = p.id_marca
+                    LEFT JOIN valoracion_producto vp ON vp.producto_id_producto = p.id_producto
+                    LEFT JOIN producto_ficha_tecnica pft ON pft.id_producto_ficha_tecnica = p.id_producto_ficha_tecnica
+                    WHERE p.disponible = 1
+                    AND p.id_categoria = ?
+                    GROUP BY vp.producto_id_producto, p.id_producto
+                    ORDER BY p.descripcion";
+
+        $stmt = mysqli_prepare($conexion, $consulta);
+        mysqli_stmt_bind_param($stmt,'i', $idCategoria);
+        mysqli_stmt_execute($stmt);
+        $resultado = mysqli_stmt_get_result($stmt);
+        $output = array();
+        while ($fila = mysqli_fetch_assoc($resultado)){
+            $fila['descripcion'] = utf8_encode($fila['descripcion']);
+            $output[] = $fila;
+        }
+        return $output;
+    }
+
+    public static function valorarProducto($conexion, $idUsuario, $idProducto){
+        $consulta = "INSERT INTO valoracion_producto (producto_id_producto, id_cliente)
+                      VALUES (?, ?)";
+
+        $stmt = mysqli_prepare($conexion, $consulta);
+        mysqli_stmt_bind_param($stmt, 'ii', $idProducto, $idUsuario);
+        mysqli_stmt_execute($stmt);
+
+        $output = mysqli_stmt_affected_rows($stmt);
         return $output;
     }
 }

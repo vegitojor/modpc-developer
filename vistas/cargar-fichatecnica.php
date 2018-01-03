@@ -11,7 +11,7 @@ include_once ('../incluciones/verificacionAdmin.php');
 <!DOCTYPE html>
 <html>
 <head>
-    <?php include_once ('../incluciones/head.php'); ?>
+    <?php include_once ('../incluciones/headAdmin.php'); ?>
     <!-- Modulo Angular -->
     <script type="text/javascript" src="../js/adminModule.js"></script>
     <!-- Controller Angular -->

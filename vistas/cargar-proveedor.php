@@ -14,7 +14,7 @@ include_once ("../incluciones/verificacionAdmin.php");
 <html >
 <head>
 
-    <?php include_once ('../incluciones/head.php');?>
+    <?php include_once ('../incluciones/headAdmin.php');?>
 
     <!-- Module -->
     <script type="text/javascript" src="../js/adminModule.js"></script>

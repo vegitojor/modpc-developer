@@ -3,7 +3,7 @@
 include_once ('incluciones/verificacionUsuario.php');
 ?>
 <!DOCTYPE html>
-<html lang="en" ng-app="">
+<html lang="es" >
 
 <head>
 
@@ -23,6 +23,9 @@ include_once ('incluciones/verificacionUsuario.php');
 
     <!-- Angular JS -->
     <script type="text/javascript" src="librerias/angularjs/angular.min.js"></script>
+    <script type="text/javascript" src="js/indexModulo.js"></script>
+    <script type="text/javascript" src="js/indexController.js"></script>
+
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -33,10 +36,54 @@ include_once ('incluciones/verificacionUsuario.php');
 
 </head>
 
-<body>
-    
+<body ng-app="index" ng-controller="indexController">
     <!-- Navigation -->
-    <?php include_once ('incluciones/navegadorCliente.php'); ?>
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Mod PC</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li >
+                        <a href="#">About</a>
+                    </li>
+                    <li >
+                        <a href="#">Services</a>
+                    </li>
+                    <li >
+                        <a href="#">Contact</a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav pull-right " ng-hide="<?= $id ?>">
+
+                    <li >
+                        <a href="vistas/registro-de-usuario.php">registrarse</a>
+                    </li>
+                    <li>
+                        <a href="vistas/login.php">Ingresar</a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav pull-right " ng-show="<?= $id ?>">
+                    <li>
+                        <a href="controladores/cerrarSesionController.php">Salir</a>
+                    </li>
+                    <li>
+                        <a href=""><?= $username ?></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- /.container -->
+    </nav>
 
     <!-- Page Content -->
     <div class="container">
@@ -45,10 +92,9 @@ include_once ('incluciones/verificacionUsuario.php');
 
             <div class="col-md-3">
                 <p class="lead">Categorias:</p>
-                <div class="list-group">
-                    <a href="#" class="list-group-item">Category 1</a>
-                    <a href="#" class="list-group-item">Category 2</a>
-                    <a href="#" class="list-group-item">Category 3</a>
+                <div class="list-group" ng-init="listarCategorias()">
+                    <a ng-repeat="categoria in categorias" href="vistas/categoria.php?id={{categoria.id}}" class="list-group-item" >{{categoria.descripcion}}</a>
+
                 </div>
             </div>
 
