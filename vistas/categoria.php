@@ -242,7 +242,7 @@ $idCategoria = $_GET['id'];
         <div class="col-md-9">
 
             <div class="row" ng-init="listarproductosPorCategoria(<?= $idCategoria; ?>)">
-                <div class="jumbotron">
+                <div class="jumbotron ">
                     <h1 ng-init="traerCategoria(<?= $idCategoria ?>)">{{categoria.descripcion}}</h1>
                 </div>
                 <div class="col-sm-4 col-lg-4 col-md-4" ng-repeat="producto in productos">
@@ -265,6 +265,9 @@ $idCategoria = $_GET['id'];
                             <p>Valora este producto <a class="" href="" ng-click="valorarProducto(<?= $id; ?>, producto.id, <?= $idCategoria ?>)">aqui</a>.</p>
                         </div>
                     </div>
+
+
+
                     <!-- Modal para previzualizar productos -->
                     <div id="id{{producto.id}}" class="modal fade" role="dialog">
                         <div class="modal-dialog modal-lg">
@@ -292,9 +295,9 @@ $idCategoria = $_GET['id'];
                                             <p>C&oacute;digo SKU: <strong>{{producto.sku}}</strong></p>
                                             <p>Meses de garant&iacute;a: <strong>{{producto.mesesGarantia}}</strong></p>
                                             <div>
-                                                <button class="btn btn-primary btn-lg btn-block" data-toggle="tab" href="#pregunta{{producto.id}}" ng-click="mostrarPregunta()"><i class="fa fa-send"></i> Preguntar al vendedor</button>
+                                                <button class="btn btn-primary btn-lg btn-block" ng-click="enviarPregunta(<?= $id ?>, producto.id)"><i class="fa fa-send"></i> Preguntar al vendedor</button>
                                                 <button class="btn btn-warning btn-lg btn-block" ng-disabled="<?= $id ?> == 0">Agregar al carrito</button>
-                                                <span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Se requiere estar logueado para esta función."></span>
+                                                <span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Se requiere estar iniciar sesión para esta función."></span>
                                             </div>
                                         </div>
                                     </div>
@@ -304,7 +307,7 @@ $idCategoria = $_GET['id'];
                                         <ul class="nav nav-tabs nav-justified">
                                             <li class="active"><a data-toggle="tab" href="#ficha{{producto.id}}" >Ficha T&eacute;cnica</a></li>
                                             <li><a  data-toggle="tab" href="#video{{producto.id}}" >Video</a></li>
-                                            <li><a  data-toggle="tab" href="#pregunta{{producto.id}}" >Preguntas</a></li>
+                                            <li><a  data-toggle="tab" href="#pregunta{{producto.id}}" ng-click="listarPreguntas(producto.id)">Preguntas</a></li>
                                         </ul>
                                         <div class="tab-content" >
                                             <div class="tab-pane fade in active" id="ficha{{producto.id}}" role="tabpanel">
@@ -401,7 +404,6 @@ $idCategoria = $_GET['id'];
                                             </div>
                                             <div class="tab-pane fade" id="video{{producto.id}}" role="tabpanel">
                                                 <div class="content embed-responsive embed-responsive-16by9" ng-show="{{producto.video != ''}}">
-<!--                                                    <iframe class="embed-responsive-item" ng-src="{{producto.video}}" frameborder="0" allowfullscreen></iframe>-->
                                                     <anguvideo  ng-model="producto.video" width="100%" height="100%"></anguvideo>
                                                 </div>
                                                 <div ng-hide="{{producto.video != ''}}">
@@ -411,21 +413,16 @@ $idCategoria = $_GET['id'];
                                             </div>
                                             <div class="tab-pane fade" id="pregunta{{producto.id}}" role="tabpanel">
                                                 <br>
-                                                <button class="btn btn-primary center-block" ng-click="mostrarPregunta()" ng-hide="formularioPregunta"><span class="glyphicon glyphicon-plus" ></span> Nueva pregunta</button>
-                                                <br ng-hide="formularioPregunta">
-                                                <div name="formularioPregunta" ng-show="formularioPregunta">
-                                                    <form >
-                                                        <br>
-
-                                                        <div class="form-group">
-                                                            <label for="pregunta">Consulte cualquier duda que el producto le pudo generar:</label>
-                                                            <textarea id="pregunta" name="pregunta" ng-model="pregunta" class="form-control" rows="2" placeholder="Escriba su pregunta."></textarea>
-                                                        </div>
-                                                        <input type="button" class="btn btn-danger pull-right" value="Cancelar" ng-click="ocultarPregunta()">
-                                                        <input type="button" class="btn btn-success pull-right" value="Enviar Pregunta">
-                                                    </form>
+                                                <br>
+                                                <div>
+                                                    <!-- Aca van las iteraciones con las preguntas y respuestas -->
+                                                   <div class="panel panel-default" ng-repeat="preg in preguntas">
+                                                     <div class="panel-body">{{preg.pregunta}} - ({{preg.fecha}})</div>
+                                                     <div class="panel-footer" ng-show="preg.respuesta">
+                                                         {{preg.respuesta}} - ({{preg.fechaRespuesta}})
+                                                      </div>
+                                                   </div>
                                                 </div>
-                                                <div></div>
                                             </div>
                                         </div>
                                     </div>

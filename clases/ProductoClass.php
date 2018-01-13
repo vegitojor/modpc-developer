@@ -419,5 +419,40 @@ Class Producto{
         $output = mysqli_stmt_affected_rows($stmt);
         return $output;
     }
+
+    public static function guardarPregunta($conexion, $pregunta, $respondida, $idUsuario, $idProducto, $fecha){
+      $consulta = "INSERT INTO pregunta (pregunta, respondida, id_cliente, id_producto, fecha)
+                     VALUES (?,?,?,?,?)";
+
+      $stmt = mysqli_prepare($conexion, $consulta);
+      mysqli_stmt_bind_param($stmt, 'siiis', $pregunta, $respondida, $idUsuario, $idProducto, $fecha);
+      mysqli_stmt_execute($stmt);
+
+      $output = mysqli_stmt_affected_rows($stmt);
+      return $output;
+    }
+
+    public static function listarPreguntasYRespuestas($conexion, $idProducto){
+      $consulta = "SELECT p.pregunta,
+                           p.fecha,
+                           r.respuesta,
+                           r.fecha_respuesta AS fechaRespuesta
+                  FROM pregunta p LEFT JOIN respuesta r ON p.id_pregunta = r.pregunta_id_pregunta
+                  WHERE p.id_producto = ?
+                  ORDER BY p.fecha DESC";
+
+      $stmt = mysqli_prepare($conexion, $consulta);
+      mysqli_stmt_bind_param($stmt, 'i', $idProducto);
+      mysqli_stmt_execute($stmt);
+      $resultado = mysqli_stmt_get_result($stmt);
+      $output = array();
+      while ($fila = mysqli_fetch_assoc($resultado)){
+         $fila['pregunta'] = utf8_encode($fila['pregunta']);
+         $fila['respuesta'] = utf8_encode($fila['respuesta']);
+         $output[] = $fila;
+      }
+      return $output;
+
+    } 
 }
 ?>

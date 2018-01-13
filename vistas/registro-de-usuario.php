@@ -27,7 +27,7 @@
 <body ng-app="registroUsuario">
 
 <div class="content">
-	<div class="jumbotron col-md-12 col-sm-12 text-center">
+	<div class="jumbotron col-md-12 col-sm-12 text-center ">
 		<h1>REGISTRO DE USUARIOS</h1>
 	</div>
 	<div ng-controller="formularioRegistro" class="container">

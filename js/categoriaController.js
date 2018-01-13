@@ -1,4 +1,7 @@
-app.controller("categoriaController", function ($scope, $http, $sce) {
+app.controller("categoriaController", function ($scope, $http, $sce, $filter) {
+   
+   $scope.preguntas;
+
    $scope.listarCategorias = function () {
        $http.post('../controladores/usuario/listarCategoriasController.php')
            .success(function (response) {
@@ -51,11 +54,11 @@ app.controller("categoriaController", function ($scope, $http, $sce) {
 
    $scope.mostrarPregunta = function () {
        $scope.formularioPregunta = true;
-       console.log($scope.formularioPregunta);
    }
 
    $scope.ocultarPregunta = function () {
        $scope.formularioPregunta = false;
+
    }
    
    $scope.valorarProducto = function ($idUsuario, $idProducto) {
@@ -71,7 +74,7 @@ app.controller("categoriaController", function ($scope, $http, $sce) {
                    bootbox.alert('Ha valorado un producto. Gracias por su colaboración!');
 
                }
-               else  if ($scope.valoracion.respuesta == 2)
+               else if ($scope.valoracion.respuesta == 2)
                    bootbox.alert('Usted ya ha valorado este producto.');
                else if ($scope.valoracion.respuesta == 3)
                    bootbox.alert('Se introducieron valores erroneos!');
@@ -79,4 +82,54 @@ app.controller("categoriaController", function ($scope, $http, $sce) {
                    bootbox.alert('Ocurrio un error con la conexción. Vuelva a intentarlo en unos momentos.');
            });
    }
+
+   $scope.enviarPregunta = function($idUsuario, $idProducto){
+         $scope.preguntaBoootbox = "";
+         $scope.idProducto = $idProducto;
+         $scope.fechaActual = new Date();
+         $scope.fechaActual = $filter('date')($scope.fechaActual, 'yyyy-MM-dd HH:mm:ss');
+         bootbox.prompt({ 
+           size: "medium",
+           title: "Acerquenos su inquietud:",
+           buttons: {
+              confirm: {
+                  label: 'Enviar',
+                  className: 'btn-success'
+              },
+              cancel: {
+                  label: 'Cancelar',
+                  className: 'btn-danger'
+              }
+          }, 
+           callback: function(result){ if(result != null){
+                                          $scope.preguntaBoootbox = result;
+                                          $http.post('../controladores/usuario/guardarPreguntaController.php', 
+                                             {'idUsuario':$idUsuario, 'pregunta': $scope.preguntaBoootbox , 'idProducto':$idProducto, 'fecha': $scope.fechaActual})
+                                          .success(function(response){
+                                             if(response.respuesta == 1){
+                                                bootbox.alert('Su pregunta se envió con éxito! El vendedor la respondera a la brevedad.',
+                                                   function(){
+                                                      $scope.listarPreguntas($scope.idProducto);
+                                                   });
+                                             }
+                                             else if(response.respuesta == 2){
+                                                bootbox.alert('Su pregunta no pudo ser enviada! Por favor vuelva a intentarlo en unos momentos.');
+                                             }
+                                             else if (response.respuesta == 3) 
+                                                bootbox.alert('Se introducieron valores erroneos!');
+                                             else
+                                                bootbox.alert('Ocurrio un error con la conexción. Vuelva a intentarlo en unos momentos.');
+                                          });
+                                        } 
+              }
+         })
+   }
+
+   $scope.listarPreguntas = function($idProducto){
+      $http.post('../controladores/usuario/listarPreguntasController.php', {'idProducto':$idProducto})
+      .success(function(response){
+         $scope.preguntas = response;
+      });
+   }
+
 });

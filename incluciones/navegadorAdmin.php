@@ -8,6 +8,7 @@ echo '
 			<a href="cargar-proveedor.php" class="w3-bar-item w3-hover-blue-grey">Proveedor</a>
             <a href="cargar-marca.php" class="w3-bar-item w3-hover-blue-grey">Marca</a>
             <a href="cargar-moneda.php" class="w3-bar-item w3-hover-blue-grey">Monedas</a>
+            <a href="preguntas.php" class="w3-bar-item w3-hover-blue-grey">Preguntas</a>
 			<a href="../controladores/cerrarSesionController.php" class="w3-bar-item w3-hover-red w3-right">Salir</a>
 			<span class="w3-bar-item w3-right">'. $username .'</span>
 		</div>';
