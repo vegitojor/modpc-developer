@@ -17,6 +17,7 @@ if(isset($data->idUsuario)){
 
 if(isset($data->pregunta)){
 	$pregunta = strip_tags($data->pregunta);
+	$pregunta = utf8_decode($pregunta);
 }else{
 	$pregunta = null;
 }

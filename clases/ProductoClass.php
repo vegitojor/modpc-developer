@@ -454,5 +454,55 @@ Class Producto{
       return $output;
 
     } 
+
+   public static function listarPreguntasSinRespuestas($conexion, $sinRespuesta, $desde, $limite){
+      
+      $consulta = "SELECT P.id_pregunta idPregunta,
+                           P.pregunta,
+                           C.username usuario,
+                           P.id_producto idProducto,
+                           P.fecha fechaPregunta,
+                           R.fecha_respuesta fechaRespuesta,
+                           R.respuesta
+                  FROM pregunta P LEFT JOIN respuesta R ON P.id_pregunta = R.pregunta_id_pregunta
+                     LEFT JOIN cliente C ON P.id_cliente = C.id
+                  WHERE P.respondida = ?
+                  ORDER BY P.fecha
+                  LIMIT ?,?";
+
+      $stmt = mysqli_prepare($conexion, $consulta);
+      mysqli_stmt_bind_param($stmt, 'iii', $sinRespuesta, $desde, $limite);
+      mysqli_stmt_execute($stmt);
+      $resultado = mysqli_stmt_get_result($stmt);
+      $output = array();
+      while ($fila = mysqli_fetch_assoc($resultado)){
+         $fila['pregunta'] = utf8_encode($fila['pregunta']);
+         $fila['respuesta'] = utf8_encode($fila['respuesta']);
+         $output[] = $fila;
+      }
+      return $output;
+   }
+
+   public static function guardarRespuesta($conexion, $idPregunta, $respuesta, $fecha){
+      $consulta = "INSERT INTO respuesta (respuesta, pregunta_id_pregunta, fecha_respuesta)
+            VALUES(?,?,?)";
+
+      $stmt = mysqli_prepare($conexion, $consulta);
+      mysqli_stmt_bind_param($stmt, 'sis', $respuesta, $idPregunta, $fecha);
+      mysqli_stmt_execute($stmt);
+
+      $output = mysqli_stmt_affected_rows($stmt);
+      return $output;
+   }
+
+   public static function cambiarEstadoPreguntaARespondida($conexion, $idPregunta){
+      $consulta = "UPDATE pregunta  
+                  SET respondida = 1
+                  WHERE id_pregunta = ?";
+      $stmt = mysqli_prepare($conexion, $consulta);
+      mysqli_stmt_bind_param($stmt, 'i', $idPregunta);
+      mysqli_stmt_execute($stmt);
+   }
+
 }
 ?>

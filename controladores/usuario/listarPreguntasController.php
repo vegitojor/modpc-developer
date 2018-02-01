@@ -19,5 +19,7 @@ $output = Producto::listarPreguntasYRespuestas($conexion, $idProducto);
 //se cierra la conexion
 $conn->cerrarConexion();
 
+//para que se muestren correctamente acentos y ñ
+header("Content-Type: text/html; charset=iso-8859-1");  
 //Se devuelven los resultados
 echo json_encode($output);
