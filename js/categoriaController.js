@@ -1,4 +1,4 @@
-app.controller("categoriaController", function ($scope, $http, $sce, $filter) {
+app.controller("categoriaController", function ($scope, $http, $sce, $filter, $window) {
    
    $scope.preguntas;
 
@@ -129,6 +129,26 @@ app.controller("categoriaController", function ($scope, $http, $sce, $filter) {
       $http.post('../controladores/usuario/listarPreguntasController.php', {'idProducto':$idProducto})
       .success(function(response){
          $scope.preguntas = response;
+      });
+   }
+
+   $scope.agregarAlCarrito = function($idUsuario,$idProducto){
+      $scope.fechaActual = new Date();
+      $scope.fechaActual = $filter('date')($scope.fechaActual, 'yyyy-MM-dd HH:mm:ss');
+      $http.post('../controladores/usuario/agregarAlCarritoController.php', {'usuario':$idUsuario, 'producto':$idProducto, 'fecha':$scope.fechaActual})
+      .success(function(response){
+        $scope.agregado = response;
+
+               if ($scope.agregado.respuesta == 1) {
+                   bootbox.alert('Ha valorado un producto. Gracias por su colaboración!');
+                   $window.location.href = "carrito.php";  
+               }
+               else if ($scope.agregado.respuesta == 2)
+                   bootbox.alert('Usted ya ha valorado este producto.');
+               else if ($scope.agregado.respuesta == 3)
+                   bootbox.alert('Se introducieron valores erroneos!');
+               else
+                   bootbox.alert('Ocurrio un error con la conexción. Vuelva a intentarlo en unos momentos.');
       });
    }
 

@@ -74,10 +74,13 @@ include_once ('incluciones/verificacionUsuario.php');
                 </ul>
                 <ul class="nav navbar-nav pull-right " ng-show="<?= $id ?>">
                     <li>
-                        <a href="controladores/cerrarSesionController.php">Salir</a>
+                        <a href="vistas/carrito.php" data-toggle="tooltip" data-placement="bottom" title="Mis compras"><span class="glyphicon glyphicon-shopping-cart"></span></a>
                     </li>
-                    <li>
-                        <a href=""><?= $username ?></a>
+                    <li class="dropdown">
+                        <a href="" id="usuario" data-toggle="dropdown"><?= $username ?><span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="usuario">
+                            <li role="presentation"><a href="../controladores/cerrarSesionController.php">Salir</a></li>
+                        </ul>
                     </li>
                 </ul>
             </div>

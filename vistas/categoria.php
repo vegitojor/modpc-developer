@@ -43,13 +43,13 @@ $idCategoria = $_GET['id'];
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <li >
-                    <a href="#">About</a>
+                    <a href="#">Así somos</a>
                 </li>
                 <li >
-                    <a href="#">Services</a>
+                    <a href="#">Servicios</a>
                 </li>
                 <li >
-                    <a href="#">Contact</a>
+                    <a href="#">Contacto</a>
                 </li>
             </ul>
             <ul class="nav navbar-nav pull-right " ng-hide="<?= $id ?>">
@@ -63,16 +63,20 @@ $idCategoria = $_GET['id'];
             </ul>
             <ul class="nav navbar-nav pull-right " ng-show="<?= $id ?>">
                 <li>
-                    <a href="../controladores/cerrarSesionController.php">Salir</a>
+                    <a href="carrito.php" data-toggle="tooltip" data-placement="bottom" title="Mis compras"><span class="glyphicon glyphicon-shopping-cart"></span></a>
                 </li>
-                <li>
-                    <a href=""><?= $username ?></a>
+                <li class="dropdown">
+                    <a href="" id="usuario" data-toggle="dropdown"><?= $username ?><span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="usuario">
+                        <li role="presentation"><a href="../controladores/cerrarSesionController.php">Salir</a></li>
+                    </ul>
                 </li>
             </ul>
         </div>
     </div>
     <!-- /.container -->
 </nav>
+<!-- FIN DEL NAV   -->
 
 <!-- Page Content -->
 <div class="container">
@@ -296,8 +300,8 @@ $idCategoria = $_GET['id'];
                                             <p>Meses de garant&iacute;a: <strong>{{producto.mesesGarantia}}</strong></p>
                                             <div>
                                                 <button class="btn btn-primary btn-lg btn-block" ng-click="enviarPregunta(<?= $id ?>, producto.id)"><i class="fa fa-send"></i> Preguntar al vendedor</button>
-                                                <button class="btn btn-warning btn-lg btn-block" ng-disabled="<?= $id ?> == 0">Agregar al carrito</button>
-                                                <span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Se requiere estar iniciar sesión para esta función."></span>
+                                                <button class="btn btn-warning btn-lg btn-block" ng-disabled="<?= $id ?> == 0" ng-click="agregarAlCarrito(<?= $id ?>, producto.id)">Agregar al carrito</button>
+                                                <span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Se requiere iniciar sesión para esta función."></span>
                                             </div>
                                         </div>
                                     </div>
