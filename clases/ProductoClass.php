@@ -504,5 +504,63 @@ Class Producto{
       mysqli_stmt_execute($stmt);
    }
 
+   public static function verificarExistenciaDeProductoEnCarrito($conexion, $idProducto, $idUsuario){
+        $consulta = "SELECT COUNT(*) AS existe FROM carrito_compra
+                    WHERE id_producto = ?
+                    AND id_cliente = ?";
+
+        $stmt = mysqli_prepare($conexion, $consulta);
+        mysqli_stmt_bind_param($stmt, 'ii', $idProducto, $idUsuario);
+        mysqli_stmt_execute($stmt);
+
+        $resultado = mysqli_stmt_get_result($stmt);
+        return mysqli_fetch_assoc($resultado);
+   }
+
+   public static function agregarAlCarrito($conexion, $idProducto, $idUsuario, $fecha){
+        $consulta = "INSERT INTO carrito_compra (id_cliente, id_producto, fecha)
+                    VALUES (?, ?, ?)";
+
+        $stmt = mysqli_prepare($conexion, $consulta);
+        mysqli_stmt_bind_param($stmt, 'iis', $idUsuario, $idProducto, $fecha);
+        mysqli_stmt_execute($stmt);
+
+        $output = mysqli_stmt_affected_rows($stmt);
+        return $output;
+   }
+
+   public static function cargarProductosCarrito($conexion, $idUsuario){
+        $consulta = "SELECT CC.id_producto idProducto,
+                            P.descripcion,
+                            P.precio,
+                            P.path_imagen imagen
+                    FROM carrito_compra CC
+                    JOIN producto P ON CC.id_producto = P.id_producto
+                    WHERE id_cliente = ?";
+
+        $stmt = mysqli_prepare($conexion, $consulta);
+        mysqli_stmt_bind_param($stmt, 'i', $idUsuario);
+        mysqli_stmt_execute($stmt);
+        $resultado = mysqli_stmt_get_result($stmt);
+        $output = array();
+        while ($fila = mysqli_fetch_assoc($resultado)){
+            
+            $output[] = $fila;
+        }
+        return $output;
+   }
+
+   public static function quitarDelCarrito($conexion, $idProducto, $idUsuario){
+        $consulta = "DELETE FROM carrito_compra 
+                    WHERE id_cliente = ?
+                    AND id_producto = ?";
+
+        $stmt = mysqli_prepare($conexion, $consulta);
+        mysqli_stmt_bind_param($stmt, 'ii', $idUsuario, $idProducto);
+        mysqli_stmt_execute($stmt);
+
+        $output = mysqli_stmt_affected_rows($stmt);
+        return $output;
+   }
 }
 ?>

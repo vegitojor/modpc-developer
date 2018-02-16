@@ -60,6 +60,12 @@ footer {
     width: auto !important;
 }
 
+.foto320x100 {
+    min-height: 90px;
+    max-height: 100px;
+    width: auto !important;
+}
+
 .foto640x300 {
     min-height: 240px;
     max-height: 300px;

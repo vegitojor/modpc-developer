@@ -46,10 +46,14 @@ if($idProducto == null || $pregunta == null){
 	$mensaje = ['respuesta' => 0,];
     echo json_encode($mensaje);
 }else{
+	//SE GUARDA LA PREGUNTA
 	$respuesta = Producto::guardarPregunta($conexion, $pregunta, $respondida, $idUsuario, $idProducto, $fecha);
 
 	$mensaje = array();
+	//SE CIRERRA CONEXION A BASE DE DATOS
 	$conn->cerrarConexion();
+
+	//SE DEVUELVE RESPUESTA SEGUN EL VALOR RESULTADO DE LA BASE DE DATOS
 	if($respuesta > 0) {
 	    $mensaje = ['respuesta' => 1,];
 	    echo json_encode($mensaje);

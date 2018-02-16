@@ -100,12 +100,42 @@ if(!isset($_SESSION['usuario'])){
         <div class="col-md-9">
 
             <div class="row" >
-                <div class="jumbotron ">
+                <div class="jumbotron" ng-init="cargarProductosCarrito(<?= $id ?>)">
                     <h1 >Mis compras</h1>
                 </div>
                 <!-- CADA UNO DE LOS PRODUCTOS EN EL CARRITO -->
-                <div class="col-sm-12 col-lg-12 col-md-12" ng-repeat="productos in productosDelCarrito">
-                    
+                <!-- ng-repeat="productoCarrito in productosDelCarrito" -->
+                <div class="col-sm-12 col-lg-12 col-md-12 panel-group" >
+                    <div class="panel panel-default" ng-repeat="productoCarrito in productosDelCarrito"> 
+                        <div class="panel-heading"></div>
+                        <div class="panel-body">
+                            <div class="col-md-4">
+                                <img src="../resourses/imagen_producto/{{productoCarrito.imagen}}" class="foto320x100" alt="imagen-{{productoCarrito.modelo}}" ng-hide="productoCarrito.imagen == '<--NoFoto-->'" >
+                                <img src="http://placehold.it/320x150" alt="{{productoCarrito.modelo}}" class="foto320x100" ng-show="productoCarrito.imagen == '<--NoFoto-->'">
+                            </div>
+                            <div class="col-md-4">
+                                <p><label>Producto:</label> {{productoCarrito.descripcion}}</p>
+                                <label for="cantidad">cantidad:</label>
+                                <select class="form-control" name="cantidad" id="cantidad" ng-model="cantidad" required>
+                                    <option value="" disabled="">Seleccione una opcion</option>
+                                    <option value="1" selected="">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <h3 class="pull-right">{{productoCarrito.precio * moneda.valor * cantidad | currency}}</h3>
+                                <h5>Subtotal:</h5>
+                                <br><br>
+                                <div class="btn-group pull-right">
+                                    <a href="" class="btn btn-default" ng-click="quitarDelCarrito(<?= $id ?>, productoCarrito.idProducto)">Quitar del carrito</a>    
+                                    <a href="" class="btn btn-warning " ng-disabled="cantidad == null">Comprar</a>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
                     
                 </div>
                 <!-- FIN PRODUCTOS DEL CARRITO -->

@@ -140,11 +140,11 @@ app.controller("categoriaController", function ($scope, $http, $sce, $filter, $w
         $scope.agregado = response;
 
                if ($scope.agregado.respuesta == 1) {
-                   bootbox.alert('Ha valorado un producto. Gracias por su colaboración!');
+                   
                    $window.location.href = "carrito.php";  
                }
                else if ($scope.agregado.respuesta == 2)
-                   bootbox.alert('Usted ya ha valorado este producto.');
+                   bootbox.alert('Usted ya ha agregado este producto a su carrito de compras.');
                else if ($scope.agregado.respuesta == 3)
                    bootbox.alert('Se introducieron valores erroneos!');
                else

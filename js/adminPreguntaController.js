@@ -47,11 +47,11 @@ app.controller("adminPregunta", function ($scope, $http, $sce, $filter, $window)
              $window.location = 'preguntas.php';
          }
          else if (response.respuesta.respuesta == 2)
-             bootbox.alert('Falló el intento de responder la pregunta. Por favor vuelva a intentarlo mas tarde.');
+             alert('Falló el intento de responder la pregunta. Por favor vuelva a intentarlo mas tarde.');
          else if (response.respuesta.respuesta == 3)
-             bootbox.alert('Se introducieron valores erroneos!');
+             alert('Se introducieron valores erroneos!');
          else
-             bootbox.alert('Ocurrio un error con la conexción. Vuelva a intentarlo en unos momentos.');
+             alert('Ocurrio un error con la conexción. Vuelva a intentarlo en unos momentos.');
       });
 
       $scope.respuesta = null;

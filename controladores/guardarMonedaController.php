@@ -16,7 +16,11 @@ $data = json_decode(file_get_contents('php://input'));
 $id = null;
 $descripcion = strip_tags($data->descripcion);
 $valor = strip_tags($data->valor);
-
+if(isset($data->activo)){
+	$activo = $data->activo;
+}else{
+	$activo = 0;
+}
 //$valor = (double)$valor;
 $valor = number_format($valor, 2, '.','');
 
@@ -26,7 +30,7 @@ $conn = new ConexionBD();
 $conexion = $conn->getConexion();
 
 //PERSISTIR LA MONEDA
-$moneda = new Moneda($id, $descripcion, $valor);
+$moneda = new Moneda($id, $descripcion, $valor, $activo);
 $moneda->persistirMoneda($conexion);
 
 $respuesta = ['mensaje'=>1,];

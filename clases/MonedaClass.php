@@ -11,19 +11,23 @@ class Moneda
     private $id;
     private $descripcion;
     private $valor;
+    private $activo;
 
-    function __construct($id, $descripcion, $valor)
+    function __construct($id, $descripcion, $valor, $activo)
     {
         $this->id = $id;
         $this->descripcion = $descripcion;
         $this->valor = $valor;
+        $this->activo = $activo;
     }
 
     public static function listarMonedas($conexion){
         $consulta = "SELECT id_moneda id,
                     descripcion,
-                    valor_en_peso valor
-                    FROM moneda";
+                    valor_en_peso valor,
+                    activo
+                    FROM moneda
+                    ORDER BY descripcion ASC";
 
         $respuesta = mysqli_query($conexion, $consulta);
 
@@ -37,11 +41,11 @@ class Moneda
     }
 
     public function persistirMoneda($conexion){
-        $consulta = "INSERT INTO moneda (descripcion, valor_en_peso)
-                      VALUES (?, ?)";
+        $consulta = "INSERT INTO moneda (descripcion, valor_en_peso, activo)
+                      VALUES (?, ?, ?)";
 
         $stmt = mysqli_prepare($conexion, $consulta);
-        mysqli_stmt_bind_param($stmt, "sd", $this->descripcion, $this->valor);
+        mysqli_stmt_bind_param($stmt, "sdi", $this->descripcion, $this->valor, $this->activo);
         mysqli_stmt_execute($stmt);
     }
 
@@ -84,5 +88,17 @@ class Moneda
         $respuesta = mysqli_query($conexion, $consulta);
         $output = mysqli_fetch_assoc($respuesta);
         return $output;
+    }
+
+    public static function cambiarActivoMoneda($conexion, $id, $activo){
+        $consulta = "UPDATE moneda
+                    SET activo = ?
+                    WHERE id_moneda = ?";
+
+        $stmt = mysqli_prepare($conexion, $consulta);
+        mysqli_stmt_bind_param($stmt, 'ii', $activo, $id);
+        mysqli_stmt_execute($stmt);
+        $respuesta = mysqli_stmt_affected_rows($stmt);
+        return $respuesta;
     }
 }

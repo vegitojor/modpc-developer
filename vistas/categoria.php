@@ -288,7 +288,7 @@ $idCategoria = $_GET['id'];
                                         <div class="col-md-8">
                                             <div class="thumbnail">
                                                 <img src="../resourses/imagen_producto/{{producto.imagen}}" alt="{{producto.modelo}}" class="img-responsive foto640x300" ng-hide="producto.imagen == '<--NoFoto-->'">
-                                                <img src="http://placehold.it/320x150" alt="" ng-show="producto.imagen == '<--NoFoto-->'">
+                                                <img src="http://placehold.it/320x150" alt="{{producto.imagen}}" ng-show="producto.imagen == '<--NoFoto-->'">
                                             </div>
                                         </div>
                                         <div class="col-md-4">
