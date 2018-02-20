@@ -211,6 +211,46 @@ Class Cliente{
 		$respuesta = mysqli_fetch_assoc($resultado);
 		return $respuesta;
 	}
+
+	public static function listarClientes($conexion, $admin, $desde, $limite){
+		$consulta = "SELECT C.id,
+							C.username usuario,
+							C.email,
+							C.nombre,
+							C.apellido,
+							C.domicilio,
+							C.admin,
+							C.fecha_nacimiento fechaNacimiento,
+							L.localidad
+					FROM cliente C
+					JOIN localidad L ON C.id_localidad = L.id_localidad
+					WHERE C.admin = ?
+					LIMIT ?,?";
+
+		$stmt = mysqli_prepare($conexion, $consulta);
+		mysqli_stmt_bind_param($stmt, 'iii', $admin, $desde, $limite);
+		mysqli_stmt_execute($stmt);
+		$resultado = mysqli_stmt_get_result($stmt);
+		$output = array();
+		while ($fila=mysqli_fetch_assoc($resultado)) {
+			$fila['localidad'] = utf8_encode($fila['localidad']);
+			$output[] = $fila;	
+		}
+		return $output;
+	}
+
+	public static function darPermisoDeAdministrador($conexion, $idUsuario, $permiso){
+		$consulta = "UPDATE cliente
+					SET admin = ?
+					WHERE id = ?";
+
+		$stmt = mysqli_prepare($conexion, $consulta);
+		mysqli_stmt_bind_param($stmt, 'ii', $permiso, $idUsuario);
+		mysqli_stmt_execute($stmt);
+
+        $output = mysqli_stmt_affected_rows($stmt);
+        return $output;
+	}
 }
 
 

@@ -14,8 +14,8 @@ include_once ("../incluciones/verificacionAdmin.php");
 <body class="w3-light-gray">
     <!-- Navegador Admin -->
 
-    <!-- <?php include_once ("../incluciones/navegadorAdmin.php");?> -->
-    <?php include_once ("../incluciones/navbarAdmin.php");?>
+    <?php include_once ("../incluciones/navegadorAdmin.php");?> 
+    <!-- <?php include_once ("../incluciones/navbarAdmin.php");?>-->
 
     <!-- seccion de busqueda de producto -->
     <div class="w3-container w3-padding-32 w3-blue-gray">
