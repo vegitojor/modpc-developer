@@ -42,7 +42,7 @@ include_once ('../incluciones/verificacionAdmin.php');
                     <!-- FORMULARIO PARA AGREGAR MONEDAS-->
                     <form name="formularioMoneda">
                         <div class="w3-padding">
-                            <input type="text" class="w3-input w3-hover-orange" name="descripcion" placeholder="Introduce el nombre de la nueva moneda" ng-model="descripcion" ng-model-option="{updateOn: 'blur'} " required >
+                            <input type="text" class="w3-input w3-hover-orange" min=0 name="descripcion" placeholder="Introduce el nombre de la nueva moneda" ng-model="descripcion" ng-model-option="{updateOn: 'blur'} " required >
                             <label for="">Descripción</label>
                             <div  ng-show="formularioMoneda.$submitted || formularioMoneda.descripcion.$touched">
                                 <span class="w3-red" ng-show="formularioMoneda.descripcion.$error.required">El campo es obligatorio.</span>

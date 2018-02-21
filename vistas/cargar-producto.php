@@ -58,7 +58,7 @@ include_once ("../incluciones/verificacionAdmin.php");
                             </div>
                             <div class="w3-content  ">
                                 <div class="w3-col l4 w3-padding">
-                                    <input type="number" step="0.01" class="w3-input w3-hover-orange" name="precio" ng-model="precio" value="" required>
+                                    <input type="number" step="0.01" min=0 class="w3-input w3-hover-orange" name="precio" ng-model="precio" value="" required>
                                     <div ng-show="formularioProducto.$submitted || formularioProducto.precio.$touched">
                                         <span class="w3-red" ng-show="formularioProducto.precio.$error.required">El campo es obligatorio.</span>
                                     </div>
@@ -85,7 +85,7 @@ include_once ("../incluciones/verificacionAdmin.php");
                             </div>
                             <div class="w3-content">
                                 <div class="w3-col l4 w3-padding">
-                                    <input type="number" class="w3-input w3-hover-orange" name="codigoProveedor" ng-model="codigoProveedor">
+                                    <input type="number" class="w3-input w3-hover-orange" min=0 name="codigoProveedor" ng-model="codigoProveedor">
                                     <label for="">Código del proveedor</label>
                                 </div>
                                 <div class="w3-col l8 w3-padding">
@@ -126,19 +126,19 @@ include_once ("../incluciones/verificacionAdmin.php");
                             <br>
                             <div class="w3-content">
                                 <div class="w3-col l3 w3-padding">
-                                    <input type="number" step="0.01" class="w3-input w3-hover-orange" name="alto" ng-model="alto">
+                                    <input type="number" step="0.01" class="w3-input w3-hover-orange" min=0 name="alto" ng-model="alto">
                                     <label for="">Alto de caja</label>
                                 </div>
                                 <div class="w3-col l3 w3-padding">
-                                    <input type="number" step="0.01" class="w3-input w3-hover-orange" name="ancho" ng-model="ancho">
+                                    <input type="number" step="0.01" class="w3-input w3-hover-orange" min=0 name="ancho" ng-model="ancho">
                                     <label for="">Ancho de caja</label>
                                 </div>
                                 <div class="w3-col l3 w3-padding">
-                                    <input type="number" step="0.01" class="w3-input w3-hover-orange" name="profundidad" ng-model="profundidad">
+                                    <input type="number" step="0.01" class="w3-input w3-hover-orange" min=0 name="profundidad" ng-model="profundidad">
                                     <label for="">Profundidad de caja</label>
                                 </div>
                                 <div class="w3-col l3 w3-padding">
-                                    <input type="number" step="0.01" class="w3-input w3-hover-orange" name="peso" ng-model="peso">
+                                    <input type="number" step="0.01" class="w3-input w3-hover-orange" min=0 name="peso" ng-model="peso">
                                     <label for="">Peso de caja</label>
                                 </div>
                             </div>

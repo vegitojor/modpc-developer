@@ -75,7 +75,7 @@ include_once ("../incluciones/verificacionAdmin.php");
                                 </div>
                             </div>
                             <div class="w3-col l3 w3-padding">
-                                <input type="number" class="w3-input w3-hover-orange" ng-model="codigoPostal" name="codigoPostal" required>
+                                <input type="number" class="w3-input w3-hover-orange" min=0 ng-model="codigoPostal" name="codigoPostal" required>
                                 <label for="">Código Postal</label>
                                 <div  ng-show="formProveedor.codigoPostal.$touched || formProveedor.$submitted">
                                     <span class="w3-text-red" ng-show="formProveedor.codigoPostal.$error.required">El campo es obligatorio.</span>
