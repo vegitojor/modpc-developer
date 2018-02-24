@@ -1,6 +1,12 @@
 app.controller("categoriaController", function ($scope, $http, $sce, $filter, $window) {
-   
+   $scope.desde = 0;
+   $scope.limitie = 15;
+
    $scope.preguntas;
+
+   $scope.obtenerCategoria = function($id){
+      $scope.idCategoriaModel = $id;
+   }
 
    $scope.listarCategorias = function () {
        $http.post('../controladores/usuario/listarCategoriasController.php')
@@ -10,7 +16,7 @@ app.controller("categoriaController", function ($scope, $http, $sce, $filter, $w
    }
 
    $scope.listarproductosPorCategoria = function ($id) {
-       $http.post('../controladores/usuario/listarProductosActivosPorCategoria.php', {idCategoria: $id})
+       $http.post('../controladores/usuario/listarProductosActivosPorCategoria.php', {'idCategoria': $id,'desde': $scope.desde,'limite':$scope.limite})
            .success(function (response) {
                $scope.productos = response;
            })
@@ -152,4 +158,16 @@ app.controller("categoriaController", function ($scope, $http, $sce, $filter, $w
       });
    }
 
+
+   /**************** PAGINACION ***********************/
+   //SE BUSCA EL TOTAL DE PRODUCTOS PARA CALCULAR LA CANTIDAD DE PAGINAS
+   $scope.cantidad = function($idCategoria){
+      $http
+   } 
+
+   $scope.paginacion = function(categoria, desdePaginacion){
+
+      $scope.listarproductosPorCategoria(categoria);
+   }
+   /****************** FIN PAGINACION */
 });
