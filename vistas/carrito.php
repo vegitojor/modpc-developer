@@ -85,8 +85,8 @@ if(!isset($_SESSION['usuario'])){
 
     <div class="row">
         <!-- ASIDE - COLUMNA LATERAL -->
-        <div class="col-md-3" ng-init="cargarMoneda()">
-            <div class="col-md-12">
+        <div class="col-md-3" ng-init="cargarMoneda()" >
+            <div class="col-md-12" ng-init="generarCheckoutBasicoMP(<?= $id ?>)">
                 <p class="lead">Categorias:</p>
                 <div class="list-group" ng-init="listarCategorias()" >
                     <a ng-repeat="categoria in categorias" href="categoria.php?id={{categoria.id}}" class="list-group-item" >{{categoria.descripcion}}</a>
@@ -114,23 +114,17 @@ if(!isset($_SESSION['usuario'])){
                                 <img src="http://placehold.it/320x150" alt="{{productoCarrito.modelo}}" class="foto320x100" ng-show="productoCarrito.imagen == '<--NoFoto-->'">
                             </div>
                             <div class="col-md-4">
+                                <br>
                                 <p><label>Producto:</label> {{productoCarrito.descripcion}}</p>
-                                <label for="cantidad">cantidad:</label>
-                                <select class="form-control" name="cantidad" id="cantidad" ng-model="cantidad" required>
-                                    <option value="" disabled="">Seleccione una opcion</option>
-                                    <option value="1" selected="">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                </select>
+                                <p>cantidad: <span><strong>{{productoCarrito.cantidad}}</strong></span></p>
                             </div>
                             <div class="col-md-4">
-                                <h3 class="pull-right">{{productoCarrito.precio * moneda.valor * cantidad | currency}}</h3>
+                                <h3 class="pull-right">{{productoCarrito.precio * moneda.valor * productoCarrito.cantidad | currency}}</h3>
                                 <h5>Subtotal:</h5>
-                                <br><br>
-                                <div class="btn-group pull-right">
+                                <br>
+                                <div class=" pull-right">
                                     <a href="" class="btn btn-default" ng-click="quitarDelCarrito(<?= $id ?>, productoCarrito.idProducto)">Quitar del carrito</a>    
-                                    <a href="" class="btn btn-warning " ng-disabled="cantidad == null">Comprar</a>
+                                    
                                 </div>
                                 
                             </div>
@@ -144,7 +138,15 @@ if(!isset($_SESSION['usuario'])){
                 </div>
                 <!-- TOTAL DE COMPRA -->
                 <div class="col-sm-12 col-lg-12 col-md-12">
-                    
+                    <div class="col-md-4 text-center">
+                        <h2 >TOTAL:</h2>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <h3>{{totalDelCarrito | currency}}</h3>
+                    </div>
+                    <div class="col-md-4">
+                        <a href="{{linkPagoMercadoPago}}" class="btn btn-warning" ng-disabled="totalDelCarrito == 0">Comprar con Mercado Pago</a>
+                    </div>
                 </div>
                 <!-- FIN TOTAL -->
             </div>
