@@ -1,6 +1,5 @@
 app.controller("categoriaController", function ($scope, $http, $sce, $filter, $window) {
-   $scope.desde = 0;
-   $scope.limitie = 15;
+   
 
    $scope.preguntas;
 
@@ -160,13 +159,44 @@ app.controller("categoriaController", function ($scope, $http, $sce, $filter, $w
 
 
    /**************** PAGINACION ***********************/
+   $scope.desde = 0;
+   $scope.limite = 15;
+   $scope.claseActive = {active: true};
+
    //SE BUSCA EL TOTAL DE PRODUCTOS PARA CALCULAR LA CANTIDAD DE PAGINAS
-   $scope.cantidad = function($idCategoria){
-      $http
+   $scope.cantidadDePaginacion = function($idCategoria){
+      $http.post('../controladores/usuario/contarCantidadDeProdutosController.php', {'idCategoria': $idCategoria})
+      .success(function(response){
+         $scope.cantidadProductos = response.cantidad;
+         resto = $scope.cantidadProductos%$scope.limite;
+         $scope.numeroDePaginas = ($scope.cantidadProductos - resto) / $scope.limite;
+         if(resto > 0){
+            $scope.numeroDePaginas++;
+         }
+         array = [];
+         for(var i = 0; i<$scope.numeroDePaginas; i++){
+            array.push((i+1));
+         }
+         $scope.paginaciones = array;
+      });
    } 
 
-   $scope.paginacion = function(categoria, desdePaginacion){
+   //BUSCA EL RESULTADO DE PRODUCTOS SEGUN LA PAGINA SELECCIONADA
+   $scope.buscarSegunPagina = function(categoria, desdePaginacion){
+      $scope.desde = desdePaginacion*$scope.limite - $scope.limite;
+      $scope.listarproductosPorCategoria(categoria);
+   }
 
+   //BUSCA EL RESULTADO DE PRODUCTOS SEGUN LAS FLACHAS PULSADAS (ADELANTE O ATRAS)
+   $scope.cambiarPagina = function(direccion, categoria){
+      if(direccion == 0){
+         if($scope.desde > 0)
+            $scope.desde = $scope.desde - $scope.limite;
+      }else{
+         cantidadMaxima = $scope.numeroDePaginas * $scope.limite - $scope.limite;
+         if($scope.desde < cantidadMaxima)
+            $scope.desde = $scope.desde + $scope.limite;
+      }
       $scope.listarproductosPorCategoria(categoria);
    }
    /****************** FIN PAGINACION */

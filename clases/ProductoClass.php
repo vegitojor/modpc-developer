@@ -343,7 +343,7 @@ Class Producto{
         return $output;
     }
 
-    public static function listarProductosDisponiblesPorIdCategoria($conexion, $idCategoria){
+    public static function listarProductosDisponiblesPorIdCategoria($conexion, $idCategoria, $desde, $limite){
         $consulta = "SELECT p.id_producto AS id,
                             p.descripcion,
                             p.precio,
@@ -394,10 +394,11 @@ Class Producto{
                     WHERE p.disponible = 1
                     AND p.id_categoria = ?
                     GROUP BY vp.producto_id_producto, p.id_producto
-                    ORDER BY p.descripcion";
+                    ORDER BY p.descripcion
+                    LIMIT ?, ?";
 
         $stmt = mysqli_prepare($conexion, $consulta);
-        mysqli_stmt_bind_param($stmt,'i', $idCategoria);
+        mysqli_stmt_bind_param($stmt,'iii', $idCategoria, $desde, $limite);
         mysqli_stmt_execute($stmt);
         $resultado = mysqli_stmt_get_result($stmt);
         $output = array();
@@ -561,6 +562,19 @@ Class Producto{
 
         $output = mysqli_stmt_affected_rows($stmt);
         return $output;
+   }
+
+   public static function contarProductosDisponiblesPorIdCategoria($conexion, $idCategoria){
+      $consulta = "SELECT count(*) as cantidad
+                  FROM producto
+                  WHERE id_categoria = ?";
+
+      $stmt = mysqli_prepare($conexion, $consulta);
+      mysqli_stmt_bind_param($stmt, 'i', $idCategoria);
+      mysqli_stmt_execute($stmt);
+
+      $resultado = mysqli_stmt_get_result($stmt);
+      return mysqli_fetch_assoc($resultado); 
    }
 }
 ?>

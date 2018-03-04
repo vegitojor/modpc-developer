@@ -197,9 +197,9 @@ $idCategoria = $_GET['id'];
 
         <div class="col-md-9" ng-init="obtenerCategoria(<?= $idCategoria; ?>)">
 
-            <div class="row" ng-init="listarproductosPorCategoria(idCategoriaModel)">
+            <div class="row" ng-init="listarproductosPorCategoria(idCategoriaModel); cantidadDePaginacion(idCategoriaModel)">
                 <div class="jumbotron ">
-                    <h1 ng-init="traerCategoria(<?= $idCategoria ?>)">{{categoria.descripcion}}</h1>
+                    <h1 ng-init="traerCategoria(idCategoriaModel)">{{categoria.descripcion}}</h1>
                 </div>
                 <div class="col-sm-4 col-lg-4 col-md-4" ng-repeat="producto in productos">
                     <div class="thumbnail">
@@ -390,9 +390,18 @@ $idCategoria = $_GET['id'];
                     </div>
                     <!-- Fin del modal -->
                 </div>
-
+                
             </div>
-
+            <!-- PAGINACION DE PRODUCTOS-->
+            <div class="text-center">
+                <ul class="pagination pagination-lg">
+                  <li  ><a href="" ng-click="cambiarPagina(0, idCategoriaModel)" >&laquo;</a></li>
+                  <li ng-repeat="paginacion in paginaciones" ng-class="{active: (desde==(paginacion * limite - limite))}"><a href="" ng-click="buscarSegunPagina(idCategoriaModel, paginacion)">{{paginacion}}</a></li>
+                  
+                  <li><a href="" ng-click="cambiarPagina(1, idCategoriaModel)">&raquo;</a></li>
+                </ul>
+            </div>
+            <!-- FIN PAGINACION -->
         </div>
 
     </div>
