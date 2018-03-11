@@ -5,7 +5,7 @@
  * Date: 14/10/17
  * Time: 23:07
  */
-
+include_once('../incluciones/adminControlerVerificacion.php');
 include_once ('../clases/ConexionBDClass.php');
 include_once ('../clases/MarcaClass.php');
 

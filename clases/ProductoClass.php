@@ -21,6 +21,7 @@ Class Producto{
     private $ancho;
     private $profundidad;
     private $idProductoFichaTecnica;
+    private $destacado;
 
     /**
      * Producto constructor.
@@ -47,7 +48,7 @@ Class Producto{
      */
     function __construct($id, $descripcion, $precio, $mesesGarantia, $nuevo, $codFabricante, $modelo, $disponible,
                          $codProveedor, $fotoProducto, $videoProducto, $categoria, $proveedor, $marca, $sku,
-                         $peso, $alto, $ancho, $profundidad, $idProductoFichaTecnica){
+                         $peso, $alto, $ancho, $profundidad, $idProductoFichaTecnica, $destacado){
 		$this->id = $id;
         $this->descripcion = $descripcion;
         $this->precio = $precio;
@@ -68,6 +69,7 @@ Class Producto{
         $this->ancho = $ancho;
         $this->profundidad = $profundidad;
         $this->idProductoFichaTecnica = $idProductoFichaTecnica;
+        $this->destacado = $destacado;
     }
 
     public function persistirse($conexion){
@@ -92,10 +94,11 @@ Class Producto{
                     alto_caja, 
                     ancho_caja, 
                     profundidad_caja, 
-                    id_producto_ficha_tecnica)
-                    VALUES (?,?,?,?,?, ?,?,?,?,?, ?,?,?,?,?, ?,?,?,?)";
+                    id_producto_ficha_tecnica,
+                    destacado)
+                    VALUES (?,?,?,?,?, ?,?,?,?,?, ?,?,?,?,?, ?,?,?,?,?)";
 	    $stmt = mysqli_prepare($conexion, $consulta);
-	    mysqli_stmt_bind_param($stmt, "sdiissiissiiisddddi",
+	    mysqli_stmt_bind_param($stmt, "sdiissiissiiisddddii",
             $this->descripcion,
             $this->precio,
             $this->mesesGarantia,
@@ -117,7 +120,8 @@ Class Producto{
             $this->alto,
             $this->ancho,
             $this->profundidad,
-            $this->idProductoFichaTecnica);
+            $this->idProductoFichaTecnica,
+            $this->destacado);
 	    mysqli_stmt_execute($stmt);
 
 
@@ -307,7 +311,7 @@ Class Producto{
         return $id;
     }
 
-    public static function cargarProductos($conexion){
+    public static function cargarProductos($conexion, $desde, $limite){
         $consulta = "SELECT p.id_producto AS id,
                             p.descripcion,
                             p.precio,
@@ -327,13 +331,20 @@ Class Producto{
                             p.alto_caja AS alto,
                             p.ancho_caja AS ancho,
                             p.profundidad_caja AS profundidad,
-                            p.id_producto_ficha_tecnica AS idProductoFichaTecnica
+                            p.id_producto_ficha_tecnica AS idProductoFichaTecnica,
+                            p.destacado
                     FROM producto p 
                     JOIN categoria c ON c.id_categoria = p.id_categoria
                     JOIN proveedor pr ON pr.id_proveedor = p.id_proveedor
-                    JOIN marca m ON m.id_marca = p.id_marca";
+                    JOIN marca m ON m.id_marca = p.id_marca
+                    LIMIT  ?, ?";
 
-        $resultado = mysqli_query($conexion,$consulta);
+        //$resultado = mysqli_query($conexion,$consulta);
+         $stmt = mysqli_prepare($conexion, $consulta);
+         mysqli_stmt_bind_param($stmt, 'ii', $desde, $limite);
+         mysqli_stmt_execute($stmt);
+
+         $resultado = mysqli_stmt_get_result($stmt);
 
         $output = array();
         while ($fila = mysqli_fetch_assoc($resultado)){
@@ -575,6 +586,14 @@ Class Producto{
 
       $resultado = mysqli_stmt_get_result($stmt);
       return mysqli_fetch_assoc($resultado); 
+   }
+
+   public static function contarCantidadProductosAdmin($conexion){
+      $consulta = "SELECT count(*) as cantidad
+                  FROM producto";
+      $resultado = mysqli_query($conexion,$consulta);
+      $output = mysqli_fetch_assoc($resultado);
+      return $output;
    }
 }
 ?>

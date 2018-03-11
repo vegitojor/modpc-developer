@@ -14,7 +14,7 @@ error_reporting('E_All' ^ 'E_NOTICE');
 //SE CAPTURAN LOS DATOS DEL AJAX
 $modelo = strip_tags($_POST['modelo']);
 $descripcion = strip_tags($_POST['descripcion']);
-$precio = strip_tags($_POST['precio']);
+
 $mesesGarantia = strip_tags($_POST['mesesGarantia']);
 $mesesGarantia = (int)$mesesGarantia;
 $sku = strip_tags($_POST['sku']);
@@ -29,10 +29,13 @@ $nuevo = $_POST['nuevo'];
 $disponible = $_POST['disponible'];
 $codigoProveedor = strip_tags($_POST['codigoProveedor']);
 $video = strip_tags($_POST['video']);
-$alto = $_POST['alto'];
-$ancho = $_POST['ancho'];
-$profundidad = $_POST['profundidad'];
+
+$precio = strip_tags($_POST['precio']);
+$alto = strip_tags($_POST['alto']);
+$ancho = strip_tags($_POST['ancho']);
+$profundidad = strip_tags($_POST['profundidad']);
 $peso = strip_tags($_POST['peso']);
+
 $campo01 = $_POST['campo01'];
 $campo02 = $_POST['campo02'];
 $campo03 = $_POST['campo03'];
@@ -53,7 +56,10 @@ $campo17 = $_POST['campo17'];
 $campo18 = $_POST['campo18'];
 $campo19 = $_POST['campo19'];
 $campo20 = $_POST['campo20'];
-
+$destacado = $_POST['destacado'];
+if(!isset($destacado)){
+    $destacado = 0;
+}
 
 
 //$valor = number_format($valor, 2, '.','');
@@ -118,7 +124,8 @@ if(!empty($foto['name'])){
 $id = null;
 $nuevoProducto = new Producto($id, $descripcion, $precio, $mesesGarantia, $nuevo, $codigoFabricante, $modelo,
                             $disponible, $codigoProveedor, $nombreFoto, $video, $categoria, $proveedor,
-                            $marca, $sku, $peso, $alto, $ancho, $profundidad, $idProductoFichaTecnica);
+                            $marca, $sku, $peso, $alto, $ancho, $profundidad, $idProductoFichaTecnica, $destacado);
+
 
 $nuevoProducto->persistirse($conexion);
 //**************************************************************************

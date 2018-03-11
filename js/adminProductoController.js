@@ -28,12 +28,6 @@ app.controller("adminProducto", function ($scope, $http) {
     }
 
 
-
-    $scope.alto = 0;
-    $scope.ancho = 0;
-    $scope.peso = 0;
-    $scope.profundidad = 0;
-
     $scope.campoProducto01 = 0;
     $scope.campoProducto02 = 0;
     $scope.campoProducto03 = 0;
@@ -66,10 +60,58 @@ app.controller("adminProducto", function ($scope, $http) {
     }
 
     $scope.listarProductos = function () {
-        $http.post('../controladores/listarProductosController.php')
+        $http.post('../controladores/listarProductosController.php', {'desde': $scope.desde, 'limite': $scope.limite})
             .success(function (response) {
                 $scope.productos = response;
         })
     }
 
-})
+    $scope.editarProducto = function($id){
+        
+    }
+
+       /**************** PAGINACION ***********************/
+       $scope.desde = 0;
+       $scope.limite = 5;
+       $scope.claseActive = {'w3-green': true};
+
+       //SE BUSCA EL TOTAL DE PRODUCTOS PARA CALCULAR LA CANTIDAD DE PAGINAS
+       $scope.cantidadDePaginacion = function(){
+          $http.post('../controladores/contarCantidadProductosAdminController.php', {})
+          .success(function(response){
+             $scope.cantidadProductos = response.cantidad;
+             resto = $scope.cantidadProductos % $scope.limite;
+             $scope.numeroDePaginas = ($scope.cantidadProductos - resto) / $scope.limite;
+             if(resto > 0){
+                $scope.numeroDePaginas++;
+             }
+             array = [];
+             for(var i = 0; i<$scope.numeroDePaginas; i++){
+                array.push((i+1));
+             }
+             $scope.paginaciones = array;
+          });
+       } 
+
+       //BUSCA EL RESULTADO DE PRODUCTOS SEGUN LA PAGINA SELECCIONADA
+       $scope.buscarSegunPagina = function( desdePaginacion){
+          $scope.desde = desdePaginacion*$scope.limite - $scope.limite;
+          $scope.listarProductos();
+       }
+
+       //BUSCA EL RESULTADO DE PRODUCTOS SEGUN LAS FLACHAS PULSADAS (ADELANTE O ATRAS)
+       $scope.cambiarPagina = function(direccion, categoria){
+          if(direccion == 0){
+             if($scope.desde > 0)
+                $scope.desde = $scope.desde - $scope.limite;
+          }else{
+             cantidadMaxima = $scope.numeroDePaginas * $scope.limite - $scope.limite;
+             if($scope.desde < cantidadMaxima)
+                $scope.desde = $scope.desde + $scope.limite;
+          }
+          $scope.listarProductos();
+       }
+       /****************** FIN PAGINACION */
+
+
+});

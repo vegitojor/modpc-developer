@@ -126,25 +126,29 @@ include_once ("../incluciones/verificacionAdmin.php");
                             <br>
                             <div class="w3-content">
                                 <div class="w3-col l3 w3-padding">
-                                    <input type="number" step="0.01" class="w3-input w3-hover-orange" min=0 name="alto" ng-model="alto">
+                                    <input type="number" step="0.01" class="w3-input w3-hover-orange" min=0 name="alto" value="">
                                     <label for="">Alto de caja</label>
                                 </div>
                                 <div class="w3-col l3 w3-padding">
-                                    <input type="number" step="0.01" class="w3-input w3-hover-orange" min=0 name="ancho" ng-model="ancho">
+                                    <input type="number" step="0.01" class="w3-input w3-hover-orange" min=0 name="ancho" value="">
                                     <label for="">Ancho de caja</label>
                                 </div>
                                 <div class="w3-col l3 w3-padding">
-                                    <input type="number" step="0.01" class="w3-input w3-hover-orange" min=0 name="profundidad" ng-model="profundidad">
+                                    <input type="number" step="0.01" class="w3-input w3-hover-orange" min=0 name="profundidad" value="">
                                     <label for="">Profundidad de caja</label>
                                 </div>
                                 <div class="w3-col l3 w3-padding">
-                                    <input type="number" step="0.01" class="w3-input w3-hover-orange" min=0 name="peso" ng-model="peso">
+                                    <input type="number" step="0.01" class="w3-input w3-hover-orange" min=0 name="peso" value="">
                                     <label for="">Peso de caja</label>
                                 </div>
                             </div>
                             <br>
                             <br>
                             <br>
+                            <div class="w3-col l6 w3-padding">
+                                <input type="checkbox" class="w3-check" id="destacado" name="destacado" value=1 >
+                                <label>Producto destacado</label>
+                            </div>
                             <div class="w3-content">
                                 <div class="w3-content w3-center" ng-init="cargarMarca()">
 
@@ -285,6 +289,7 @@ include_once ("../incluciones/verificacionAdmin.php");
                         <th>Categoría</th>
                         <th>Nuevo</th>
                         <th>Disponible</th>
+                        <th>Destacado</th>
                         <th>Acciones</th>
                     </tr>
                 </thead>
@@ -302,19 +307,29 @@ include_once ("../incluciones/verificacionAdmin.php");
                             <span ng-hide="{{producto.nuevo}}">No</span>
                         </td>
                         <td>
-                            <span class="fa fa-check-circle w3-green w3-xlarge" ng-show="{{producto.disponible}}"></span>
-                            <span class="fa fa-warning w3-red w3-xlarge" ng-hide="{{producto.disponible}}"></span>
+                            <a href="" class="w3-btn w3-round w3-green" ng-show="{{producto.disponible}}" data-toggle="tooltip" data-placement="bottom" title="Pulsa para Quitar de disponible"><span class="fa fa-check-circle " ></span></a>
+                            <a href="" class="w3-btn w3-round w3-red" ng-hide="{{producto.disponible}}" data-toggle="tooltip" data-placement="bottom" title="Pulsa para poner como disponible"><span class="fa fa-warning " ></span></a>
                         </td >
                         <td>
-
+                            <a href="" class="w3-btn w3-round w3-green" ng-show="{{producto.destacado}}" data-toggle="tooltip" data-placement="bottom" title="Pulsa para Quitar de destacado"><span class="fa fa-check-circle w3-large" ></span></a>
+                            <a href="" class="w3-btn w3-round w3-red" ng-hide="{{producto.destacado}}" data-toggle="tooltip" data-placement="bottom" title="Pulsa para destacar"><span class="fa fa-warning w3-large" ></span></a>
+                            
+                        </td >
+                        <td>
+                            <a href="" class="w3-btn w3-blue-gray w3-round" ng-Click="editarProducto(producto.id)">Editar</a>
                         </td>
 
                     </tr>
                 </tbody>
             </table>
-            <div class="w3-bar w3-border w3-round  ">
-                <a href="" class="w3-button" >&#10094; Previous</a>
-                <a href="" class="w3-button w3-right">Next &#10095;</a>
+            <!-- PAGINACION -->
+            <div class="w3-bar w3-border w3-round w3-center " ng-init="cantidadDePaginacion()">
+                <a href="" class="w3-button" ng-click="cambiarPagina(0)">&#10094; Previous</a>
+                
+                <a href="" class="w3-button " ng-repeat="paginacion in paginaciones" ng-class="{'w3-green': (desde==(paginacion * limite - limite))}" ng-click="buscarSegunPagina(paginacion)">{{paginacion}}</a>
+                
+  
+                <a href="" class="w3-button" ng-click="cambiarPagina(1)">Next &#10095;</a>
             </div>
         </div>
     </body>
