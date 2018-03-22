@@ -778,12 +778,12 @@ Class Producto{
         return mysqli_fetch_assoc($resultado);
    }
 
-   public static function agregarAlCarrito($conexion, $idProducto, $idUsuario, $fecha){
-        $consulta = "INSERT INTO carrito_compra (id_cliente, id_producto, fecha)
-                    VALUES (?, ?, ?)";
+   public static function agregarAlCarrito($conexion, $idProducto, $idUsuario, $fecha, $cantidad){
+        $consulta = "INSERT INTO carrito_compra (id_cliente, id_producto, fecha, cantidad)
+                    VALUES (?, ?, ?, ?)";
 
         $stmt = mysqli_prepare($conexion, $consulta);
-        mysqli_stmt_bind_param($stmt, 'iis', $idUsuario, $idProducto, $fecha);
+        mysqli_stmt_bind_param($stmt, 'iisi', $idUsuario, $idProducto, $fecha, $cantidad);
         mysqli_stmt_execute($stmt);
 
         $output = mysqli_stmt_affected_rows($stmt);
@@ -792,6 +792,7 @@ Class Producto{
 
    public static function cargarProductosCarrito($conexion, $idUsuario){
         $consulta = "SELECT CC.id_producto idProducto,
+                            CC.cantidad,
                             P.descripcion,
                             P.precio,
                             P.path_imagen imagen

@@ -2,6 +2,7 @@ app.controller("categoriaController", function ($scope, $http, $sce, $filter, $w
    
 
    $scope.preguntas;
+   $scope.cantidad = 1;
 
    $scope.obtenerCategoria = function($id){
       $scope.idCategoriaModel = $id;
@@ -137,10 +138,10 @@ app.controller("categoriaController", function ($scope, $http, $sce, $filter, $w
       });
    }
 
-   $scope.agregarAlCarrito = function($idUsuario,$idProducto){
+   $scope.agregarAlCarrito = function($idUsuario,$idProducto, $cantidad){
       $scope.fechaActual = new Date();
       $scope.fechaActual = $filter('date')($scope.fechaActual, 'yyyy-MM-dd HH:mm:ss');
-      $http.post('../controladores/usuario/agregarAlCarritoController.php', {'usuario':$idUsuario, 'producto':$idProducto, 'fecha':$scope.fechaActual})
+      $http.post('../controladores/usuario/agregarAlCarritoController.php', {'usuario':$idUsuario, 'producto':$idProducto, 'fecha':$scope.fechaActual,'cantidad': $cantidad})
       .success(function(response){
         $scope.agregado = response;
 
@@ -155,6 +156,15 @@ app.controller("categoriaController", function ($scope, $http, $sce, $filter, $w
                else
                    bootbox.alert('Ocurrio un error con la conexción. Vuelva a intentarlo en unos momentos.');
       });
+   }
+
+   $scope.restarCantidad = function(){
+      if ($scope.cantidad > 1 )
+         $scope.cantidad --;
+   }
+
+   $scope.sumarCantidad = function(){
+      $scope.cantidad ++;
    }
 
 
@@ -201,3 +211,4 @@ app.controller("categoriaController", function ($scope, $http, $sce, $filter, $w
    }
    /****************** FIN PAGINACION */
 });
+

@@ -194,13 +194,15 @@ $idCategoria = $_GET['id'];
                 </form>
             </div>
         </div>
-
+        <!-- SECTION -->
         <div class="col-md-9" ng-init="obtenerCategoria(<?= $idCategoria; ?>)">
-
+            <!-- SECTION DE LA VISTA CATEGORIA-->
             <div class="row" ng-init="listarproductosPorCategoria(idCategoriaModel); cantidadDePaginacion(idCategoriaModel)">
+
                 <div class="jumbotron ">
                     <h1 ng-init="traerCategoria(idCategoriaModel)">{{categoria.descripcion}}</h1>
                 </div>
+                <!-- LISTADO DE PRODUCTOS-->
                 <div class="col-sm-4 col-lg-4 col-md-4" ng-repeat="producto in productos">
                     <div class="thumbnail">
                         <img src="../resourses/imagen_producto/{{producto.imagen}}" class="foto320x150" alt="imagen-{{producto.modelo}}" ng-hide="producto.imagen == '<--NoFoto-->'" >
@@ -251,9 +253,14 @@ $idCategoria = $_GET['id'];
                                             <p>C&oacute;digo SKU: <strong>{{producto.sku}}</strong></p>
                                             <p>Meses de garant&iacute;a: <strong>{{producto.mesesGarantia}}</strong></p>
                                             <div>
-                                                <button class="btn btn-primary btn-lg btn-block" ng-click="enviarPregunta(<?= $id ?>, producto.id)"><i class="fa fa-send"></i> Preguntar al vendedor</button>
-                                                <button class="btn btn-warning btn-lg btn-block" ng-disabled="<?= $id ?> == 0" ng-click="agregarAlCarrito(<?= $id ?>, producto.id)">Agregar al carrito</button>
+                                                <div>
+                                                    <div class="btn" name="bajarCantidad" ng-click="restarCantidad()"><span class="glyphicon glyphicon-minus"></span></div>
+                                                    <input value="1" name="cantidad" ng-model="cantidad" />
+                                                    <div class="btn" name="subirCantidad" ng-click="sumarCantidad()"><span class="glyphicon glyphicon-plus"></span></div>
+                                                </div>
+                                                <button class="btn btn-warning btn-lg btn-block" ng-disabled="<?= $id ?> == 0" ng-click="agregarAlCarrito(<?= $id ?>, producto.id, cantidad)">Agregar al carrito</button>
                                                 <span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Se requiere iniciar sesión para esta función."></span>
+                                                <button class="btn btn-primary btn-lg btn-block" ng-click="enviarPregunta(<?= $id ?>, producto.id)"><i class="fa fa-send"></i> Preguntar al vendedor</button>
                                             </div>
                                         </div>
                                     </div>
@@ -390,8 +397,10 @@ $idCategoria = $_GET['id'];
                     </div>
                     <!-- Fin del modal -->
                 </div>
-                
+ 
+                <!-- FIN LISTADO PRODUCTOS-->
             </div>
+            <!-- FIN SECTION DE LA VISTA -->
             <!-- PAGINACION DE PRODUCTOS-->
             <div class="text-center">
                 <ul class="pagination pagination-lg">
@@ -402,8 +411,9 @@ $idCategoria = $_GET['id'];
                 </ul>
             </div>
             <!-- FIN PAGINACION -->
-        </div>
 
+        </div>
+        <!-- FIN SECTION -->
     </div>
 
 </div>

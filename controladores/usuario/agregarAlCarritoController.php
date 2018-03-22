@@ -5,7 +5,7 @@
  * Date: 17/12/17
  * Time: 19:02
  */
-
+include_once('../../incluciones/verificacionUsuario.php');
 
 include_once ('../../clases/ConexionBDClass.php');
 include_once ('../../clases/ProductoClass.php');
@@ -21,6 +21,9 @@ $producto = (int)$producto;
 
 $fecha = strip_tags($data->fecha);
 
+$cantidad = strip_tags($data->cantidad);
+$cantidad = (int)$cantidad;
+
 //CREO LA CONEXION A LA BASE DE DATOS
 $conn = new ConexionBD();
 $conexion = $conn->getConexion();
@@ -33,7 +36,7 @@ if($verificacion['existe'] > 0 ){
 	echo json_encode($mensaje);
 }else{
 	//SI EL PRODUCTO NO SE AGREGO, SE AGREGA
-	$respuesta = Producto::agregarAlCarrito($conexion, $producto, $usuario, $fecha);
+	$respuesta = Producto::agregarAlCarrito($conexion, $producto, $usuario, $fecha, $cantidad);
 
 	//SE CIERRA LA CONEXION DE LA BASE DE DATOS
 	$conn->cerrarConexion();
