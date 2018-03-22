@@ -46,10 +46,10 @@ Class Producto{
      * @param $profundidad
      * @param $idProductoFichaTecnica
      */
-    function __construct($id, $descripcion, $precio, $mesesGarantia, $nuevo, $codFabricante, $modelo, $disponible,
-                         $codProveedor, $fotoProducto, $videoProducto, $categoria, $proveedor, $marca, $sku,
-                         $peso, $alto, $ancho, $profundidad, $idProductoFichaTecnica, $destacado){
-		$this->id = $id;
+    //function __construct($id, $descripcion, $precio, $mesesGarantia, $nuevo, $codFabricante, $modelo, $disponible,
+    //                     $codProveedor, $fotoProducto, $videoProducto, $categoria, $proveedor, $marca, $sku,
+    //                     $peso, $alto, $ancho, $profundidad, $idProductoFichaTecnica, $destacado){
+    /*$this->id = $id;
         $this->descripcion = $descripcion;
         $this->precio = $precio;
         $this->mesesGarantia = $mesesGarantia;
@@ -69,7 +69,37 @@ Class Producto{
         $this->ancho = $ancho;
         $this->profundidad = $profundidad;
         $this->idProductoFichaTecnica = $idProductoFichaTecnica;
-        $this->destacado = $destacado;
+        $this->destacado = $destacado;*/
+
+    function __construct(){
+      $i = func_num_args();
+
+      if($i == 1){
+        $id = func_get_arg(0);
+        $this->id = $id;
+      }elseif ($i == 21) {
+		  $this->id = func_get_arg(0);
+        $this->descripcion = func_get_arg(1);
+        $this->precio = func_get_arg(2);
+        $this->mesesGarantia = func_get_arg(3);
+        $this->nuevo = func_get_arg(4);
+        $this->codFabricante = func_get_arg(5);
+        $this->modelo = func_get_arg(6);
+        $this->disponible = func_get_arg(7);
+        $this->codProveedor = func_get_arg(8);
+        $this->fotoProducto = func_get_arg(9);
+        $this->videoProducto = func_get_arg(10);
+        $this->categoria = func_get_arg(11);
+        $this->proveedor = func_get_arg(12);
+        $this->marca = func_get_arg(13);
+        $this->sku = func_get_arg(14);
+        $this->peso = func_get_arg(15);
+        $this->alto = func_get_arg(16);
+        $this->ancho = func_get_arg(17);
+        $this->profundidad = func_get_arg(18);
+        $this->idProductoFichaTecnica = func_get_arg(19);
+        $this->destacado = func_get_arg(20);
+      }
     }
 
     public function persistirse($conexion){
@@ -126,6 +156,201 @@ Class Producto{
 
 
     }
+
+   public function obtenerFichaTecnica($conexion){
+      $consulta = "SELECT id_producto_ficha_tecnica AS fichaTecnica
+                  FROM producto
+                  WHERE id_producto = ?";
+      $stmt = mysqli_prepare($conexion, $consulta);
+      mysqli_stmt_bind_param($stmt, 'i', $this->id);
+      mysqli_stmt_execute($stmt);
+
+      $resultado = mysqli_stmt_get_result($stmt);
+      $output = mysqli_fetch_assoc($resultado);
+      return $output['fichaTecnica'];
+   }
+
+   public function editarFichaTecnica($conexion,
+                        $campo01,
+                        $campo02,
+                        $campo03,
+                        $campo04,
+                        $campo05,
+                        $campo06,
+                        $campo07,
+                        $campo08,
+                        $campo09,
+                        $campo10,
+                        $campo11,
+                        $campo12,
+                        $campo13,
+                        $campo14,
+                        $campo15,
+                        $campo16,
+                        $campo17,
+                        $campo18,
+                        $campo19,
+                        $campo20,
+                        $idFichaTecnica){
+      $consulta = "UPDATE producto_ficha_tecnica
+                  SET campo01 = ?,
+                     campo02 = ?,
+                     campo03 = ?,
+                     campo04 = ?,
+                     campo05 = ?,
+                     campo06 = ?,
+                     campo07 = ?,
+                     campo08 = ?,
+                     campo09 = ?,
+                     campo10 = ?,
+                     campo11 = ?,
+                     campo12 = ?,
+                     campo13 = ?,
+                     campo14 = ?,
+                     campo15 = ?,
+                     campo16 = ?,
+                     campo17 = ?,
+                     campo18 = ?,
+                     campo19 = ?,
+                     campo20 = ?
+                  WHERE id_producto_ficha_tecnica = ?";
+      $stmt = mysqli_prepare($conexion, $consulta);
+      mysqli_stmt_bind_param($stmt,'ssssssssssssssssssssi', 
+                           $campo01,
+                           $campo02,
+                           $campo03,
+                           $campo04,
+                           $campo05,
+                           $campo06,
+                           $campo07,
+                           $campo08,
+                           $campo09,
+                           $campo10,
+                           $campo11,
+                           $campo12,
+                           $campo13,
+                           $campo14,
+                           $campo15,
+                           $campo16,
+                           $campo17,
+                           $campo18,
+                           $campo19,
+                           $campo20,
+                           $idFichaTecnica
+                           );
+      mysqli_stmt_execute($stmt);
+
+      $output = mysqli_stmt_affected_rows($stmt);
+      return $output;
+   }
+
+   public function editarse($conexion,
+                           $modelo,
+                           $descripcion,
+                           $precio,
+                           $mesesGarantia,
+                           $codigoFabricante,
+                           $codigoProveedor,
+                           $sku,
+                           $video,
+                           $proveedor,
+                           $alto,
+                           $ancho,
+                           $profundidad,
+                           $peso,
+                           $marca,
+                           $categoria,
+                           $id){
+      $consulta = "UPDATE producto
+                  SET descripcion = ?,
+                     precio = ?,
+                     meses_garantia = ?,
+                     cod_fabricante = ?,
+                     modelo = ?,
+                     cod_proveedor = ?,
+                     path_video = ?,
+                     id_categoria = ?,
+                     id_proveedor = ?,
+                     id_marca = ?,
+                     codigo_sku = ?,
+                     peso_caja = ?,
+                     alto_caja = ?,
+                     ancho_caja = ?,
+                     profundidad_caja = ?
+                  WHERE id_producto = ?";
+      $stmt = mysqli_prepare($conexion, $consulta);
+      mysqli_stmt_bind_param($stmt, 'sdissssiiisddddi', $descripcion,
+                           $precio,
+                           $mesesGarantia,
+                           $codigoFabricante,
+                           $modelo,
+                           $codigoProveedor,
+                           $video,
+                           $categoria,
+                           $proveedor,
+                           $marca,
+                           $sku,
+                           $peso,
+                           $alto,
+                           $ancho,
+                           $profundidad,
+                           $id);
+      mysqli_stmt_execute($stmt);
+      $output = mysqli_stmt_affected_rows($stmt);
+      return $output;
+
+   }
+
+   public function getSku($conexion){
+      $consulta = "SELECT codigo_sku sku FROM producto WHERE id_producto = ?";
+
+      $stmt = mysqli_prepare($conexion, $consulta);
+
+      mysqli_stmt_bind_param($stmt, 'i', $this->id);
+      mysqli_stmt_execute($stmt);
+
+      $resultado = mysqli_stmt_get_result($stmt);
+      return mysqli_fetch_assoc($resultado);
+   }
+
+   public function cambiarFoto($conexion, $foto){
+      $consulta = "UPDATE producto  
+                     SET path_imagen = ?
+                     WHERE id_producto = ?";
+      $stmt = mysqli_prepare($conexion, $consulta);
+
+      mysqli_stmt_bind_param($stmt, 'si', $foto, $this->id);
+      mysqli_stmt_execute($stmt);
+
+      $output = mysqli_stmt_affected_rows($stmt);
+      return $output;
+   }
+
+   public function cambiarDisponible($conexion, $estado){
+      $consulta = "UPDATE producto  
+                     SET disponible = ?
+                     WHERE id_producto = ?";
+      $stmt = mysqli_prepare($conexion, $consulta);
+
+      mysqli_stmt_bind_param($stmt, 'ii', $estado, $this->id);
+      mysqli_stmt_execute($stmt);
+
+      $output = mysqli_stmt_affected_rows($stmt);
+      return $output;
+   }
+
+   public function cambiarDestacado($conexion, $estado){
+      $consulta = "UPDATE producto  
+                     SET destacado = ?
+                     WHERE id_producto = ?";
+      $stmt = mysqli_prepare($conexion, $consulta);
+
+      mysqli_stmt_bind_param($stmt, 'ii', $estado, $this->id);
+      mysqli_stmt_execute($stmt);
+
+      $output = mysqli_stmt_affected_rows($stmt);
+      return $output;
+   }
 
 	public static function guardarFichaTecnica($conexion, $nombre,
                                                $campo01,
@@ -324,19 +549,43 @@ Class Producto{
                             p.path_imagen AS imagen,
                             p.path_video AS video,
                             c.descripcion AS categoria,
+                            p.id_categoria AS categoriaId,
                             p.codigo_sku AS sku,
                             pr.nombre AS proveedor,
+                            p.id_proveedor AS proveedorId,
                             m.descripcion AS  marca,
+                            p.id_marca AS marcaId,
                             p.peso_caja AS peso,
                             p.alto_caja AS alto,
                             p.ancho_caja AS ancho,
                             p.profundidad_caja AS profundidad,
                             p.id_producto_ficha_tecnica AS idProductoFichaTecnica,
-                            p.destacado
+                            p.destacado,
+                            pft.campo01,
+                            pft.campo02,
+                            pft.campo03,
+                            pft.campo04,
+                            pft.campo05,
+                            pft.campo06,
+                            pft.campo07,
+                            pft.campo08,
+                            pft.campo09,
+                            pft.campo10,
+                            pft.campo11,
+                            pft.campo12,
+                            pft.campo13,
+                            pft.campo14,
+                            pft.campo15,
+                            pft.campo16,
+                            pft.campo17,
+                            pft.campo18,
+                            pft.campo19,
+                            pft.campo20
                     FROM producto p 
                     JOIN categoria c ON c.id_categoria = p.id_categoria
                     JOIN proveedor pr ON pr.id_proveedor = p.id_proveedor
                     JOIN marca m ON m.id_marca = p.id_marca
+                    LEFT JOIN producto_ficha_tecnica pft ON pft.id_producto_ficha_tecnica = p.id_producto_ficha_tecnica
                     LIMIT  ?, ?";
 
         //$resultado = mysqli_query($conexion,$consulta);

@@ -55,7 +55,7 @@ footer {
 
 /* ---++++  edicion del css para modpc  */
 .foto320x150 {
-    min-height: 110px;
+    min-height: 130px;
     max-height: 130px;
     width: auto !important;
 }

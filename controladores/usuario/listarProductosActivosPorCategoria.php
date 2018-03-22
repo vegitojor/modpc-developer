@@ -17,6 +17,7 @@ $idCategoria = strip_tags($data->idCategoria);
 $desde = strip_tags($data->desde);
 $desde = (int)$desde;
 
+
 $limite = strip_tags($data->limite);
 $limite = (int)$limite;
 

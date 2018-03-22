@@ -1,17 +1,16 @@
-<!DOCTYPE html>
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-	<meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>ModPC</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Web en contrucción</title>
 </head>
-<body>
 
-<a href="">ir a productos</a><br>
-<a href="">login</a><br>
-<a href="/vistas/registro-de-usuario.php">registro de usuario</a><br>
+<body>
+<table width="200" border="0">
+ <tr>
+   <td><img src="img/construccion1.jpg"></img></td>
+ </tr>
+</table>
 
 </body>
 </html>
