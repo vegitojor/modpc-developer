@@ -21,6 +21,10 @@
 
     <!-- Angular -->
     <script type="text/javascript" src="../librerias/angularjs/angular.min.js"></script>
+
+    <!-- AngularVideo directive -->
+    <script type="text/javascript" src="../librerias/angular-video/anguvideo.js"></script>
+    <script type="text/javascript" src="../librerias/angular-video/controller.js"></script>
     
     <script type="text/javascript" src="../librerias/jquery/jquery-3.2.1.js"></script>
     

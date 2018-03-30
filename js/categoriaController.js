@@ -55,7 +55,7 @@ app.controller("categoriaController", function ($scope, $http, $sce, $filter, $w
        $scope.urlVideo = $productoIterado.video;
    }
 
-   $scope.videoPrueba = "https://www.youtube.com/embed/y910FVrywFU";
+   //$scope.videoPrueba = "https://www.youtube.com/embed/y910FVrywFU";
    $scope.formularioPregunta = false;
 
    $scope.mostrarPregunta = function () {

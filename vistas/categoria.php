@@ -17,9 +17,7 @@ $idCategoria = $_GET['id'];
     <?php include_once ('../incluciones/head.php'); ?>
     <script type="text/javascript" src="../js/indexModulo.js"></script>
     <script type="text/javascript" src="../js/categoriaController.js"></script>
-    <!-- AngularVideo directive -->
-    <script type="text/javascript" src="../librerias/angular-video/anguvideo.js"></script>
-    <script type="text/javascript" src="../librerias/angular-video/controller.js"></script>
+    
 
     <title>Categorias - MODPC</title>
 
@@ -205,8 +203,10 @@ $idCategoria = $_GET['id'];
                 <!-- LISTADO DE PRODUCTOS-->
                 <div class="col-sm-4 col-lg-4 col-md-4" ng-repeat="producto in productos">
                     <div class="thumbnail">
-                        <img src="../resourses/imagen_producto/{{producto.imagen}}" class="foto320x150" alt="imagen-{{producto.modelo}}" ng-hide="producto.imagen == '<--NoFoto-->'" >
-                        <img src="http://placehold.it/320x150" alt="" class="foto320x150" ng-show="producto.imagen == '<--NoFoto-->'">
+                        <a href="" data-toggle="modal" data-target="#id{{producto.id}}">
+                            <img src="../resourses/imagen_producto/{{producto.imagen}}" class="foto320x150" alt="imagen-{{producto.modelo}}" ng-hide="producto.imagen == '<--NoFoto-->'" >
+                            <img src="http://placehold.it/320x150" alt="" class="foto320x150" ng-show="producto.imagen == '<--NoFoto-->'">
+                        </a>
                         <div class="caption">
                             <h4 class="pull-right">{{producto.precio * moneda.valor | currency}}</h4>
                             <p ng-show="producto.nuevo">Nuevo</p>
