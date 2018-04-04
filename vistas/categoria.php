@@ -18,6 +18,10 @@ $idCategoria = $_GET['id'];
     <script type="text/javascript" src="../js/indexModulo.js"></script>
     <script type="text/javascript" src="../js/categoriaController.js"></script>
     
+    <!-- AngularVideo directive -->
+    <script type="text/javascript" src="../librerias/angular-video/anguvideo.js"></script>
+    <script type="text/javascript" src="../librerias/angular-video/controller.js"></script>
+    
 
     <title>Categorias - MODPC</title>
 
@@ -31,7 +35,7 @@ $idCategoria = $_GET['id'];
 <!-- Page Content -->
 <div class="container">
 
-    <div class="row">
+    <div class="row" ng-init="obtenerCategoria(<?= $idCategoria; ?>)">
 
         <div class="col-md-3" ng-init="cargarMoneda()">
             <div class="col-md-12">
@@ -41,144 +45,143 @@ $idCategoria = $_GET['id'];
 
                 </div>
             </div>
-            <div class="col-md-12" ng-init="cargarFichaTecnica(<?= $idCategoria; ?>)">
+            <div class="col-md-12" ng-init="cargarFichaTecnica(<?= $idCategoria; ?>); traerOpcionesDeFiltros()">
                 <p class="lead">Filtros:</p>
                 <form class="form-inline list-group" >
                     <div class="form-group list-group-item" ng-show="ficha.campo01 != 0">
-                        <label for="campo01">{{ficha.campo01}}</label>
-                        <select class="form-control"  ng-model="campo01" >
+                        <label for="campo01" >{{ficha.campo01}}</label>
+                        <select class="form-control"  ng-model="campo01" ng-options="item.campo01 for item in opcionesFiltroCampo01">
                             <option value="">Seleccione un filtro</option>
-                            <option ng-repeat="campo in campos01" value="{{campo.descripcion}}">{{campo.descripcion}}</option>
+                            
                         </select>
                     </div>
                     <div class="form-group list-group-item" ng-show="ficha.campo02 != 0">
                         <label for="campo02">{{ficha.campo02}}</label>
-                        <select class="form-control" ng-model="campo02" >
+                        <select class="form-control" ng-model="campo02" ng-options="item.campo02 for item in opcionesFiltroCampo02">
                             <option value="">Seleccione un filtro</option>
-                            <option ng-repeat="campo in campos02" value="{{campo.descripcion}}">{{campo.descripcion}}</option>
                         </select>
                     </div>
                     <div class="form-group list-group-item" ng-show="ficha.campo03 != 0">
                         <label for="campo03">{{ficha.campo03}}</label>
-                        <select class="form-control" ng-model="campo03" >
+                        <select class="form-control" ng-model="campo03" ng-options="item.campo03 for item in opcionesFiltroCampo03">
                             <option value="">Seleccione un filtro</option>
-                            <option ng-repeat="campo in campos03" value="{{campo.descripcion}}">{{campo.descripcion}}</option>
+                            
                         </select>
                     </div>
                     <div class="form-group list-group-item" ng-show="ficha.campo04 != 0">
                         <label for="campo04">{{ficha.campo04}}</label>
-                        <select class="form-control" ng-model="campo04" >
+                        <select class="form-control" ng-model="campo04" ng-options="item.campo04 for item in opcionesFiltroCampo04">
                             <option value="">Seleccione un filtro</option>
-                            <option ng-repeat="campo in campos04" value="{{campo.descripcion}}">{{campo.descripcion}}</option>
+                            
                         </select>
                     </div>
                     <div class="form-group list-group-item" ng-show="ficha.campo05 != 0">
                         <label for="campo05">{{ficha.campo05}}</label>
-                        <select class="form-control" ng-model="campo05" >
+                        <select class="form-control" ng-model="campo05" ng-options="item.campo05 for item in opcionesFiltroCampo05">
                             <option value="">Seleccione un filtro</option>
-                            <option ng-repeat="campo in campos05" value="{{campo.descripcion}}">{{campo.descripcion}}</option>
+                            
                         </select>
                     </div>
                     <div class="form-group list-group-item" ng-show="ficha.campo06 != 0">
                         <label for="campo06">{{ficha.campo06}}</label>
-                        <select class="form-control" ng-model="campo06" >
+                        <select class="form-control" ng-model="campo06" ng-options="item.campo06 for item in opcionesFiltroCampo06">
                             <option value="">Seleccione un filtro</option>
-                            <option ng-repeat="campo in campos06" value="{{campo.descripcion}}">{{campo.descripcion}}</option>
+                            
                         </select>
                     </div>
                     <div class="form-group list-group-item" ng-show="ficha.campo07 != 0">
                         <label for="campo07">{{ficha.campo07}}</label>
-                        <select class="form-control" ng-model="campo07" >
+                        <select class="form-control" ng-model="campo07" ng-options="item.campo07 for item in opcionesFiltroCampo07">
                             <option value="">Seleccione un filtro</option>
-                            <option ng-repeat="campo in campos07" value="{{campo.descripcion}}">{{campo.descripcion}}</option>
+                            
                         </select>
                     </div>
                     <div class="form-group list-group-item" ng-show="ficha.campo08 != 0">
                         <label for="campo08">{{ficha.campo08}}</label>
-                        <select class="form-control" ng-model="campo08" >
+                        <select class="form-control" ng-model="campo08" ng-options="item.campo08 for item in opcionesFiltroCampo08">
                             <option value="">Seleccione un filtro</option>
-                            <option ng-repeat="campo in campos08" value="{{campo.descripcion}}">{{campo.descripcion}}</option>
+                            
                         </select>
                     </div>
                     <div class="form-group list-group-item" ng-show="ficha.campo09 != 0">
                         <label for="campo09">{{ficha.campo09}}</label>
-                        <select class="form-control" ng-model="campo09" >
+                        <select class="form-control" ng-model="campo09" ng-options="item.campo09 for item in opcionesFiltroCampo09">
                             <option value="">Seleccione un filtro</option>
-                            <option ng-repeat="campo in campos09" value="{{campo.descripcion}}">{{campo.descripcion}}</option>
+                            
                         </select>
                     </div>
                     <div class="form-group list-group-item" ng-show="ficha.campo10 != 0">
                         <label for="campo10">{{ficha.campo10}}</label>
-                        <select class="form-control" ng-model="campo10" >
+                        <select class="form-control" ng-model="campo10" ng-options="item.campo10 for item in opcionesFiltroCampo10">
                             <option value="">Seleccione un filtro</option>
-                            <option ng-repeat="campo in campos10" value="{{campo.descripcion}}">{{campo.descripcion}}</option>
+                            
                         </select>
                     </div>
                     <div class="form-group list-group-item" ng-show="ficha.campo11 != 0">
                         <label for="campo11">{{ficha.campo11}}</label>
-                        <select class="form-control" ng-model="campo11" >
+                        <select class="form-control" ng-model="campo11" ng-options="item.campo011 for item in opcionesFiltroCampo11">
                             <option value="">Seleccione un filtro</option>
-                            <option ng-repeat="campo in campos11" value="{{campo.descripcion}}">{{campo.descripcion}}</option>
+                            
                         </select>
                     </div>
                     <div class="form-group list-group-item" ng-show="ficha.campo12 != 0">
                         <label for="campo12">{{ficha.campo12}}</label>
-                        <select class="form-control" ng-model="campo12" >
+                        <select class="form-control" ng-model="campo12" ng-options="item.campo12 for item in opcionesFiltroCampo12">
                             <option value="">Seleccione un filtro</option>
-                            <option ng-repeat="campo in campos12" value="{{campo.descripcion}}">{{campo.descripcion}}</option>
+                            
                         </select>
                     </div><div class="form-group list-group-item" ng-show="ficha.campo13 != 0">
                         <label for="campo013">{{ficha.campo13}}</label>
-                        <select class="form-control" ng-model="campo13" >
+                        <select class="form-control" ng-model="campo13" ng-options="item.campo13 for item in opcionesFiltroCampo13">
                             <option value="">Seleccione un filtro</option>
-                            <option ng-repeat="campo in campos13" value="{{campo.descripcion}}">{{campo.descripcion}}</option>
+                            
                         </select>
                     </div>
                     <div class="form-group list-group-item" ng-show="ficha.campo14 != 0">
                         <label for="campo14">{{ficha.campo14}}</label>
-                        <select class="form-control" ng-model="campo14" >
+                        <select class="form-control" ng-model="campo14" ng-options="item.campo14 for item in opcionesFiltroCampo14">
                             <option value="">Seleccione un filtro</option>
-                            <option ng-repeat="campo in campos14" value="{{campo.descripcion}}">{{campo.descripcion}}</option>
+                            
                         </select>
                     </div>
                     <div class="form-group list-group-item" ng-show="ficha.campo15 != 0">
                         <label for="campo15">{{ficha.campo15}}</label>
-                        <select class="form-control" ng-model="campo15" >
+                        <select class="form-control" ng-model="campo15" ng-options="item.campo15 for item in opcionesFiltroCampo15">
                             <option value="">Seleccione un filtro</option>
-                            <option ng-repeat="campo in campos15" value="{{campo.descripcion}}">{{campo.descripcion}}</option>
+                            
                         </select>
                     </div>
                     <div class="form-group list-group-item" ng-show="ficha.campo16 != 0">
                         <label for="campo16">{{ficha.campo16}}</label>
-                        <select class="form-control" ng-model="campo16" >
+                        <select class="form-control" ng-model="campo16" ng-options="item.campo16 for item in opcionesFiltroCampo16">
                             <option value="">Seleccione un filtro</option>
-                            <option ng-repeat="campo in campos16" value="{{campo.descripcion}}">{{campo.descripcion}}</option>
+                            
                         </select>
                     </div>
                     <div class="form-group list-group-item" ng-show="ficha.campo17 != 0">
                         <label for="campo17">{{ficha.campo17}}</label>
-                        <select class="form-control" ng-model="campo17" >
+                        <select class="form-control" ng-model="campo17" ng-options="item.campo17 for item in opcionesFiltroCampo17">
                             <option value="">Seleccione un filtro</option>
-                            <option ng-repeat="campo in campos17" value="{{campo.descripcion}}">{{campo.descripcion}}</option>
+                            
                         </select>
                     </div>
                     <div class="form-group list-group-item" ng-show="ficha.campo18 != 0">
                         <label for="campo18">{{ficha.campo18}}</label>
-                        <select class="form-control" ng-model="campo18" >
+                        <select class="form-control" ng-model="campo18" ng-options="item.campo18 for item in opcionesFiltroCampo18">
                             <option value="">Seleccione un filtro</option>
-                            <option ng-repeat="campo in campos18" value="{{campo.descripcion}}">{{campo.descripcion}}</option>
+                            
                         </select>
                     </div>
                     <div class="form-group list-group-item" ng-show="ficha.campo19 != 0">
                         <label for="campo19">{{ficha.campo19}}</label>
-                        <select class="form-control" ng-model="campo19" >
+                        <select class="form-control" ng-model="campo19" ng-options="item.campo19 for item in opcionesFiltroCampo19">
                             <option value="">Seleccione un filtro</option>
-                            <option ng-repeat="campo in campos19" value="{{campo.descripcion}}">{{campo.descripcion}}</option>
+                            
                         </select>
                     </div>
                     <div class="form-group list-group-item" ng-show="ficha.campo20 != 0">
                         <label for="campo20">{{ficha.campo20}}</label>
-                        <select class="form-control" ng-model="campo20" >
+                        <select class="form-control" ng-model="campo20" ng-options="item.campo20 for item in opcionesFiltroCampo20">
                             <option value="">Seleccione un filtro</option>
                             <option ng-repeat="campo in campos20" value="{{campo.descripcion}}">{{campo.descripcion}}</option>
                         </select>
@@ -186,14 +189,14 @@ $idCategoria = $_GET['id'];
                     <br>
                     <br>
                     <div class="pull-right">
-                        <input type="submit" class="btn btn-primary ">
+                        <input type="submit" class="btn btn-primary" ng-click="buscarProductosPorFiltro()">
                     </div>
                     <br><br>
                 </form>
             </div>
         </div>
         <!-- SECTION -->
-        <div class="col-md-9" ng-init="obtenerCategoria(<?= $idCategoria; ?>)">
+        <div class="col-md-9" >
             <!-- SECTION DE LA VISTA CATEGORIA-->
             <div class="row" ng-init="listarproductosPorCategoria(idCategoriaModel); cantidadDePaginacion(idCategoriaModel)">
 

@@ -603,7 +603,27 @@ Class Producto{
         return $output;
     }
 
-    public static function listarProductosDisponiblesPorIdCategoria($conexion, $idCategoria, $desde, $limite){
+    public static function listarProductosDisponiblesPorIdCategoria($conexion, $idCategoria, $desde, $limite, 
+                                       $campo01,
+                                       $campo02,
+                                       $campo03,
+                                       $campo04,
+                                       $campo05,
+                                       $campo06,
+                                       $campo07,
+                                       $campo08,
+                                       $campo09,
+                                       $campo10,
+                                       $campo11,
+                                       $campo12,
+                                       $campo13,
+                                       $campo14,
+                                       $campo15,
+                                       $campo16,
+                                       $campo17,
+                                       $campo18,
+                                       $campo19,
+                                       $campo20){
         $consulta = "SELECT p.id_producto AS id,
                             p.descripcion,
                             p.precio,
@@ -653,12 +673,53 @@ Class Producto{
                     LEFT JOIN producto_ficha_tecnica pft ON pft.id_producto_ficha_tecnica = p.id_producto_ficha_tecnica
                     WHERE p.disponible = 1
                     AND p.id_categoria = ?
+                    AND  pft.campo01 LIKE ?
+                     AND  pft.campo02 LIKE ?
+                     AND  pft.campo03 LIKE ?
+                     AND  pft.campo04 LIKE ?
+                     AND  pft.campo05 LIKE ?
+                     AND  pft.campo06 LIKE ?
+                     AND  pft.campo07 LIKE ?
+                     AND  pft.campo08 LIKE ?
+                     AND  pft.campo09 LIKE ?
+                     AND  pft.campo10 LIKE ?
+                     AND  pft.campo11 LIKE ?
+                     AND  pft.campo12 LIKE ?
+                     AND  pft.campo13 LIKE ?
+                     AND  pft.campo14 LIKE ?
+                     AND  pft.campo15 LIKE ?
+                     AND  pft.campo16 LIKE ?
+                     AND  pft.campo17 LIKE ?
+                     AND  pft.campo18 LIKE ?
+                     AND  pft.campo19 LIKE ?
+                     AND  pft.campo20 LIKE ?
                     GROUP BY vp.producto_id_producto, p.id_producto
                     ORDER BY p.descripcion
                     LIMIT ?, ?";
 
         $stmt = mysqli_prepare($conexion, $consulta);
-        mysqli_stmt_bind_param($stmt,'iii', $idCategoria, $desde, $limite);
+        mysqli_stmt_bind_param($stmt,'issssssssssssssssssssii', $idCategoria, 
+                                                $campo01,
+                                       $campo02,
+                                       $campo03,
+                                       $campo04,
+                                       $campo05,
+                                       $campo06,
+                                       $campo07,
+                                       $campo08,
+                                       $campo09,
+                                       $campo10,
+                                       $campo11,
+                                       $campo12,
+                                       $campo13,
+                                       $campo14,
+                                       $campo15,
+                                       $campo16,
+                                       $campo17,
+                                       $campo18,
+                                       $campo19,
+                                       $campo20,
+                                       $desde, $limite);
         mysqli_stmt_execute($stmt);
         $resultado = mysqli_stmt_get_result($stmt);
         $output = array();
@@ -892,13 +953,77 @@ Class Producto{
         return $output;
    }
 
-   public static function contarProductosDisponiblesPorIdCategoria($conexion, $idCategoria){
+   public static function contarProductosDisponiblesPorIdCategoria($conexion, $idCategoria,
+                                       $campo01,
+                                       $campo02,
+                                       $campo03,
+                                       $campo04,
+                                       $campo05,
+                                       $campo06,
+                                       $campo07,
+                                       $campo08,
+                                       $campo09,
+                                       $campo10,
+                                       $campo11,
+                                       $campo12,
+                                       $campo13,
+                                       $campo14,
+                                       $campo15,
+                                       $campo16,
+                                       $campo17,
+                                       $campo18,
+                                       $campo19,
+                                       $campo20
+                                          ){
+
+
       $consulta = "SELECT count(*) as cantidad
-                  FROM producto
-                  WHERE id_categoria = ?";
+                  FROM producto p
+                  JOIN producto_ficha_tecnica pft ON pft.id_producto_ficha_tecnica = p.id_producto_ficha_tecnica
+                  WHERE p.id_categoria = ?
+                  AND  pft.campo01 LIKE ?
+                  AND  pft.campo02 LIKE ?
+                  AND  pft.campo03 LIKE ?
+                  AND  pft.campo04 LIKE ?
+                  AND  pft.campo05 LIKE ?
+                  AND  pft.campo06 LIKE ?
+                  AND  pft.campo07 LIKE ?
+                  AND  pft.campo08 LIKE ?
+                  AND  pft.campo09 LIKE ?
+                  AND  pft.campo10 LIKE ?
+                  AND  pft.campo11 LIKE ?
+                  AND  pft.campo12 LIKE ?
+                  AND  pft.campo13 LIKE ?
+                  AND  pft.campo14 LIKE ?
+                  AND  pft.campo15 LIKE ?
+                  AND  pft.campo16 LIKE ?
+                  AND  pft.campo17 LIKE ?
+                  AND  pft.campo18 LIKE ?
+                  AND  pft.campo19 LIKE ?
+                  AND  pft.campo20 LIKE ?";
 
       $stmt = mysqli_prepare($conexion, $consulta);
-      mysqli_stmt_bind_param($stmt, 'i', $idCategoria);
+      mysqli_stmt_bind_param($stmt, 'issssssssssssssssssss', $idCategoria, 
+                                       $campo01,
+                                       $campo02,
+                                       $campo03,
+                                       $campo04,
+                                       $campo05,
+                                       $campo06,
+                                       $campo07,
+                                       $campo08,
+                                       $campo09,
+                                       $campo10,
+                                       $campo11,
+                                       $campo12,
+                                       $campo13,
+                                       $campo14,
+                                       $campo15,
+                                       $campo16,
+                                       $campo17,
+                                       $campo18,
+                                       $campo19,
+                                       $campo20);
       mysqli_stmt_execute($stmt);
 
       $resultado = mysqli_stmt_get_result($stmt);
@@ -910,6 +1035,107 @@ Class Producto{
                   FROM producto";
       $resultado = mysqli_query($conexion,$consulta);
       $output = mysqli_fetch_assoc($resultado);
+      return $output;
+   }
+
+   public static function obtenerOpcionesFiltrosPorCampo($conexion, $idCategoria, $campo){
+      $elect = '';
+      $grupo = '';
+      switch ($campo) {
+         case 1:
+            $select = 'SELECT ftp.campo01';
+            $grupo = 'GROUP BY ftp.campo01';
+            break;
+         case 2:
+            $select = 'SELECT ftp.campo02';
+            $grupo = 'GROUP BY ftp.campo02';
+            break;
+         case 3:
+            $select = 'SELECT ftp.campo03';
+            $grupo = 'GROUP BY ftp.campo03';
+            break;
+         case 4:
+            $select = 'SELECT ftp.campo04';
+            $grupo = 'GROUP BY ftp.campo04';
+            break;
+         case 5:
+            $select = 'SELECT ftp.campo05';
+            $grupo = 'GROUP BY ftp.campo02';
+            break;
+         case 6:
+            $select = 'SELECT ftp.campo06';
+            $grupo = 'GROUP BY ftp.campo06';
+            break;
+         case 7:
+            $select = 'SELECT ftp.campo07';
+            $grupo = 'GROUP BY ftp.campo07';
+            break;
+         case 8:
+            $select = 'SELECT ftp.campo08';
+            $grupo = 'GROUP BY ftp.campo08';
+            break;
+         case 9:
+            $select = 'SELECT ftp.campo09';
+            $grupo = 'GROUP BY ftp.campo09';
+            break;
+         case 10:
+            $select = 'SELECT ftp.campo10';
+            $grupo = 'GROUP BY ftp.campo10';
+            break;
+         case 11:
+            $select = 'SELECT ftp.campo11';
+            $grupo = 'GROUP BY ftp.campo11';
+            break;
+         case 12:
+            $select = 'SELECT ftp.campo12';
+            $grupo = 'GROUP BY ftp.campo12';
+            break;
+         case 13:
+            $select = 'SELECT ftp.campo13';
+            $grupo = 'GROUP BY ftp.campo13';
+            break;
+         case 14:
+            $select = 'SELECT ftp.campo014';
+            $grupo = 'GROUP BY ftp.campo14';
+            break;
+         case 15:
+            $select = 'SELECT ftp.campo15';
+            $grupo = 'GROUP BY ftp.campo15';
+            break;
+         case 16:
+            $select = 'SELECT ftp.campo16';
+            $grupo = 'GROUP BY ftp.campo16';
+            break;
+         case 17:
+            $select = 'SELECT ftp.campo017';
+            $grupo = 'GROUP BY ftp.campo17';
+            break;
+         case 18:
+            $select = 'SELECT ftp.campo18';
+            $grupo = 'GROUP BY ftp.campo18';
+            break;
+         case 19:
+            $select = 'SELECT ftp.campo19';
+            $grupo = 'GROUP BY ftp.campo19';
+            break;
+         case 20:
+            $select = 'SELECT ftp.campo20';
+            $grupo = 'GROUP BY ftp.campo20';
+            break;
+      }
+
+    $consulta = $select . " FROM producto_ficha_tecnica ftp JOIN producto p ON ftp.id_producto_ficha_tecnica = p.id_producto
+                  WHERE p.id_categoria = ? " . $grupo;
+
+      $stmt = mysqli_prepare($conexion, $consulta);
+      mysqli_stmt_bind_param($stmt, 'i', $idCategoria);
+      mysqli_stmt_execute($stmt);
+      $resultado = mysqli_stmt_get_result($stmt);
+      $output = array();
+      while ($fila = mysqli_fetch_assoc($resultado)){
+         
+         $output[] = $fila;
+      }
       return $output;
    }
 }
