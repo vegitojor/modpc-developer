@@ -19,4 +19,6 @@ $conexion = $conn->getConexion();
 //LISTAR CATEGORIAS
 $categorias = Categoria::listarCategorias($conexion);
 
+//CERRAR CONEXION A BD
+
 echo json_encode($categorias);

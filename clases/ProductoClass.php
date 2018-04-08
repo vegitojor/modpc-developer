@@ -46,30 +46,7 @@ Class Producto{
      * @param $profundidad
      * @param $idProductoFichaTecnica
      */
-    //function __construct($id, $descripcion, $precio, $mesesGarantia, $nuevo, $codFabricante, $modelo, $disponible,
-    //                     $codProveedor, $fotoProducto, $videoProducto, $categoria, $proveedor, $marca, $sku,
-    //                     $peso, $alto, $ancho, $profundidad, $idProductoFichaTecnica, $destacado){
-    /*$this->id = $id;
-        $this->descripcion = $descripcion;
-        $this->precio = $precio;
-        $this->mesesGarantia = $mesesGarantia;
-        $this->nuevo = $nuevo;
-        $this->codFabricante = $codFabricante;
-        $this->modelo = $modelo;
-        $this->disponible = $disponible;
-        $this->codProveedor = $codProveedor;
-        $this->fotoProducto = $fotoProducto;
-        $this->videoProducto = $videoProducto;
-        $this->categoria = $categoria;
-        $this->proveedor = $proveedor;
-        $this->marca = $marca;
-        $this->sku = $sku;
-        $this->peso = $peso;
-        $this->alto = $alto;
-        $this->ancho = $ancho;
-        $this->profundidad = $profundidad;
-        $this->idProductoFichaTecnica = $idProductoFichaTecnica;
-        $this->destacado = $destacado;*/
+   
 
     function __construct(){
       $i = func_num_args();

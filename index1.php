@@ -269,7 +269,7 @@ include_once ('incluciones/verificacionUsuario.php');
                                                 <br>
                                                 <div>
                                                     <!-- Aca van las iteraciones con las preguntas y respuestas -->
-                                                   <div class="panel panel-default" ng-repeat="preg in preguntas">
+                                                   <div class="panel panel-info" ng-repeat="preg in preguntas">
                                                      <div class="panel-body">{{preg.pregunta}} - ({{preg.fecha}})</div>
                                                      <div class="panel-footer" ng-show="preg.respuesta">
                                                          {{preg.respuesta}} - ({{preg.fechaRespuesta}})
