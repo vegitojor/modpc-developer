@@ -25,12 +25,14 @@ include_once ('../incluciones/verificacionAdmin.php');
     <div class="w3-row">
         <div class=" w3-padding-32 w3-blue-gray">
             <h1 class="w3-jumbo w3-margin-left">Cargar Marca</h1>
+            <a href="" class="w3-btn w3-orange w3-hover-blue-gray w3-margin-left" ng-click="abrirCargaMarca()"><span class="fa fa-plus"></span> Agregar Marca</a>
         </div>
     </div>
-    <div class="w3-row">
+    <div class="w3-row" ng-show="divCargaMarca">
         <div class="w3-content w3-white">
             <div class="w3-card-4 w3-blue-gray">
                 <header>
+                    <a href="" class="w3-button w3-right w3-margin" ng-click="cerrarCargaMarca()"><span class="fa fa-remove"></span> </a>
                     <h2 class="w3-margin-left">Nueva Marca</h2>
                 </header>
                 <div class="w3-white">
@@ -54,11 +56,10 @@ include_once ('../incluciones/verificacionAdmin.php');
         </div>
     </div>
     <div class="w3-row">
-        <div class="w3-content w3-white">
-            <div class="w3-card-4 ">
-                <a href="" class="w3-btn w3-blue" ng-click="listarMarcas()">Ver Marcas</a>
-                <br>
-                <div ng-show="marcas">
+        <div class="w3-container w3-white w3-margin" >
+            <div class="w3-card-4 " ng-init="listarMarcas()">
+                
+                <div class="w3-margin">
                     <!-- TABLA QUE LISTA LAS MARCAS ALMACENADAS -->
                     <table class="w3-table w3-striped w3-bordered w3-hoverable">
                         <thead>

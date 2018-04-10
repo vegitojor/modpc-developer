@@ -26,6 +26,8 @@ app.controller("formularioProveedor", function ($http, $scope, $window) {
                 $scope.respuesta = response;
                 if($scope.respuesta.respuesta == 1){
                     alert("El proveedor se guardo correctamente.");
+
+                    $scope.divCargarProveedor = false;
                 }else if ($scope.respuesta.respuesta == 0){
                     alert("El proveedor ya se encuentra registrado.");
                 }else {
@@ -41,5 +43,14 @@ app.controller("formularioProveedor", function ($http, $scope, $window) {
             })
     }
 
+    //PARA ABRIR MODAL DE CARGA DE PROVEEDOR
+    $scope.divCargarProveedor = false;
+    $scope.abrirCargaProveedor = function(){
+        $scope.divCargarProveedor = true;
+    }
+
+    $scope.cerrarCargaProveedor = function(){
+        $scope.divCargarProveedor = false;
+    }
 
 })

@@ -29,12 +29,15 @@ include_once ("../incluciones/verificacionAdmin.php");
     <!-- jumbotron -->
     <div class="w3-container w3-padding-32  w3-blue-gray">
         <h1 class="w3-jumbo w3-margin-left">Cargar Proveedor</h1>
+        <a href="" class="w3-btn w3-orange w3-hover-blue-gray w3-margin-left" ng-click="abrirCargaProveedor()"><span class="fa fa-plus"></span> Agregar Proveedor</a>
     </div>
     <!-- Formulario de carga -->
-    <div class="w3-content">
+    <div class="w3-content" ng-show="divCargarProveedor">
         <div class="w3-card-4 w3-blue-gray">
             <header>
+                <a href="" class="w3-button w3-right w3-margin" ng-click="cerrarCargaProveedor()"><span class="fa fa-remove"></span> </a>
                 <h2 class="w3-margin-left">Introduzca los datos del proveedor</h2>
+                
             </header>
             <div class="w3-container w3-center w3-white w3-padding" >
                 <form action="" name="formProveedor" >
@@ -110,14 +113,13 @@ include_once ("../incluciones/verificacionAdmin.php");
             </div>
         </div>
     </div>
+    <!-- FIN DE CARGA DE PROVEEDOR -->
     <br>
     <!-- VISUALIZACION DE LOS PROVEEDORES -->
     <div class="w3-container w3-card-4 w3-padding w3-margin w3-white">
-        <div class="w3-row">
-            <a href="" ng-click="listarProveedores()" class="w3-btn w3-blue w3-padding">Ver todos los proveedores</a>
-        </div>
+        
         <br>
-        <div class="w3-row">
+        <div class="w3-row" ng-init="listarProveedores()">
             <!-- TABLA DE PROVEEDORES -->
             <div ng-show="proveedores">
                 <table class="w3-table-all w3-hoverable">

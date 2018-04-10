@@ -40,4 +40,15 @@ app.controller("adminMarca", function ($scope, $http, $window) {
                     alert('Ocurrió un inconveniente al editar la marca.');
             })
     }
+
+    //MODAL PARA CARGA DE NUEVA MARCA
+    $scope.divCargaMarca = false;
+    $scope.abrirCargaMarca = function(){
+        $scope.divCargaMarca = true;
+    }
+
+    $scope.cerrarCargaMarca = function(){
+        $scope.divCargaMarca = false;
+    }
+
 });
