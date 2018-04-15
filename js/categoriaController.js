@@ -152,11 +152,16 @@ app.controller("categoriaController", function ($scope, $http, $sce, $filter, $w
          })
    }
 
-   $scope.listarPreguntas = function($idProducto){
-      $http.post('../controladores/usuario/listarPreguntasController.php', {'idProducto':$idProducto})
+   $scope.listarPreguntas = function($idProducto, todas){
+      $http.post('../controladores/usuario/listarPreguntasController.php', {'idProducto':$idProducto, 'todas': todas})
       .success(function(response){
          $scope.preguntas = response;
       });
+
+      if(todas == 1 )
+        $scope.botonVerTodasPreguntas = false;
+      else
+        $scope.botonVerTodasPreguntas = true;
    }
 
    $scope.agregarAlCarrito = function($idUsuario,$idProducto, $cantidad){

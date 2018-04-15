@@ -273,7 +273,7 @@ $idCategoria = $_GET['id'];
                                         <ul class="nav nav-tabs nav-justified">
                                             <li class="active"><a data-toggle="tab" href="#ficha{{producto.id}}" >Ficha T&eacute;cnica</a></li>
                                             <li><a  data-toggle="tab" href="#video{{producto.id}}" >Video</a></li>
-                                            <li><a  data-toggle="tab" href="#pregunta{{producto.id}}" ng-click="listarPreguntas(producto.id)">Preguntas</a></li>
+                                            <li><a  data-toggle="tab" href="#pregunta{{producto.id}}" ng-click="listarPreguntas(producto.id, 0)">Preguntas</a></li>
                                         </ul>
                                         <div class="tab-content" >
                                             <div class="tab-pane fade in active" id="ficha{{producto.id}}" role="tabpanel">
@@ -388,6 +388,10 @@ $idCategoria = $_GET['id'];
                                                          {{preg.respuesta}} - ({{preg.fechaRespuesta}})
                                                       </div>
                                                    </div>
+                                                   <div class="text-center" ng-if="preguntas.length == 0">
+                                                       <p>Nadie ha realizado preguntas.</p>
+                                                   </div>
+                                                   <a href="" ng-show="botonVerTodasPreguntas" class="btn btn-primary btn-block" ng-click="listarPreguntas(producto.id, 1)">Ver todas</a>
                                                 </div>
                                             </div>
                                         </div>

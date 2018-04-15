@@ -798,7 +798,11 @@ Class Producto{
       return $output;
     }
 
-    public static function listarPreguntasYRespuestas($conexion, $idProducto){
+    public static function listarPreguntasYRespuestas($conexion, $idProducto, $todas){
+      $limite = "";
+      if ($todas == 0) {
+        $limite = " LIMIT 10";
+      }
       $consulta = "SELECT p.pregunta,
                            p.fecha,
                            r.respuesta,
@@ -806,6 +810,7 @@ Class Producto{
                   FROM pregunta p LEFT JOIN respuesta r ON p.id_pregunta = r.pregunta_id_pregunta
                   WHERE p.id_producto = ?
                   ORDER BY p.fecha DESC";
+      $consulta = $consulta . $limite;
 
       $stmt = mysqli_prepare($conexion, $consulta);
       mysqli_stmt_bind_param($stmt, 'i', $idProducto);
@@ -1037,7 +1042,7 @@ Class Producto{
             break;
          case 5:
             $select = 'SELECT ftp.campo05';
-            $grupo = 'GROUP BY ftp.campo02';
+            $grupo = 'GROUP BY ftp.campo05';
             break;
          case 6:
             $select = 'SELECT ftp.campo06';
@@ -1072,7 +1077,7 @@ Class Producto{
             $grupo = 'GROUP BY ftp.campo13';
             break;
          case 14:
-            $select = 'SELECT ftp.campo014';
+            $select = 'SELECT ftp.campo14';
             $grupo = 'GROUP BY ftp.campo14';
             break;
          case 15:
@@ -1084,7 +1089,7 @@ Class Producto{
             $grupo = 'GROUP BY ftp.campo16';
             break;
          case 17:
-            $select = 'SELECT ftp.campo017';
+            $select = 'SELECT ftp.campo17';
             $grupo = 'GROUP BY ftp.campo17';
             break;
          case 18:

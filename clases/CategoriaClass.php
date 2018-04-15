@@ -25,7 +25,7 @@ class Categoria
       if($i == 1){
         $id = func_get_arg(0);
         $this->id = $id;
-      }elseif ($i == 21) {
+      }elseif ($i == 3) {
          $this->id = func_get_arg(0);
         $this->descripcion = func_get_arg(1);
         $this->fichaTecnica = func_get_arg(2);
