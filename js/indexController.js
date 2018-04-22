@@ -67,7 +67,7 @@ app.controller("indexController", function ($scope, $http, $filter, $window) {
     $scope.preguntas;
 
    $scope.listarPreguntas = function($idProducto){
-      $http.post('controladores/usuario/listarPreguntasController.php', {'idProducto':$idProducto})
+      $http.post('controladores/usuario/listarPreguntasController.php', {'idProducto':$idProducto, 'todas': 0})
       .success(function(response){
          $scope.preguntas = response;
       });
