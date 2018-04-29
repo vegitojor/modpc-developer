@@ -262,6 +262,48 @@ app.controller("adminProducto", function ($scope, $http) {
         });
     }
 
+     //CARGA MASIVA DE PRODUCTO
+    $scope.cargaMasivaProductoDiv = false;
+
+    $scope.mostrarCargaMasiva = function(){
+        $scope.cargaMasivaProductoDiv = true;        
+    }
+
+    $scope.cerrarCargaMasiva = function(){
+        $scope.cargaMasivaProductoDiv = false;
+    }
+
+    $scope.enviarArchivoCargaMasiva = function(){
+
+        var data = new FormData();
+        var archivoCarga = document.getElementById('archivoCarga').files[0];
+
+        data.append("archivoCarga", archivoCarga);
+
+        $http({
+            method: 'POST',
+            url: "../controladores/cargaMasivaProducto.php",
+            data: data,
+            headers: {
+                'Content-Type': undefined
+            }
+        }).success(function(response){
+            
+            if(response.respuesta == 1){
+                alert('La imagen se cambio correctamente');
+            }else if (response.respuesta == 0) {
+                alert('Error al cambiar la imagen.');
+            }else if (response.respuesta == 2) {
+                alert('Ocurrio un error al conectarse con la base de datos. Por favor vuelva a intentarlo mas tarde.');
+            }else{
+                alert('Se enviaron datos incorrectos a la base de datos.');
+            }
+
+            document.getElementById('archivoCarga').value = '';
+            $scope.listarProductos();
+            $scope.cerrarCargaMasiva();
+        });
+    }
 
 
     /**************** PAGINACION ***********************/
@@ -286,6 +328,8 @@ app.controller("adminProducto", function ($scope, $http) {
          $scope.paginaciones = array;
       });
     } 
+
+
 
     //BUSCA EL RESULTADO DE PRODUCTOS SEGUN LA PAGINA SELECCIONADA
     $scope.buscarSegunPagina = function( desdePaginacion){

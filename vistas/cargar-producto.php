@@ -29,12 +29,14 @@ include_once ("../incluciones/verificacionAdmin.php");
             <button class="w3-btn w3-orange w3-hover-blue-gray w3-margin-left" ng-click="mostrarCargaProducto()"><span class="fa fa-plus"></span> Agregar un producto</button>
         </div>
         
+        <?php include_once('../incluciones/cargaMasivaProductoModal.php'); ?>
+
         <!-- CARGA DE PRODUCTO -->
         <div class="w3-content  w3-gray" ng-show="cargaProducto">
             <div class="w3-card-4 w3-blue-gray " >
                 <header>
                     <a href="" class="w3-button w3-right w3-margin" ng-click="cerrarCargaProducto()"><span class="fa fa-remove"></span> </a>
-                    <a  class="w3-btn w3-orange w3-right w3-margin"  ><span class="fa fa-upload"></span> Cargar desde archivo</a>
+                    <a  class="w3-btn w3-orange w3-right w3-margin" ng-click="mostrarCargaMasiva()" ><span class="fa fa-upload" ></span> Cargar desde archivo</a>
                     <h1 class="w3-margin-left">Carga de producto</h1>
 
                 </header>
