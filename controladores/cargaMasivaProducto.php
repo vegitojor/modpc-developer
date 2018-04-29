@@ -22,8 +22,8 @@ if($archivoCarga["size"]>2000000){
     $tipo_archivo= $archivoCarga['type'];
     $tamano_archivo = $archivoCarga['size'];
     $direccion_temporal = $archivoCarga['tmp_name'];
-    // movemos el archivo a la capeta de nuestro servidor
-    //move_uploaded_file($archivoCarga['tmp_name'],"".$archivoCarga['name']);
+    // movemos el archivo a la capeta de nuestro servidor 
+    move_uploaded_file($archivoCarga['tmp_name'],"../resourses/cargaMasiva/". "'" .$archivoCarga['name'] . "'");
 }
 
 var_dump($nombre_archivo);
