@@ -56,7 +56,7 @@ app.controller("adminProducto", function ($scope, $http) {
 
     $scope.cerrarCargaProducto = function () {
         $scope.cargaProducto = false;
-        console.log($scope.cargaProducto);
+        
     }
 
     $scope.listarProductos = function () {
@@ -290,18 +290,20 @@ app.controller("adminProducto", function ($scope, $http) {
         }).success(function(response){
             
             if(response.respuesta == 1){
-                alert('La imagen se cambio correctamente');
+                alert('Se cargaron los productos desde el archivo. ' + response.filas + ' productos fueron agregados.');
             }else if (response.respuesta == 0) {
-                alert('Error al cambiar la imagen.');
+                alert('Error al cargar el archivo. El archivo seleccionado supera el tamaño maximo de 2 Mb.');
             }else if (response.respuesta == 2) {
-                alert('Ocurrio un error al conectarse con la base de datos. Por favor vuelva a intentarlo mas tarde.');
+                alert('Ocurrio un error al intentar leer el archivo. Por favor vuelva a intentarlo mas tarde.');
             }else{
-                alert('Se enviaron datos incorrectos a la base de datos.');
+                alert('Se proceso mal el archivo.');
             }
 
             document.getElementById('archivoCarga').value = '';
+            $scope.cantidadDePaginacion();
             $scope.listarProductos();
             $scope.cerrarCargaMasiva();
+            $scope.cerrarCargaProducto();
         });
     }
 

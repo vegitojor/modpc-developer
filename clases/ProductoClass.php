@@ -55,7 +55,7 @@ Class Producto{
         $id = func_get_arg(0);
         $this->id = $id;
       }elseif ($i == 21) {
-		  $this->id = func_get_arg(0);
+		    $this->id = func_get_arg(0);
         $this->descripcion = func_get_arg(1);
         $this->precio = func_get_arg(2);
         $this->mesesGarantia = func_get_arg(3);
@@ -1119,6 +1119,24 @@ Class Producto{
          $output[] = $fila;
       }
       return $output;
+   }
+
+   public static function buscarProductoPorSku($sku, $conexion){
+    $consulta = "SELECT id_producto id
+                FROM producto
+                WHERE codigo_sku = ?";
+
+    $stmt = mysqli_prepare($conexion, $consulta);
+    mysqli_stmt_bind_param($stmt, "s", $sku);
+    mysqli_stmt_execute($stmt);
+    
+    $resultado = mysqli_stmt_get_result($stmt);
+    $output = array();
+    while ($fila = mysqli_fetch_assoc($resultado)){
+       
+       $output[] = $fila;
+    }
+    return $output;
    }
 }
 ?>
