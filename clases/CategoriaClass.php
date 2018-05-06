@@ -74,7 +74,8 @@ class Categoria
                         descripcion,
                         ft.nombre_ficha fichaTecnica
                         FROM categoria c
-                        JOIN ficha_tecnica ft ON ft.id_Ficha_tecnica = c.id_Ficha_tecnica";
+                        JOIN ficha_tecnica ft ON ft.id_Ficha_tecnica = c.id_Ficha_tecnica
+                        ORDER BY c.id_categoria";
         $respuesta = mysqli_query($conexion, $consulta);
         $output = array();
         while($fila = mysqli_fetch_assoc($respuesta)){

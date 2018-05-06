@@ -52,7 +52,8 @@ class Moneda
     public static function obtenerUnaMonedaPorId($conexion, $id){
         $consulta = "SELECT id_moneda id,
                     descripcion,
-                    valor_en_peso valor
+                    valor_en_peso valor,
+                    activo
                     FROM  moneda
                     WHERE id_moneda = ?";
 

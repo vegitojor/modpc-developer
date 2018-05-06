@@ -108,7 +108,7 @@ include_once ("../incluciones/verificacionAdmin.php");
                             </div>
                         </div>
                     </div>
-                    <input type="submit" class="w3-button w3-green" ng-click="persistirProveedor()" value="Guardar">
+                    <input type="submit" class="w3-button w3-green" ng-click="persistirProveedor()" ng-disabled="formProveedor.$invalid" value="Guardar">
                 </form>
             </div>
         </div>

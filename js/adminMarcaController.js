@@ -8,6 +8,10 @@ app.controller("adminMarca", function ($scope, $http, $window) {
                     alert('La nueva marca se guardo correctamente.');
                 else
                     alert('Ocurrió un error al momento de guardar la marca.');
+
+                $scope.descripcion = "";
+                $scope.cerrarCargaMarca();
+                $scope.listarMarcas();
             })
     }
 

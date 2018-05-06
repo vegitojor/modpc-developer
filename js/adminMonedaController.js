@@ -34,6 +34,7 @@ app.controller('adminMoneda', function ($scope, $http, $window) {
             $scope.descripcionEditar = $scope.respuesta.descripcion;
             $scope.valorEditar = $scope.respuesta.valor;
             $scope.idMoneda = $scope.respuesta.id;
+            $scope.activoEditar = $scope.respuesta.valor;
         })
     }
 
@@ -41,7 +42,8 @@ app.controller('adminMoneda', function ($scope, $http, $window) {
         $http.post('../controladores/editarMonedaController.php', {
             'idMoneda': $scope.idMoneda,
             'descripcion': $scope.descripcionEditar,
-            'valor': $scope.valorEditar
+            'valor': $scope.valorEditar,
+            'activo': $scope.activoEditar
         }).success(function (response) {
             $scope.respuestaEditar = response;
 

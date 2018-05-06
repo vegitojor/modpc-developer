@@ -18,7 +18,12 @@ app.controller("adminCategoriaController", function ($scope, $http) {
                     alert('La categoria se guardo correctamente.');
                 else
                     alert('Ocurrio un error al guardar la categoria.');
-            })
+
+                $scope.cerrarCargaCategoria();
+                $scope.descripcion = "";
+                $scope.fichaTecnica = "";
+                $scope.listarCategorias();
+            });
     }
 
     // CUADRO DE CARGA DE CATEGORIA
