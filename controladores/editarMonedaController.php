@@ -33,4 +33,5 @@ $moneda->editarMoneda($conexion);
 
 $respuesta = ['mensaje'=>1,];
 
-echo json_encode($respuesta);1.3
+echo json_encode($respuesta);
+

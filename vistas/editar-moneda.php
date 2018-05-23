@@ -45,7 +45,7 @@ $id = $_GET['var'];
                             <div  ng-show="formularioMoneda.$submitted || formularioMoneda.descripcion.$touched">
                                 <span class="w3-red" ng-show="formularioMoneda.descripcion.$error.required">El campo es obligatorio.</span>
                             </div>
-                            <input type="number" class="w3-input w3-hover-orange" name="valorEditar" step="any" placeholder="Introduce el valor de la nueva moneda" ng-model="valorEditar" ng-model-option="{updateOn: 'blur'} " required >
+                            <input type="number" class="w3-input w3-hover-orange" name="valorEditar" step="any" min=0 placeholder="Introduce el valor de la nueva moneda" ng-model="valorEditar" ng-model-option="{updateOn: 'blur'} " required >
                             <label for="">Valor (en pesos argentinos)</label>
                             <div  ng-show="formularioMoneda.$submitted || formularioMoneda.valor.$touched">
                                 <span class="w3-red" ng-show="formularioMoneda.valor.$error.required">El campo es obligatorio.</span>

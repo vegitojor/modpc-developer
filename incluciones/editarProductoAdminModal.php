@@ -50,7 +50,7 @@
                             <option value="" disabled>Seleccione un proveedor</option>
                             <!--<option ng-repeat="proveedor in proveedores" value="{{proveedor.id}}">{{proveedor.nombre}}</option>-->
                         </select>
-                        <label for="proveedor">Proveedor</label>
+                        <label for="proveedor">Proveedor <span style="font-size: 10px;">(Si no se modifica el proveedor, no es necesario modificar este campo)</span></label>
 
                     </div>
 
@@ -87,11 +87,11 @@
                     
                     <div class="w3-content">
                         <div class="w3-content w3-center" >
-                            <select class="w3-select" name="marcaEditar" id="marcaEditar" ng-model="marcaEditar" ng-options="marca.id as marca.nombre for marca in marcas">
+                            <select class="w3-select" name="marcaEditar" id="marcaEditar" ng-model="marcaEditar" ng-options="marca.id as marca.descripcion for marca in marcas">
                                 <option value="" disabled>Seleccione una Marca</option>
                                 <!--<option ng-repeat="marcaPro in marcas" value="{{marcaPro.id}}">{{marcaPro.descripcion}}</option>-->
                             </select>
-                            <label for="">Marca</label>
+                            <label for="">Marca <span style="font-size: 10px;">(Si no se modifica la marca, no es necesario modificar este campo)</span></label>
 
                         </div>
                         
