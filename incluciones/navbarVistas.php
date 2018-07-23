@@ -14,13 +14,13 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <li >
-                    <a href="#">Así somos</a>
+                    <a href="nosotros.php">Así somos</a>
                 </li>
                 <li >
-                    <a href="#">Servicios</a>
+                    <a href="institucional.php">Institucional</a>
                 </li>
                 <li >
-                    <a href="#">Contacto</a>
+                    <a href="#" data-toggle="modal" data-target="#contactModal">Contacto</a>
                 </li>
             </ul>
             <ul class="nav navbar-nav pull-right " ng-hide="<?= $id ?>">

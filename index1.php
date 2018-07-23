@@ -317,6 +317,8 @@ include_once ('incluciones/verificacionUsuario.php');
     </div>
     <!-- /.container -->
 
+  
+
     <!-- jQuery -->
     <script src="librerias/template/js/jquery.js"></script>
 
@@ -325,6 +327,11 @@ include_once ('incluciones/verificacionUsuario.php');
     
     <!-- Bootbox js -->
     <script type="text/javascript" src="librerias/bootbox/bootbox.min.js"></script>
+    
+      <!-- modal de contacto -->
+    <?php include_once('incluciones/formularioContacto.php'); ?>
+    <script src="librerias/formulario_contacto/jqBootstrapValidation.js"></script>
+    <script src="librerias/formulario_contacto/contact_me_index.js"></script>
 
 </body>
 
