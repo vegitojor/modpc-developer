@@ -1,4 +1,4 @@
-ALTER TABLE `categoria` CHANGE `Ficha_tecnica_id_Ficha_tecnica` `id_Ficha_tecnica` INT(11) NULL DEFAULT NULL;
+--ALTER TABLE `categoria` CHANGE `Ficha_tecnica_id_Ficha_tecnica` `id_Ficha_tecnica` INT(11) NULL DEFAULT NULL;
 
 ALTER TABLE `categoria` CHANGE `id_Ficha_tecnica` `id_ficha_tecnica` INT(11) NULL DEFAULT NULL;
 

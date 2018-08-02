@@ -3,7 +3,7 @@
 Class ConexionBD {
 
 	private $servidor = "localhost";
-	private $usuario = "phpmyadmin";
+	private $usuario = "root";
 	private $pass = "abrh++++";
 	private $bd = "modpc";
 	private $conexion;
