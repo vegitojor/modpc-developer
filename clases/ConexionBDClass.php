@@ -6,6 +6,7 @@ Class ConexionBD {
 	private $usuario = "root1";
 	private $pass = "abrh++++";
 	private $bd = "modpc";
+
 	private $conexion;
 
 	function __construct(){
