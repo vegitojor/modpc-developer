@@ -21,7 +21,24 @@ $desde = (int)$desde;
 $limite = strip_tags($data->limite);
 $limite = (int)$limite;
 
-//SE VERIFICA QUE EXISTA VALOR EN CADA VARIABLE CAMPO
+
+// SE VERIFICA QUE EXISTA VALOR EN CADA VARIABLE CAMPO
+$destacados = 0;
+if(isset($data->destacados)){
+	if($data->destacados){
+		$destacados = 1;
+	}
+}
+
+
+
+if(isset($data->marcaFiltro)){
+	$marcaFiltro = strip_tags($data->marcaFiltro);
+	$marcaFiltro = (int)$marcaFiltro;
+}else{
+	$marcaFiltro = 0;
+}
+
 if(isset($data->campo01->campo01)){
 	$campo01 = strip_tags($data->campo01->campo01);
 }else{
@@ -129,6 +146,8 @@ $conexion = $conn->getConexion();
 
 //SE BUSCA LA INFORMACION NECESARIA
 $resultado = Producto::listarProductosDisponiblesPorIdCategoria($conexion, $idCategoria, $desde, $limite,
+													$destacados,
+													$marcaFiltro,
 												   $campo01,
 			                                       $campo02,
 			                                       $campo03,

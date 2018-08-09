@@ -15,8 +15,19 @@ app.controller("categoriaController", function ($scope, $http, $sce, $filter, $w
            })
    }
 
+   $scope.listarMarcas = function () {
+       $http.post('../controladores/usuario/listarMarcasController.php')
+           .success(function (response) {
+               $scope.marcas = response;
+           })
+   }
+
+   
+
    $scope.listarproductosPorCategoria = function ($id) {
        $http.post('../controladores/usuario/listarProductosActivosPorCategoria.php', {'idCategoria': $id,'desde': $scope.desde,'limite':$scope.limite,
+                                 'destacados': $scope.destacados,
+                                 'marcaFiltro' : $scope.marcaFiltro,
                                  'campo01': $scope.campo01,
                                  'campo02': $scope.campo02,
                                  'campo03': $scope.campo03,
@@ -364,6 +375,17 @@ app.controller("categoriaController", function ($scope, $http, $sce, $filter, $w
    }
    /**********************FIN BUSQUEDA DE FILTROS****************/
 
+
+   /* FILTRAR DESTACADOS */
+   $scope.destacados = false;
+   $scope.filtrarDestacados = function(){
+    
+    $scope.buscarProductosPorFiltro();
+   }
+
+
+
+
    /**************** PAGINACION ***********************/
    $scope.desde = 0;
    $scope.limite = 15;
@@ -372,6 +394,8 @@ app.controller("categoriaController", function ($scope, $http, $sce, $filter, $w
    //SE BUSCA EL TOTAL DE PRODUCTOS PARA CALCULAR LA CANTIDAD DE PAGINAS
    $scope.cantidadDePaginacion = function($idCategoria){
       $http.post('../controladores/usuario/contarCantidadDeProdutosController.php', {'idCategoria': $idCategoria,
+                                  'destacados': $scope.destacados,
+                                  'marcaFiltro': $scope.marcaFiltro,
                                  'campo01': $scope.campo01,
                                  'campo02': $scope.campo02,
                                  'campo03': $scope.campo03,

@@ -581,6 +581,8 @@ Class Producto{
     }
 
     public static function listarProductosDisponiblesPorIdCategoria($conexion, $idCategoria, $desde, $limite, 
+                                        $destacados,
+                                        $marcaFiltro,
                                        $campo01,
                                        $campo02,
                                        $campo03,
@@ -601,6 +603,16 @@ Class Producto{
                                        $campo18,
                                        $campo19,
                                        $campo20){
+
+        $selectMarca = " AND p.id_marca = ?";
+        if( $marcaFiltro == 0 ){
+          $selectMarca = " AND p.id_marca > ?";
+        }
+
+        $selectDestacados = " AND p.destacado = ?";
+        if( $destacados == 0 ){
+          $selectDestacados = " AND p.destacado >= ?";
+        }
         $consulta = "SELECT p.id_producto AS id,
                             p.descripcion,
                             p.precio,
@@ -669,13 +681,16 @@ Class Producto{
                      AND  pft.campo17 LIKE ?
                      AND  pft.campo18 LIKE ?
                      AND  pft.campo19 LIKE ?
-                     AND  pft.campo20 LIKE ?
-                    GROUP BY vp.producto_id_producto, p.id_producto
+                     AND  pft.campo20 LIKE ?";
+
+            $grupos = " GROUP BY vp.producto_id_producto, p.id_producto
                     ORDER BY p.descripcion
                     LIMIT ?, ?";
+        $consulta .= $selectMarca . $selectDestacados . $grupos;
 
+        
         $stmt = mysqli_prepare($conexion, $consulta);
-        mysqli_stmt_bind_param($stmt,'issssssssssssssssssssii', $idCategoria, 
+        mysqli_stmt_bind_param($stmt,'issssssssssssssssssssiiii', $idCategoria, 
                                                 $campo01,
                                        $campo02,
                                        $campo03,
@@ -696,6 +711,8 @@ Class Producto{
                                        $campo18,
                                        $campo19,
                                        $campo20,
+                                       $marcaFiltro,
+                                       $destacados,
                                        $desde, $limite);
         mysqli_stmt_execute($stmt);
         $resultado = mysqli_stmt_get_result($stmt);
@@ -936,6 +953,7 @@ Class Producto{
    }
 
    public static function contarProductosDisponiblesPorIdCategoria($conexion, $idCategoria,
+                                      $marcaFiltro,
                                        $campo01,
                                        $campo02,
                                        $campo03,
@@ -957,8 +975,10 @@ Class Producto{
                                        $campo19,
                                        $campo20
                                           ){
-
-
+      $selectMarca = " AND p.id_marca = ?";
+      if( $marcaFiltro == 0 ){
+        $selectMarca = " AND p.id_marca > ?";
+      }
       $consulta = "SELECT count(*) as cantidad
                   FROM producto p
                   JOIN producto_ficha_tecnica pft ON pft.id_producto_ficha_tecnica = p.id_producto_ficha_tecnica
@@ -983,9 +1003,10 @@ Class Producto{
                   AND  pft.campo18 LIKE ?
                   AND  pft.campo19 LIKE ?
                   AND  pft.campo20 LIKE ?";
+      $consulta .= $selectMarca; 
 
       $stmt = mysqli_prepare($conexion, $consulta);
-      mysqli_stmt_bind_param($stmt, 'issssssssssssssssssss', $idCategoria, 
+      mysqli_stmt_bind_param($stmt, 'issssssssssssssssssssi', $idCategoria, 
                                        $campo01,
                                        $campo02,
                                        $campo03,
@@ -1005,7 +1026,8 @@ Class Producto{
                                        $campo17,
                                        $campo18,
                                        $campo19,
-                                       $campo20);
+                                       $campo20,
+                                        $marcaFiltro);
       mysqli_stmt_execute($stmt);
 
       $resultado = mysqli_stmt_get_result($stmt);
@@ -1021,7 +1043,7 @@ Class Producto{
    }
 
    public static function obtenerOpcionesFiltrosPorCampo($conexion, $idCategoria, $campo){
-      $elect = '';
+      $select = '';
       $grupo = '';
       switch ($campo) {
          case 1:

@@ -40,7 +40,7 @@ $idCategoria = $_GET['id'];
         <div class="col-md-3" ng-init="cargarMoneda()">
             <div class="col-md-12">
                 <p class="lead">Categorias:</p>
-                <div class="list-group" ng-init="listarCategorias()" >
+                <div class="list-group" ng-init="listarCategorias(); listarMarcas()" >
                     <a ng-repeat="categoria in categorias" href="categoria.php?id={{categoria.id}}" class="list-group-item" >{{categoria.descripcion}}</a>
 
                 </div>
@@ -48,6 +48,12 @@ $idCategoria = $_GET['id'];
             <div class="col-md-12" ng-init="cargarFichaTecnica(<?= $idCategoria; ?>); traerOpcionesDeFiltros()">
                 <p class="lead">Filtros:</p>
                 <form class="form-inline list-group" >
+                    <div class="form-group list-group-item" >
+                        <label for="marcaFiltro" >Marca</label>
+                        <select class="form-control"  ng-model="marcaFiltro" ng-options="marca.id as marca.descripcion for marca in marcas">
+                            <option value="">Seleccione un filtro</option>
+                        </select>
+                    </div>
                     <div class="form-group list-group-item" ng-show="ficha.campo01 != 0">
                         <label for="campo01" >{{ficha.campo01}}</label>
                         <select class="form-control"  ng-model="campo01" ng-options="item.campo01 for item in opcionesFiltroCampo01">
@@ -203,8 +209,15 @@ $idCategoria = $_GET['id'];
                 <div class="jumbotron ">
                     <h1 ng-init="traerCategoria(idCategoriaModel)">{{categoria.descripcion}}</h1>
                 </div>
+
+                <!-- SECCION DE FILTROS GENERALES -->
+                <div class=form-check">
+                    <input class="form-check-input" type="checkbox" id="destacados" name="destacados" ng-model="destacados" ng-change="filtrarDestacados()"></input>
+                    <label class="form-check-label" for="destacados">Destacados</label>
+                </div>
+
                 <!-- LISTADO DE PRODUCTOS-->
-                <div class="col-sm-4 col-lg-4 col-md-4" ng-repeat="producto in productos">
+                <div class="col-sm-4 col-lg-4 col-md-4" ng-repeat="producto in productos track by $index">
                     <div class="thumbnail">
                         <a href="" data-toggle="modal" data-target="#id{{producto.id}}">
                             <img src="../resourses/imagen_producto/{{producto.imagen}}" class="foto320x150" alt="imagen-{{producto.modelo}}" ng-hide="producto.imagen == '<--NoFoto-->'" >
@@ -257,9 +270,11 @@ $idCategoria = $_GET['id'];
                                             <p>Meses de garant&iacute;a: <strong>{{producto.mesesGarantia}}</strong></p>
                                             <div>
                                                 <div>
-                                                    <div class="btn" name="bajarCantidad" ng-click="restarCantidad()"><span class="glyphicon glyphicon-minus"></span></div>
-                                                    <input value="1" name="cantidad" ng-model="cantidad" />
-                                                    <div class="btn" name="subirCantidad" ng-click="sumarCantidad()"><span class="glyphicon glyphicon-plus"></span></div>
+                                                    <div class="btn col-sm-2" name="bajarCantidad" ng-click="restarCantidad()"><span class="glyphicon glyphicon-minus"></span></div>
+                                                    <div class="col-sm-7">
+                                                        <input value="1" class="col-sm-12" name="cantidad" ng-model="cantidad" />
+                                                    </div>
+                                                    <div class="btn col-sm-2" name="subirCantidad" ng-click="sumarCantidad()"><span class="glyphicon glyphicon-plus"></span></div>
                                                 </div>
                                                 <button class="btn btn-warning btn-lg btn-block" ng-disabled="<?= $id ?> == 0" ng-click="agregarAlCarrito(<?= $id ?>, producto.id, cantidad)">Agregar al carrito</button>
                                                 <span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Se requiere iniciar sesión para esta función."></span>

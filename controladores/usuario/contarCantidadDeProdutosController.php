@@ -15,9 +15,14 @@ $data = json_decode(file_get_contents('php://input'));
 //SE ASIGNAN LOS VALORES A LAS VARIABLES
 $idCategoria = strip_tags($data->idCategoria);
 
-//$condicionesWhere = "";
 
 //SE VERIFICA QUE EXISTA VALOR EN CADA VARIABLE CAMPO
+if(isset($data->marcaFiltro)){
+	$marcaFiltro = strip_tags($data->marcaFiltro);
+	$marcaFiltro = (int)$marcaFiltro;
+}else{
+	$marcaFiltro = 0;
+}
 if(isset($data->campo01->campo01)){
 	$campo01 = strip_tags($data->campo01->campo01);
 }else{
@@ -125,6 +130,7 @@ $conexion = $conn->getConexion();
 
 //SE REALIZA LA BUSQUEDA
 $resultado = Producto::contarProductosDisponiblesPorIdCategoria($conexion, $idCategoria, 
+													$marcaFiltro,
 													$campo01,
 			                                       $campo02,
 			                                       $campo03,
@@ -146,6 +152,8 @@ $resultado = Producto::contarProductosDisponiblesPorIdCategoria($conexion, $idCa
 			                                       $campo19,
 			                                       $campo20
 													);
+
+
 //SE CIERRA LA CONEXION A LA BASE DE DATOS
 $conn->cerrarConexion();
 
