@@ -79,3 +79,9 @@ footer {
     background: linear-gradient(to right, #4A569D, #DC2424); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
 }
+
+.foto-linea{
+    height: auto;
+    max-width: 155px;
+    max-height: 120px;
+}

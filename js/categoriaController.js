@@ -1,6 +1,9 @@
 app.controller("categoriaController", function ($scope, $http, $sce, $filter, $window) {
    
 
+   $scope.mostrarLinea = false;
+   $scope.mostrarCuadrado = true;
+
    $scope.preguntas;
    $scope.cantidad = 1;
 
@@ -383,7 +386,15 @@ app.controller("categoriaController", function ($scope, $http, $sce, $filter, $w
     $scope.buscarProductosPorFiltro();
    }
 
+   $scope.elegirVistaLinea = function(){
+    $scope.mostrarCuadrado = false;
+    $scope.mostrarLinea = true;
+   }
 
+   $scope.elegirVistaCuadrado = function(){
+    $scope.mostrarCuadrado = true;
+    $scope.mostrarLinea = false;
+   }
 
 
    /**************** PAGINACION ***********************/

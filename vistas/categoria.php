@@ -214,11 +214,15 @@ $idCategoria = $_GET['id'];
                 <div class=form-check">
                     <input class="form-check-input" type="checkbox" id="destacados" name="destacados" ng-model="destacados" ng-change="filtrarDestacados()"></input>
                     <label class="form-check-label" for="destacados">Destacados</label>
+                    <a class="btn form-check-input pull-right"  id="boton1" name="boton1" ng-click="elegirVistaLinea()" data-tooltip="tooltip" title="Vista en lista" onmouseenter="$(this).tooltip('show')"><span class="fa fa-th-list"></span></a>
+                    <a class="btn pull-right"  id="boton2" name="boton2" ng-click="elegirVistaCuadrado()" data-tooltip="tooltip" title="Vista en galeria" onmouseenter="$(this).tooltip('show')"><span class="fa fa-th"></span></a>
                 </div>
+                <hr>
+                    <!-- class="col-sm-4 col-lg-4 col-md-4"  -->
 
                 <!-- LISTADO DE PRODUCTOS-->
-                <div class="col-sm-4 col-lg-4 col-md-4" ng-repeat="producto in productos track by $index">
-                    <div class="thumbnail">
+                <div ng-class="{'col-sm-4 col-lg-4 col-md-4': mostrarCuadrado, 'row': mostrarLinea}" ng-repeat="producto in productos track by $index">
+                    <div class="thumbnail" ng-if="mostrarCuadrado">
                         <a href="" data-toggle="modal" data-target="#id{{producto.id}}">
                             <img src="../resourses/imagen_producto/{{producto.imagen}}" class="foto320x150" alt="imagen-{{producto.modelo}}" ng-hide="producto.imagen == '<--NoFoto-->'" >
                             <img src="http://placehold.it/320x150" alt="" class="foto320x150" ng-show="producto.imagen == '<--NoFoto-->'">
@@ -240,7 +244,38 @@ $idCategoria = $_GET['id'];
                         </div>
                     </div>
 
-
+                    <div class="col-sm-12" ng-if="mostrarLinea">
+                        <!-- <hr> -->
+                        <div class="row">
+                            <div class="col-sm-4 col-md-2 text-center">
+                                <a href="" data-toggle="modal" data-target="#id{{producto.id}}">
+                                    <img src="../resourses/imagen_producto/{{producto.imagen}}" class="foto-linea" alt="imagen-{{producto.modelo}}" ng-hide="producto.imagen == '<--NoFoto-->'" >
+                                    <img src="http://placehold.it/320x150" alt="" class="foto-linea" ng-show="producto.imagen == '<--NoFoto-->'">
+                                </a>
+                            </div>
+                            <div class="col-sm-4 col-md-8">
+                                <div class="col-sm-12 col-md-6">
+                                    <p ng-show="producto.nuevo">Nuevo</p>
+                                    <p ng-hide="producto.nuevo">Usado</p>
+                                    <h4>
+                                        <a href="" data-toggle="modal" data-target="#id{{producto.id}}">{{producto.descripcion}}</a>
+                                    </h4>
+                                    <p>{{producto.modelo}}</p>
+                                    <p>Marca: {{producto.marca}}</p>
+                                </div>
+                                <div class="col-sm-12 col-md-6">
+                                     <div class="ratings">
+                                        <p class="pull-right">{{producto.valoracion}} <i class="glyphicon glyphicon-star"></i> </p>
+                                        <p>Valora este producto <a class="" href="" ng-click="valorarProducto(<?= $id; ?>, producto.id, <?= $idCategoria ?>)">aqui</a>.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4 col-md-2">
+                                <h4 class="pull-right">{{producto.precio * moneda.valor | currency}}</h4> 
+                            </div>
+                        </div>
+                        <hr>
+                    </div>   
 
                     <!-- Modal para previzualizar productos -->
                     <div id="id{{producto.id}}" class="modal fade" role="dialog">
