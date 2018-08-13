@@ -15,13 +15,17 @@ $idCategoria = $_GET['id'];
 
 <head>
     <?php include_once ('../incluciones/head.php'); ?>
+    
+    
+
+
     <script type="text/javascript" src="../js/indexModulo.js"></script>
     <script type="text/javascript" src="../js/categoriaController.js"></script>
     
     <!-- AngularVideo directive -->
     <script type="text/javascript" src="../librerias/angular-video/anguvideo.js"></script>
     <script type="text/javascript" src="../librerias/angular-video/controller.js"></script>
-    
+
 
     <title>Categorias - MODPC</title>
 
@@ -223,7 +227,7 @@ $idCategoria = $_GET['id'];
                 <!-- LISTADO DE PRODUCTOS-->
                 <div ng-class="{'col-sm-4 col-lg-4 col-md-4': mostrarCuadrado, 'row': mostrarLinea}" ng-repeat="producto in productos track by $index">
                     <div class="thumbnail" ng-if="mostrarCuadrado">
-                        <a href="" data-toggle="modal" data-target="#id{{producto.id}}">
+                        <a href="" data-toggle="modal" data-target="#id{{producto.id}}" ng-click="callShareSocial(producto.id)">
                             <img src="../resourses/imagen_producto/{{producto.imagen}}" class="foto320x150" alt="imagen-{{producto.modelo}}" ng-hide="producto.imagen == '<--NoFoto-->'" >
                             <img src="http://placehold.it/320x150" alt="" class="foto320x150" ng-show="producto.imagen == '<--NoFoto-->'">
                         </a>
@@ -291,6 +295,7 @@ $idCategoria = $_GET['id'];
                                 <div class="modal-body">
                                     <div class="row">
                                         <div class="col-md-8">
+                                            <div id="share-{{producto.id}}"></div>
                                             <div class="thumbnail">
                                                 <img src="../resourses/imagen_producto/{{producto.imagen}}" alt="{{producto.modelo}}" class="img-responsive foto640x300" ng-hide="producto.imagen == '<--NoFoto-->'">
                                                 <img src="http://placehold.it/320x150" alt="{{producto.imagen}}" ng-show="producto.imagen == '<--NoFoto-->'">
@@ -500,6 +505,12 @@ $idCategoria = $_GET['id'];
 
 <!-- Bootbox js -->
 <script type="text/javascript" src="../librerias/bootbox/bootbox.min.js"></script>
+
+<!-- jsSocial - comoprartir en redes sociales -->
+<link rel="stylesheet" type="text/css" href="../librerias/jsSocial/jssocials.css" />
+<link rel="stylesheet" type="text/css" href="../librerias/jsSocial/jssocials-theme-flat.css" />
+<script src="../librerias/jsSocial/jssocials.js"></script>
+<script src="../js/socialNetwork.js"></script>
 
 <!-- modal de contacto -->
 <?php include_once('../incluciones/formularioContacto.php'); ?>

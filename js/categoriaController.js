@@ -396,6 +396,12 @@ app.controller("categoriaController", function ($scope, $http, $sce, $filter, $w
     $scope.mostrarLinea = false;
    }
 
+   // ************** Compartir en redes sociales  *******/
+   $scope.callShareSocial = function(id){
+    // var divRedSocial = document.getElementById("share-" + id);
+    shareSocial( id );
+   }
+
 
    /**************** PAGINACION ***********************/
    $scope.desde = 0;
