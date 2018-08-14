@@ -90,4 +90,4 @@ Icon
 resourses/imagen_producto/*
 
 #--se ignora la configuración de la clase BD
-#clases/ConexionBDClass.php
+clases/ConexionBDClass.php
