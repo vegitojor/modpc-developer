@@ -2,10 +2,10 @@
 
 Class ConexionBD {
 
-	private $servidor = "localhost";
-	private $usuario = "root";
-	private $pass = "abrh++++";
-	private $bd = "modpc";
+	private $servidor = "mysql.hostinger.com.ar";
+	private $usuario = "u771724353_mysql";
+	private $pass = "Passw0rd6";
+	private $bd = "u771724353_mysql";
 
 	private $conexion;
 
