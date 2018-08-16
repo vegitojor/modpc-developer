@@ -1,20 +1,20 @@
-var _url = "";
+var _url = _urlServer + "/vistas/categoria.php";
 
 $(document).ready( () => {
 
 });
 
 
-function shareSocial(id) {
+function shareSocial(id, imagen, idCategoria) {
 	$("#share-" + id).jsSocials({
         shares: ["twitter", "facebook", "googleplus", "linkedin",  {
         	share:"pinterest",
 		    label: "Pin it",
 		    logo: "fa fa-pinterest",
-		    media: ""
+		    media: _urlServer + "/resourses/imagen_producto/" + imagen
 		}],
-        url: "https://www.modpc.com.ar",
-        text: "",
+        url: _urlServer + "/resourses/imagen_producto/" + imagen,
+        text: "Mod Pc",
         showLabel: false,
     	showCount: false,
     	shareIn: "popup"

@@ -397,9 +397,9 @@ app.controller("categoriaController", function ($scope, $http, $sce, $filter, $w
    }
 
    // ************** Compartir en redes sociales  *******/
-   $scope.callShareSocial = function(id){
+   $scope.callShareSocial = function(id, imagen){
     // var divRedSocial = document.getElementById("share-" + id);
-    shareSocial( id );
+    shareSocial( id, imagen, $scope.idCategoriaModel );
    }
 
 

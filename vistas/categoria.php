@@ -227,7 +227,7 @@ $idCategoria = $_GET['id'];
                 <!-- LISTADO DE PRODUCTOS-->
                 <div ng-class="{'col-sm-4 col-lg-4 col-md-4': mostrarCuadrado, 'row': mostrarLinea}" ng-repeat="producto in productos track by $index">
                     <div class="thumbnail" ng-if="mostrarCuadrado">
-                        <a href="" data-toggle="modal" data-target="#id{{producto.id}}" ng-click="callShareSocial(producto.id)">
+                        <a href="" data-toggle="modal" data-target="#id{{producto.id}}" ng-click="callShareSocial(producto.id, producto.imagen)">
                             <img src="../resourses/imagen_producto/{{producto.imagen}}" class="foto320x150" alt="imagen-{{producto.modelo}}" ng-hide="producto.imagen == '<--NoFoto-->'" >
                             <img src="http://placehold.it/320x150" alt="" class="foto320x150" ng-show="producto.imagen == '<--NoFoto-->'">
                         </a>
