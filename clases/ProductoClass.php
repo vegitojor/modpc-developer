@@ -602,7 +602,8 @@ Class Producto{
                                        $campo17,
                                        $campo18,
                                        $campo19,
-                                       $campo20){
+                                       $campo20,
+                                       $orden){
 
         $selectMarca = " AND p.id_marca = ?";
         if( $marcaFiltro == 0 ){
@@ -613,6 +614,32 @@ Class Producto{
         if( $destacados == 0 ){
           $selectDestacados = " AND p.destacado >= ?";
         }
+
+        $selectOrder = " ORDER BY ";
+        switch ($orden) {
+          case 0:
+            # code...
+            $selectOrder .= " p.descripcion ASC ";
+            break;
+          case 1:
+            # code...
+            $selectOrder .= " p.descripcion DESC ";
+            break;
+          case 2:
+            # code...
+            $selectOrder .= " p.precio ASC ";
+            break;
+          case 3:
+            # code...
+            $selectOrder .= " p.precio DESC ";
+            break;
+          
+          default:
+            # code...
+            $selectOrder .= " p.descripcion ";
+            break;
+        }
+
         $consulta = "SELECT p.id_producto AS id,
                             p.descripcion,
                             p.precio,
@@ -683,10 +710,10 @@ Class Producto{
                      AND  pft.campo19 LIKE ?
                      AND  pft.campo20 LIKE ?";
 
-            $grupos = " GROUP BY vp.producto_id_producto, p.id_producto
-                    ORDER BY p.descripcion
-                    LIMIT ?, ?";
-        $consulta .= $selectMarca . $selectDestacados . $grupos;
+        $grupos = " GROUP BY vp.producto_id_producto, p.id_producto ";
+                    // ORDER BY p.descripcion
+        $limit =  " LIMIT ?, ?";
+        $consulta .= $selectMarca . $selectDestacados . $grupos . $selectOrder . $limit;
 
         
         $stmt = mysqli_prepare($conexion, $consulta);

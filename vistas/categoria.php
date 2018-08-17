@@ -218,8 +218,16 @@ $idCategoria = $_GET['id'];
                 <div class=form-check">
                     <input class="form-check-input" type="checkbox" id="destacados" name="destacados" ng-model="destacados" ng-change="filtrarDestacados()"></input>
                     <label class="form-check-label" for="destacados">Destacados</label>
+
+
                     <a class="btn form-check-input pull-right"  id="boton1" name="boton1" ng-click="elegirVistaLinea()" data-tooltip="tooltip" title="Vista en lista" onmouseenter="$(this).tooltip('show')"><span class="fa fa-th-list"></span></a>
                     <a class="btn pull-right"  id="boton2" name="boton2" ng-click="elegirVistaCuadrado()" data-tooltip="tooltip" title="Vista en galeria" onmouseenter="$(this).tooltip('show')"><span class="fa fa-th"></span></a>
+
+                    <a class="btn pull-right"  id="ordenPrecioAsc" name="ordenPrecioAsc" ng-click="ordenAlfabetico(3)" data-tooltip="tooltip" title="Ordenar por precio descendente" onmouseenter="$(this).tooltip('show')"><span class="glyphicon glyphicon-sort-by-order-alt"></span></a>
+                    <a class="btn pull-right"  id="ordenPrecioDes" name="ordenPrecioDes" ng-click="ordenAlfabetico(2)" data-tooltip="tooltip" title="Ordenar por precio ascendente " onmouseenter="$(this).tooltip('show')"><span class="glyphicon glyphicon-sort-by-order"></span></a>                    
+
+                    <a class="btn pull-right"  id="ordenAlfabeticoAsc" name="ordenAlfabeticoAsc" ng-click="ordenAlfabetico(1)" data-tooltip="tooltip" title="Ordenar alfabeticamente" onmouseenter="$(this).tooltip('show')"><span class="glyphicon glyphicon-sort-by-alphabet-alt"></span></a>
+                    <a class="btn pull-right"  id="ordenAlfabeticoDes" name="ordenAlfabeticoDes" ng-click="ordenAlfabetico(0)" data-tooltip="tooltip" title="Ordenar alfabeticamente" onmouseenter="$(this).tooltip('show')"><span class="glyphicon glyphicon-sort-by-alphabet"></span></a>
                 </div>
                 <hr>
                     <!-- class="col-sm-4 col-lg-4 col-md-4"  -->

@@ -30,6 +30,7 @@ if(isset($data->destacados)){
 	}
 }
 
+$orden = (int) strip_tags($data->orden);
 
 
 if(isset($data->marcaFiltro)){
@@ -167,7 +168,8 @@ $resultado = Producto::listarProductosDisponiblesPorIdCategoria($conexion, $idCa
 			                                       $campo17,
 			                                       $campo18,
 			                                       $campo19,
-			                                       $campo20
+			                                       $campo20,
+			                                       $orden
 									);
 
 //SE CIERRA CONEXION A BD 

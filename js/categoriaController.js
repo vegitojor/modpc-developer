@@ -3,6 +3,7 @@ app.controller("categoriaController", function ($scope, $http, $sce, $filter, $w
 
    $scope.mostrarLinea = false;
    $scope.mostrarCuadrado = true;
+   $scope.ordenamiento = 0;
 
    $scope.preguntas;
    $scope.cantidad = 1;
@@ -50,7 +51,8 @@ app.controller("categoriaController", function ($scope, $http, $sce, $filter, $w
                                  'campo17': $scope.campo17,
                                  'campo18': $scope.campo18,
                                  'campo19': $scope.campo19,
-                                 'campo20': $scope.campo20
+                                 'campo20': $scope.campo20,
+                                 'orden': $scope.ordenamiento
                               })
            .success(function (response) {
                $scope.productos = response;
@@ -400,6 +402,26 @@ app.controller("categoriaController", function ($scope, $http, $sce, $filter, $w
    $scope.callShareSocial = function(id, imagen){
     // var divRedSocial = document.getElementById("share-" + id);
     shareSocial( id, imagen, $scope.idCategoriaModel );
+   }
+
+   /* ORDENAMIENTO ALFABETICO Y POR PRECIO */
+   $scope.ordenAlfabetico = function(indice){
+    switch ( indice ){
+        case 0:
+            $scope.ordenamiento = 0;
+            break;
+        case 1:
+            $scope.ordenamiento = 1;
+            break;
+        case 2:
+            $scope.ordenamiento = 2;
+            break;
+        case 3:
+            $scope.ordenamiento = 3;
+            break;
+    }
+
+    $scope.listarproductosPorCategoria($scope.idCategoriaModel);
    }
 
 
