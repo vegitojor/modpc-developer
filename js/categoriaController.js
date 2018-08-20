@@ -180,7 +180,7 @@ app.controller("categoriaController", function ($scope, $http, $sce, $filter, $w
         $scope.botonVerTodasPreguntas = true;
    }
 
-   $scope.agregarAlCarrito = function($idUsuario,$idProducto, $cantidad){
+   $scope.agregarAlCarrito = function($idUsuario, $idProducto, $cantidad){
       $scope.fechaActual = new Date();
       $scope.fechaActual = $filter('date')($scope.fechaActual, 'yyyy-MM-dd HH:mm:ss');
       $http.post('../controladores/usuario/agregarAlCarritoController.php', {'usuario':$idUsuario, 'producto':$idProducto, 'fecha':$scope.fechaActual,'cantidad': $cantidad})

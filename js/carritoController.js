@@ -44,13 +44,13 @@ app.controller("carritoController", function ($scope, $http, $sce, $filter) {
       });
    }
 
-   $scope.quitarDelCarrito = function($idUsuario, $idProducto){
+   $scope.quitarDelCarrito = function($idUsuario, $idProducto, cantidad){
    		$scope.usuario = $idUsuario;
-   		$http.post('../controladores/usuario/quitarDelCarritoController.php', {'usuario': $idUsuario, 'producto': $idProducto})
+   		$http.post('../controladores/usuario/quitarDelCarritoController.php', {'usuario': $idUsuario, 'producto': $idProducto, 'cantidad': cantidad})
    		.success(function(response){
 
    			
-   			if(response.respuesta == 1){
+ 			if(response.respuesta == 1){
 				$scope.cargarProductosCarrito($scope.usuario);	
         $scope.totalDelCarrito = 0;
         angular.forEach($scope.productosDelCarrito, function(value, key){
@@ -58,7 +58,7 @@ app.controller("carritoController", function ($scope, $http, $sce, $filter) {
         });
 			}
 			else if(response.respuesta == 2){
-				bootbox.alert('Su pregunta no pudo ser enviada! Por favor vuelva a intentarlo en unos momentos.');
+				bootbox.alert('No fue posible eliminar este roducto del carrito! Por favor vuelva a intentarlo en unos momentos.');
 			}
 			else if (response.respuesta == 3) 
 				bootbox.alert('Se introducieron valores erroneos!');

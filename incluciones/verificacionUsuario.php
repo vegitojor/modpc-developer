@@ -6,6 +6,7 @@
  * Time: 14:08
  */
 session_start();
+
 if(isset($_SESSION['usuario'])){
     $id = $_SESSION['usuario']['id'];
     $username = $_SESSION['usuario']['username'];
@@ -14,7 +15,7 @@ if(isset($_SESSION['usuario'])){
     $apellido = $_SESSION['usuario']['apellido'];
     $admin = $_SESSION['usuario']['admin'];
 }else{
-    session_destroy();
+    // session_destroy();
     $id = 0;
     $username = null;
     $email = null;

@@ -966,6 +966,26 @@ Class Producto{
         return $output;
    }
 
+   public static function obtenerProductoCarritoSinUsuario($conexion, $idProducto){
+        $consulta = "SELECT 
+                            P.descripcion,
+                            P.precio,
+                            P.path_imagen imagen
+                    FROM producto P 
+                    WHERE id_producto = ?";
+
+        $stmt = mysqli_prepare($conexion, $consulta);
+        mysqli_stmt_bind_param($stmt, 'i', $idProducto);
+        mysqli_stmt_execute($stmt);
+        $resultado = mysqli_stmt_get_result($stmt);
+        $output = mysqli_fetch_assoc($resultado);
+        // while ($fila = mysqli_fetch_assoc($resultado)){
+            
+        //     $output[] = $fila;
+        // }
+        return $output;
+   }
+
    public static function quitarDelCarrito($conexion, $idProducto, $idUsuario){
         $consulta = "DELETE FROM carrito_compra 
                     WHERE id_cliente = ?

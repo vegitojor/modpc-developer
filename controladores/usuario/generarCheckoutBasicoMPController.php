@@ -8,7 +8,7 @@
 /*7808904984310469*/
 /*nTDv7afG77ckV38hFa3xg3xBHU1AXlOV*/
 
-include_once('../../incluciones/verificacionUsuario.php');
+// include_once('../../incluciones/verificacionUsuario.php');
 
 include_once ('../../clases/ConexionBDClass.php');
 include_once ('../../clases/ProductoClass.php');

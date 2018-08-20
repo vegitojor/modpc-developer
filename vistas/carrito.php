@@ -8,9 +8,9 @@
 
 include_once ('../incluciones/verificacionUsuario.php');
 
-if(!isset($_SESSION['usuario'])){
-    header('location: ../index.php');
-}
+// if(!isset($_SESSION['usuario'])){
+//     header('location: ../index.php');
+// }
 
 ?>
 <!DOCTYPE html>
@@ -76,7 +76,7 @@ if(!isset($_SESSION['usuario'])){
                                 <h5>Subtotal:</h5>
                                 <br>
                                 <div class=" pull-right">
-                                    <a href="" class="btn btn-default" ng-click="quitarDelCarrito(<?= $id ?>, productoCarrito.idProducto)">Quitar del carrito</a>    
+                                    <a href="" class="btn btn-default" ng-click="quitarDelCarrito(<?= $id ?>, productoCarrito.idProducto, productoCarrito.cantidad)">Quitar del carrito</a>    
                                     
                                 </div>
                                 
