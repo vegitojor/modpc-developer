@@ -65,7 +65,7 @@ include_once ('../incluciones/verificacionAdmin.php');
                     <label for="">Campo 12:</label>
                     <input type="text" class="w3-input w3-border" name="campo12"ng-model="campo12" value="-">
                     <label for="">Campo 13:</label>
-                    <input type="text" class="w3-input w3-border" name="campo13" ng-model="campo13" value="-"
+                    <input type="text" class="w3-input w3-border" name="campo13" ng-model="campo13" value="-">
                     <label for="">Campo 14:</label>
                     <input type="text" class="w3-input w3-border" name="campo14" ng-model="campo14" value="-">
                     <label for="">Campo 15:</label>

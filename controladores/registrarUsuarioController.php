@@ -9,16 +9,36 @@ $data = json_decode(file_get_contents('php://input'));
 
 $id = Null;
 $nombre = strip_tags($data->nombre);
-$usuario = strip_tags($data->usuario);
+
 $apellido = strip_tags($data->apellido);
-$telefono = strip_tags($data->telefono);
-$fechaNacimiento = strip_tags($data->fechaNacimiento);
 $email = strip_tags($data->email);
-$domicilio = strip_tags($data->direccion);
-$codPostal = (int)strip_tags($data->codPostal);
-$localidad = (int)strip_tags($data->localidad);
 $pass = md5($data->pass);
+
+$telefono = Null;
+if( isset($data->telefono) )
+	$telefono = strip_tags($data->telefono);
+
+$fechaNacimiento = Null;
+if( isset($data->fechaNacimiento) )
+	$fechaNacimiento = strip_tags($data->fechaNacimiento);
+
+$domicilio = Null;
+if( isset($data->direccion) )
+	$domicilio = strip_tags($data->direccion);
+
+$codPostal = Null;
+if( isset($data->codPostal) )
+	$codPostal = (int)strip_tags($data->codPostal);
+
+$localidad = Null;
+if( isset($data->localidad) ){
+	
+	$localidad = (int)strip_tags($data->localidad);
+}
+
+
 $admin = 0;
+$usuario = Null;
 
 
 //inicializacion de conexion BD

@@ -26,7 +26,7 @@
             <ul class="nav navbar-nav pull-right " ng-hide="<?= $id ?>">
 
                 <li >
-                    <a href="registro-de-usuario.php">registrarse</a>
+                    <a href="registro-usuario.php">registrarse</a>
                 </li>
                 <li>
                     <a href="login.php">Ingresar</a>
@@ -37,7 +37,7 @@
                     <a href="carrito.php" data-toggle="tooltip" data-placement="bottom" title="Mis compras"><span class="glyphicon glyphicon-shopping-cart"></span></a>
                 </li>
                 <li class="dropdown">
-                    <a href="" id="usuario" data-toggle="dropdown"><?= $username ?><span class="caret"></span></a>
+                    <a href="" id="usuario" data-toggle="dropdown"><?= $nombre ?><span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu" aria-labelledby="usuario">
                         <li role="presentation"><a href="../controladores/cerrarSesionController.php">Salir</a></li>
                     </ul>

@@ -9,7 +9,7 @@ session_start();
 
 if(isset($_SESSION['usuario'])){
     $id = $_SESSION['usuario']['id'];
-    $username = $_SESSION['usuario']['username'];
+    // $username = $_SESSION['usuario']['username'];
     $email = $_SESSION['usuario']['email'];
     $nombre = $_SESSION['usuario']['nombre'];
     $apellido = $_SESSION['usuario']['apellido'];

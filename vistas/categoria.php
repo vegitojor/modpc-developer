@@ -213,6 +213,21 @@ $idCategoria = $_GET['id'];
                 <div class="jumbotron ">
                     <h1 ng-init="traerCategoria(idCategoriaModel)">{{categoria.descripcion}}</h1>
                 </div>
+                
+                 <!-- preloader -->
+                <div id="preloader" ng-show="preloader">
+                    <div class="sk-cube-grid">
+                      <div class="sk-cube sk-cube1"></div>
+                      <div class="sk-cube sk-cube2"></div>
+                      <div class="sk-cube sk-cube3"></div>
+                      <div class="sk-cube sk-cube4"></div>
+                      <div class="sk-cube sk-cube5"></div>
+                      <div class="sk-cube sk-cube6"></div>
+                      <div class="sk-cube sk-cube7"></div>
+                      <div class="sk-cube sk-cube8"></div>
+                      <div class="sk-cube sk-cube9"></div>
+                    </div>
+                </div>
 
                 <!-- SECCION DE FILTROS GENERALES -->
                 <div class=form-check">
@@ -333,144 +348,144 @@ $idCategoria = $_GET['id'];
                                     <hr>
                                     <div class="content">
                                         <ul class="nav nav-tabs dtabs-justified">
-                                        <ul class="nav nav-tabs nav-justified">
-                                            <li class="active"><a data-toggle="tab" href="#ficha{{producto.id}}" >Ficha T&eacute;cnica</a></li>
-                                            <li><a  data-toggle="tab" href="#video{{producto.id}}" >Video</a></li>
-                                            <li><a  data-toggle="tab" href="#pregunta{{producto.id}}" ng-click="listarPreguntas(producto.id, 0)">Preguntas</a></li>
-                                        </ul>
-                                        <div class="tab-content" >
-                                            <div class="tab-pane fade in active" id="ficha{{producto.id}}" role="tabpanel">
-                                                <div class="col-md-6">
-                                                    <table class="table table-striped table-hover">
-                                                        <tr ng-show="ficha.campo01 != 0">
-                                                            <td>{{ficha.campo01}}</td>
-                                                            <td>{{producto.campo01}}</td>
-                                                        </tr>
-                                                        <tr ng-show="ficha.campo03 != 0">
-                                                            <td>{{ficha.campo03}}</td>
-                                                            <td>{{producto.campo03}}</td>
-                                                        </tr>
-                                                        <tr ng-show="ficha.campo05 != 0">
-                                                            <td>{{ficha.campo05}}</td>
-                                                            <td>{{producto.campo05}}</td>
-                                                        </tr>
-                                                        <tr ng-show="ficha.campo07 != 0">
-                                                            <td>{{ficha.campo07}}</td>
-                                                            <td>{{producto.campo07}}</td>
-                                                        </tr>
-                                                        <tr ng-show="ficha.campo09 != 0">
-                                                            <td>{{ficha.campo09}}</td>
-                                                            <td>{{producto.campo09}}</td>
-                                                        </tr>
-                                                        <tr ng-show="ficha.campo11 != 0">
-                                                            <td>{{ficha.campo11}}</td>
-                                                            <td>{{producto.campo11}}</td>
-                                                        </tr>
-                                                        <tr ng-show="ficha.campo13 != 0">
-                                                            <td>{{ficha.campo13}}</td>
-                                                            <td>{{producto.campo13}}</td>
-                                                        </tr>
-                                                        <tr ng-show="ficha.campo15 != 0">
-                                                            <td>{{ficha.campo15}}</td>
-                                                            <td>{{producto.campo15}}</td>
-                                                        </tr>
-                                                        <tr ng-show="ficha.campo17 != 0">
-                                                            <td>{{ficha.campo17}}</td>
-                                                            <td>{{producto.campo17}}</td>
-                                                        </tr>
-                                                        <tr ng-show="ficha.campo19 != 0">
-                                                            <td>{{ficha.campo19}}</td>
-                                                            <td>{{producto.campo19 }}</td>
-                                                        </tr>
+                                            <ul class="nav nav-tabs nav-justified">
+                                                <li class="active"><a data-toggle="tab" href="#ficha{{producto.id}}" >Ficha T&eacute;cnica</a></li>
+                                                <li><a  data-toggle="tab" href="#video{{producto.id}}" >Video</a></li>
+                                                <li><a  data-toggle="tab" href="#pregunta{{producto.id}}" ng-click="listarPreguntas(producto.id, 0)">Preguntas</a></li>
+                                            </ul>
 
-                                                    </table>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <table class="table table-striped table-hover">
-                                                        <tr ng-show="ficha.campo02 != 0">
-                                                            <td>{{ficha.campo02}}</td>
-                                                            <td>{{producto.campo02}}</td>
-                                                        </tr>
-                                                        <tr ng-show="ficha.campo04 != 0">
-                                                            <td>{{ficha.campo04}}</td>
-                                                            <td>{{producto.campo04}}</td>
-                                                        </tr>
-                                                        <tr ng-show="ficha.campo06 != 0">
-                                                            <td>{{ficha.campo06}}</td>
-                                                            <td>{{producto.campo06}}</td>
-                                                        </tr>
-                                                        <tr ng-show="ficha.campo08 != 0">
-                                                            <td>{{ficha.campo08}}</td>
-                                                            <td>{{producto.campo08}}</td>
-                                                        </tr>
-                                                        <tr ng-show="ficha.campo10 != 0">
-                                                            <td>{{ficha.campo10}}</td>
-                                                            <td>{{producto.campo10}}</td>
-                                                        </tr>
-                                                        <tr ng-show="ficha.campo12 != 0">
-                                                            <td>{{ficha.campo12}}</td>
-                                                            <td>{{producto.campo12}}</td>
-                                                        </tr>
-                                                        <tr ng-show="ficha.campo14 != 0">
-                                                            <td>{{ficha.campo14}}</td>
-                                                            <td>{{producto.campo14}}</td>
-                                                        </tr>
-                                                        <tr ng-show="ficha.campo16 != 0">
-                                                            <td>{{ficha.campo16}}</td>
-                                                            <td>{{producto.campo16}}</td>
-                                                        </tr>
-                                                        <tr ng-show="ficha.campo18 != 0">
-                                                            <td>{{ficha.campo18}}</td>
-                                                            <td>{{producto.campo18}}</td>
-                                                        </tr>
-                                                        <tr ng-show="ficha.campo20 != 0">
-                                                            <td>{{ficha.campo20}}</td>
-                                                            <td>{{producto.campo20 }}</td>
-                                                        </tr>
+                                            <div class="tab-content" >
+                                                <div class="tab-pane fade in active" id="ficha{{producto.id}}" role="tabpanel">
+                                                    <div class="col-md-6">
+                                                        <table class="table table-striped table-hover">
+                                                            <tr ng-show="ficha.campo01 != 0">
+                                                                <td>{{ficha.campo01}}</td>
+                                                                <td>{{producto.campo01}}</td>
+                                                            </tr>
+                                                            <tr ng-show="ficha.campo03 != 0">
+                                                                <td>{{ficha.campo03}}</td>
+                                                                <td>{{producto.campo03}}</td>
+                                                            </tr>
+                                                            <tr ng-show="ficha.campo05 != 0">
+                                                                <td>{{ficha.campo05}}</td>
+                                                                <td>{{producto.campo05}}</td>
+                                                            </tr>
+                                                            <tr ng-show="ficha.campo07 != 0">
+                                                                <td>{{ficha.campo07}}</td>
+                                                                <td>{{producto.campo07}}</td>
+                                                            </tr>
+                                                            <tr ng-show="ficha.campo09 != 0">
+                                                                <td>{{ficha.campo09}}</td>
+                                                                <td>{{producto.campo09}}</td>
+                                                            </tr>
+                                                            <tr ng-show="ficha.campo11 != 0">
+                                                                <td>{{ficha.campo11}}</td>
+                                                                <td>{{producto.campo11}}</td>
+                                                            </tr>
+                                                            <tr ng-show="ficha.campo13 != 0">
+                                                                <td>{{ficha.campo13}}</td>
+                                                                <td>{{producto.campo13}}</td>
+                                                            </tr>
+                                                            <tr ng-show="ficha.campo15 != 0">
+                                                                <td>{{ficha.campo15}}</td>
+                                                                <td>{{producto.campo15}}</td>
+                                                            </tr>
+                                                            <tr ng-show="ficha.campo17 != 0">
+                                                                <td>{{ficha.campo17}}</td>
+                                                                <td>{{producto.campo17}}</td>
+                                                            </tr>
+                                                            <tr ng-show="ficha.campo19 != 0">
+                                                                <td>{{ficha.campo19}}</td>
+                                                                <td>{{producto.campo19 }}</td>
+                                                            </tr>
 
-                                                    </table>
+                                                        </table>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <table class="table table-striped table-hover">
+                                                            <tr ng-show="ficha.campo02 != 0">
+                                                                <td>{{ficha.campo02}}</td>
+                                                                <td>{{producto.campo02}}</td>
+                                                            </tr>
+                                                            <tr ng-show="ficha.campo04 != 0">
+                                                                <td>{{ficha.campo04}}</td>
+                                                                <td>{{producto.campo04}}</td>
+                                                            </tr>
+                                                            <tr ng-show="ficha.campo06 != 0">
+                                                                <td>{{ficha.campo06}}</td>
+                                                                <td>{{producto.campo06}}</td>
+                                                            </tr>
+                                                            <tr ng-show="ficha.campo08 != 0">
+                                                                <td>{{ficha.campo08}}</td>
+                                                                <td>{{producto.campo08}}</td>
+                                                            </tr>
+                                                            <tr ng-show="ficha.campo10 != 0">
+                                                                <td>{{ficha.campo10}}</td>
+                                                                <td>{{producto.campo10}}</td>
+                                                            </tr>
+                                                            <tr ng-show="ficha.campo12 != 0">
+                                                                <td>{{ficha.campo12}}</td>
+                                                                <td>{{producto.campo12}}</td>
+                                                            </tr>
+                                                            <tr ng-show="ficha.campo14 != 0">
+                                                                <td>{{ficha.campo14}}</td>
+                                                                <td>{{producto.campo14}}</td>
+                                                            </tr>
+                                                            <tr ng-show="ficha.campo16 != 0">
+                                                                <td>{{ficha.campo16}}</td>
+                                                                <td>{{producto.campo16}}</td>
+                                                            </tr>
+                                                            <tr ng-show="ficha.campo18 != 0">
+                                                                <td>{{ficha.campo18}}</td>
+                                                                <td>{{producto.campo18}}</td>
+                                                            </tr>
+                                                            <tr ng-show="ficha.campo20 != 0">
+                                                                <td>{{ficha.campo20}}</td>
+                                                                <td>{{producto.campo20 }}</td>
+                                                            </tr>
+
+                                                        </table>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="tab-pane fade" id="video{{producto.id}}" role="tabpanel">
-                                                <div class="content embed-responsive embed-responsive-16by9" ng-show="{{producto.video != ''}}">
-                                                    <anguvideo  ng-model="producto.video" width="100%" height="100%"></anguvideo>
+                                                <div class="tab-pane fade" id="video{{producto.id}}" role="tabpanel">
+                                                    <div class="content embed-responsive embed-responsive-16by9" ng-show="{{producto.video != ''}}">
+                                                        <anguvideo  ng-model="producto.video" width="100%" height="100%"></anguvideo>
+                                                    </div>
+                                                    <div ng-hide="{{producto.video != ''}}">
+                                                        <br>
+                                                        <p class="text-center">Este producto no cuenta con un video asignado.</p>
+                                                    </div>
                                                 </div>
-                                                <div ng-hide="{{producto.video != ''}}">
+                                                <div class="tab-pane fade" id="pregunta{{producto.id}}" role="tabpanel">
                                                     <br>
-                                                    <p class="text-center">Este producto no cuenta con un video asignado.</p>
+                                                    <br>
+                                                    <div>
+                                                        <!-- Aca van las iteraciones con las preguntas y respuestas -->
+                                                       <div class="panel panel-default" ng-repeat="preg in preguntas">
+                                                         <div class="panel-body">{{preg.pregunta}} - ({{preg.fecha}})</div>
+                                                         <div class="panel-footer" ng-show="preg.respuesta">
+                                                             {{preg.respuesta}} - ({{preg.fechaRespuesta}})
+                                                          </div>
+                                                       </div>
+                                                       <div class="text-center" ng-if="preguntas.length == 0">
+                                                           <p>Nadie ha realizado preguntas.</p>
+                                                       </div>
+                                                       <a href="" ng-show="botonVerTodasPreguntas" class="btn btn-primary btn-block" ng-click="listarPreguntas(producto.id, 1)">Ver todas</a>
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <div class="tab-pane fade" id="pregunta{{producto.id}}" role="tabpanel">
-                                                <br>
-                                                <br>
-                                                <div>
-                                                    <!-- Aca van las iteraciones con las preguntas y respuestas -->
-                                                   <div class="panel panel-default" ng-repeat="preg in preguntas">
-                                                     <div class="panel-body">{{preg.pregunta}} - ({{preg.fecha}})</div>
-                                                     <div class="panel-footer" ng-show="preg.respuesta">
-                                                         {{preg.respuesta}} - ({{preg.fechaRespuesta}})
-                                                      </div>
-                                                   </div>
-                                                   <div class="text-center" ng-if="preguntas.length == 0">
-                                                       <p>Nadie ha realizado preguntas.</p>
-                                                   </div>
-                                                   <a href="" ng-show="botonVerTodasPreguntas" class="btn btn-primary btn-block" ng-click="listarPreguntas(producto.id, 1)">Ver todas</a>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        </ul>
                                     </div>
                                 </div>
-
                             </div>
-
                         </div>
                     </div>
                     <!-- Fin del modal -->
                 </div>
- 
                 <!-- FIN LISTADO PRODUCTOS-->
             </div>
             <!-- FIN SECTION DE LA VISTA -->
+            
             <!-- PAGINACION DE PRODUCTOS-->
             <div class="text-center">
                 <ul class="pagination pagination-lg">

@@ -1207,5 +1207,20 @@ Class Producto{
     }
     return $output;
    }
+
+   public static function cambiarCantidadCarrito($conexion, $producto, $usuario, $cantidad){
+    $consulta = 'UPDATE carrito_compra
+                  SET cantidad = ?,
+                  fecha = now()
+                  WHERE id_cliente = ?
+                  and id_producto = ?';
+
+    $stmt = mysqli_prepare($conexion, $consulta);
+    mysqli_bind_param($stmt, "iii", $cantidad, $usuario, $producto);
+    mysqli_execute($stmt);
+
+    $output = mysqli_stmt_affected_rows($stmt);
+    return $output;
+   }
 }
 ?>
