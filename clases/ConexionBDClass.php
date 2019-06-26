@@ -3,9 +3,9 @@
 Class ConexionBD {
 	// un comentario
 	private $servidor = "mysql.hostinger.com.ar";
-	private $usuario = "u771724353_mysql";
-	private $pass = "Passw0rd6";
-	private $bd = "u771724353_mysql";
+	private $usuario = "u806568264_root";
+	private $pass = "abeh++11";
+	private $bd = "u806568264_modpc";
 
 	private $conexion;
 
