@@ -8,7 +8,10 @@ Class EnvioPack {
 	private $secretKey = "d2ff5919cc19009ae720db3d909bc383e3bd5a2e";
 	private $accessToken;
 	private $refreshtoken;
+	private $domicilioEnvio = 1901;
 
+
+	//POST
 	function __construct(){
 		//se inicializa el manipulador de la solicitud HTTP
 		$ch = curl_init( self::BASE_URL . "auth" );
@@ -29,6 +32,7 @@ Class EnvioPack {
 		return $this->accessToken;
 	}
 
+	//GET
 	public function getProvincias(){
 		//se inicializa el manipulador de la solicitud HTTP
 		$ch = curl_init( self::BASE_URL . "provincias?access_token=" . $this->accessToken );
@@ -40,6 +44,7 @@ Class EnvioPack {
 		return json_decode( $output );
 	}
 
+	//GET
 	public function getLocalidades( $idProvincia ){
 		//se inicializa el manipulador de la solicitud HTTP
 		$ch = curl_init( self::BASE_URL . "localidades?access_token=" . $this->accessToken . "&id_provincia=" . $idProvincia );
@@ -50,6 +55,48 @@ Class EnvioPack {
 		$output = curl_exec($ch);
 		curl_close ($ch);
 		return json_decode( $output );
+	}
+
+	//GET
+	public function calcularCostoEnviodomicilio( $provincia, $codigoPostal, $peso, $paquetes, $servicio ){
+		//se inicializa el manipulador de la solicitud HTTP
+		$ch = curl_init( self::BASE_URL . "cotizar/precio/a-domicilio?access_token=" . $this->accessToken . "&provincia=" . $provincia .
+				"&codigo_postal=" . $codigoPostal . "&peso=" . $peso . "&paquetes=" . $paquetes . "&servicio=" . $servicio );
+		
+		//se informa que se espera una respuesta
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+		$output = curl_exec($ch);
+		curl_close ($ch);
+		return $output;
+	}
+
+
+	//GET
+	public function getCorreos( $filtrarActivos ){
+		//se inicializa el manipulador de la solicitud HTTP
+		$ch = curl_init( self::BASE_URL . "correos?access_token=" . $this->accessToken . "&filtrar_activos=" . $filtrarActivos );
+		
+		//se informa que se espera una respuesta
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+		$output = curl_exec($ch);
+		curl_close ($ch);
+		return $output;
+	}
+
+	//GET
+	public function calcularCostoEnvioSucursal( $provincia, $localidad, $peso, $paquetes, $correo ){
+		//se inicializa el manipulador de la solicitud HTTP
+		$ch = curl_init( self::BASE_URL . "cotizar/precio/a-sucursal?access_token=" . $this->accessToken . "&provincia=" . $provincia .
+				"&localidad=" . $localidad . "&peso=" . $peso . "&paquetes=" . $paquetes . "&correo=" . $correo . "&domicilio_envio=" . $this->domicilioEnvio );
+		
+		//se informa que se espera una respuesta
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+		$output = curl_exec($ch);
+		curl_close ($ch);
+		return $output;
 	}
 	
 }

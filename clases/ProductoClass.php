@@ -843,30 +843,30 @@ Class Producto{
     }
 
     public static function listarPreguntasYRespuestas($conexion, $idProducto, $todas){
-      $limite = "";
-      if ($todas == 0) {
-        $limite = " LIMIT 10";
-      }
-      $consulta = "SELECT p.pregunta,
-                           p.fecha,
-                           r.respuesta,
-                           r.fecha_respuesta AS fechaRespuesta
-                  FROM pregunta p LEFT JOIN respuesta r ON p.id_pregunta = r.pregunta_id_pregunta
-                  WHERE p.id_producto = ?
-                  ORDER BY p.fecha DESC";
-      $consulta = $consulta . $limite;
+		$limite = "";
+		if ($todas == 0) {
+			$limite = " LIMIT 10";
+		}
+		$consulta = "SELECT p.pregunta,
+							p.fecha,
+							r.respuesta,
+							r.fecha_respuesta AS fechaRespuesta
+					FROM pregunta p LEFT JOIN respuesta r ON p.id_pregunta = r.pregunta_id_pregunta
+					WHERE p.id_producto = ?
+					ORDER BY p.fecha DESC";
+		$consulta = $consulta . $limite;
 
-      $stmt = mysqli_prepare($conexion, $consulta);
-      mysqli_stmt_bind_param($stmt, 'i', $idProducto);
-      mysqli_stmt_execute($stmt);
-      $resultado = mysqli_stmt_get_result($stmt);
-      $output = array();
-      while ($fila = mysqli_fetch_assoc($resultado)){
-         $fila['pregunta'] = utf8_encode($fila['pregunta']);
-         $fila['respuesta'] = utf8_encode($fila['respuesta']);
-         $output[] = $fila;
-      }
-      return $output;
+		$stmt = mysqli_prepare($conexion, $consulta);
+		mysqli_stmt_bind_param($stmt, 'i', $idProducto);
+		mysqli_stmt_execute($stmt);
+		$resultado = mysqli_stmt_get_result($stmt);
+		$output = array();
+		while ($fila = mysqli_fetch_assoc($resultado)){
+			$fila['pregunta'] = utf8_encode($fila['pregunta']);
+			$fila['respuesta'] = utf8_encode($fila['respuesta']);
+			$output[] = $fila;
+		}
+		return $output;
 
     } 
 
@@ -949,7 +949,11 @@ Class Producto{
                             CC.cantidad,
                             P.descripcion,
                             P.precio,
-                            P.path_imagen imagen
+                            P.path_imagen imagen,
+                            P.alto_caja alto,
+                            P.ancho_caja ancho,
+                            P.profundidad_caja largo,
+                            P.peso_caja peso
                     FROM carrito_compra CC
                     JOIN producto P ON CC.id_producto = P.id_producto
                     WHERE id_cliente = ?";
@@ -970,7 +974,11 @@ Class Producto{
         $consulta = "SELECT 
                             P.descripcion,
                             P.precio,
-                            P.path_imagen imagen
+                            P.path_imagen imagen,
+                            P.alto_caja alto,
+                            P.ancho_caja ancho,
+                            P.profundidad_caja largo,
+                            P.peso_caja peso
                     FROM producto P 
                     WHERE id_producto = ?";
 
@@ -1216,8 +1224,8 @@ Class Producto{
                   and id_producto = ?';
 
     $stmt = mysqli_prepare($conexion, $consulta);
-    mysqli_bind_param($stmt, "iii", $cantidad, $usuario, $producto);
-    mysqli_execute($stmt);
+    mysqli_stmt_bind_param($stmt, "iii", $cantidad, $usuario, $producto);
+    mysqli_stmt_execute($stmt);
 
     $output = mysqli_stmt_affected_rows($stmt);
     return $output;

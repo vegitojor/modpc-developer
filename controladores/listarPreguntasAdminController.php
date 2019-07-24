@@ -26,7 +26,7 @@ $output = Producto::listarPreguntasSinRespuestas($conexion, $sinRespuesta, $desd
 
 
 //se cierra la conexion
-/*$conn->cerrarConexion();*/
+$conn->cerrarConexion();
 
 //Se devuelven los resultados
 echo json_encode($output);
