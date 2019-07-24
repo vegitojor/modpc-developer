@@ -7,6 +7,7 @@ Class ConexionBD {
 	private $pass = "abrh++++";
 	private $bd = "modpc";
 
+
 	private $conexion;
 
 	function __construct(){
